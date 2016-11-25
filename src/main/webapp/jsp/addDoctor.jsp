@@ -1,53 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
 <title>Add Doctor</title>
 </head>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript">
-	function submitform() {
-	var doctorGovtServent = '';
-		if($('#govtservent').is(':checked')){
-			doctorGovtServent = 'true';
-		} else {
-			doctorGovtServent = 'false';
-		}
-		var formData = "{ \"doctorId\":" + $('#id').val()
-				+ ", \"doctorName\" : \"" + $('#name').val()
-				+ "\", \"doctorNumber\" : \"" + $('#number').val()
-				+ "\", \"doctorHomeAddress\" : \"" + $('#address').val()
-				+ "\", \"doctorAdhaarNumber\" : \"" + $('#adhaarnumber').val()
-				+ "\", \"doctorHighestDegree\" : \""
-				+ $('#highestdegree').val() + "\", \"doctorExpertized\" : \""
-				+ $('#expertise').val() + "\", \"doctorGovtServent\" : "
-				+ doctorGovtServent
-				+ ", \"doctorOneTimeConsultingFee\" : \""
-				+ $('#consultingfee').val()
-				+ "\", \"doctorDaystoCheckFreeInConsultingFee\" : \""
-				+ $('#daysfreeconsultingfees').val()
-				+ "\", \"doctorShopAddress\" : \"" + $('#clinicaddress').val()
-				+ "\"}";
-		console.log(formData);
-		$.ajax({
-			url : "http://localhost:8080/adddoctor",
-			data : formData,
-			type : "POST",
-			contentType : "application/json; charset=utf-8",
-			dataType : "json",
-			success : function(data) {
-				alert("Successfully Inserted...!!!	");
-
-			},
-			error : function(data) {
-				alert("Error");
-			}
-		});
-	}
-</script>
+<script src="/js/addDoctor.js"></script>
 <body>
-
 	<form action="/adddoctor" name="addDoctor">
 		<table>
 			<tr>
@@ -99,6 +59,10 @@
 			<tr>
 				<td></td>
 				<td><input type="button" value="Submit" onclick="submitform();"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><div id="message" style="display: none;"></div></td>
 			</tr>
 		</table>
 	</form>

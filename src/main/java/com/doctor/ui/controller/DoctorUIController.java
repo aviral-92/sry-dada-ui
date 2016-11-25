@@ -20,7 +20,7 @@ public class DoctorUIController {
 	@RequestMapping(value = "/adddoctor", consumes = "application/json", method = RequestMethod.POST)
 	public String addDoctorTest(@RequestBody Doctor test) {
 		System.out.println("test" + test);
-		
-		return "{\"msg\" : \"Aviral\"}";
+		String str = "{\"msg\" : \"Successfully Inserted\"}";
+		return str;
 	}
 }
