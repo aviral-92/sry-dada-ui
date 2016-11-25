@@ -23,4 +23,10 @@ public class DoctorUIController {
 		String str = "{\"msg\" : \"Successfully Inserted\"}";
 		return str;
 	}
+
+	@RequestMapping(value = "/getdoctor")
+	public ModelAndView getDoctor() {
+
+		return new ModelAndView("getDoctor");
+	}
 }

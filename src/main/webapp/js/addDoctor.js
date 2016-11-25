@@ -1,4 +1,3 @@
-
 	function submitform() {
 	var doctorGovtServent = '';
 		if($('#govtservent').is(':checked')){

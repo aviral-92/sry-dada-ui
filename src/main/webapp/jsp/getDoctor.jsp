@@ -57,5 +57,25 @@
 			</tr>
 		</table>
 	</form>
+	<table border="1">
+		<tr>
+			<th>Doctor Name</th>
+			<th>Mobile Number</th>
+			<th>Doctor Degree</th>
+			<th>Doctor Expertise</th>
+			<th>Govt Servant</th>
+			<th>Clinic Address</th>
+			<th>Doctor Consulting Fee</th>
+		</tr>
+		<tr align="center">
+			<td>Aviral Mittal</td>
+			<td>8527701990</td>
+			<td>PHD</td>
+			<td>Heart Specialist</td>
+			<td>Yes</td>
+			<td>Shastri Nagar</td>
+			<td>1250</td>
+		</tr>
+	</table>
 </body>
 </html>
