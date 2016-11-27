@@ -22,16 +22,20 @@
 				+ "\"}";
 		console.log(formData);
 		$.ajax({
-			url : "http://localhost:8080/adddoctor",
+			url : "http://localhost:9090/adddoctor",
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Request-Method' : 'POST'
+            },
 			data : formData,
 			type : "POST",
 			contentType : "application/json; charset=utf-8",
 			dataType : "json",
 			success : function(data) {
 				alert("Successfully Inserted...!!!	"+JSON.stringify(data));
-				//console.log(data);
+				// console.log(data);
 				var obj = JSON.parse(JSON.stringify(data));
-				//alert(obj.msg);
+				// alert(obj.msg);
 				$('#message').html(obj.msg);
 				$('#message').show();
 
