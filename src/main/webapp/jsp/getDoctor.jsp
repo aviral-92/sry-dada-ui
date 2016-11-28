@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="com.doctor.ui.pojo.DoctorResponse"%>
+<%@ page import="com.doctor.ui.pojo.Doctor"%>
+<%@ page import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,7 +22,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/adddoctor" name="addDoctor" method="post">
+	<form action="/getdoctor" name="addDoctor" method="get">
 		<table>
 			<tr>
 				<td><label>Doctor Id</label></td>
@@ -88,18 +89,28 @@
 
 			<%
 				if (null != request.getAttribute("response")) {
-					DoctorResponse resp = (DoctorResponse) request
-							.getAttribute("response");
-					out.print(resp.getMessage());
+					Doctor resp = (Doctor) request.getAttribute("response");
+					if (resp != null) {
+			%>
+			<td><%=resp.getDoctorName()%></td>
+			<td><%=resp.getDoctorNumber()%></td>
+			<td><%=resp.getDoctorHighestDegree()%></td>
+			<td><%=resp.getDoctorExpertized()%></td>
+			<td><%=resp.getDoctorGovtServent()%></td>
+			<td><%=resp.getDoctorShopAddress()%></td>
+			<td><%=resp.getDoctorOneTimeConsultingFee()%></td>
+			<%
+				}
+					//out.print(resp.getMessage());
 				}
 			%>
-			<td>Aviral Mittal</td>
+			<!-- <td>Aviral Mittal</td>
 			<td>8527701990</td>
 			<td>PHD</td>
 			<td>Heart Specialist</td>
 			<td>Yes</td>
 			<td>Shastri Nagar</td>
-			<td>1250</td>
+			<td>1250</td> -->
 		</tr>
 	</table>
 </body>
