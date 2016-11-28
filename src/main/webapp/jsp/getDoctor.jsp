@@ -1,14 +1,27 @@
-<!doctype html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="com.doctor.ui.pojo.DoctorResponse"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta charset="utf-8">
-<title>Add Doctor</title>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/js/addDoctor.js"></script>
+<script type="text/javascript">
+	function myradio() {
+		var doctorGovtServent = '';
+		if ($('#govtservent').is(':checked')) {
+			doctorGovtServent = 'true';
+		} else {
+			doctorGovtServent = 'false';
+		}
+		document.getElementById('display').value = doctorGovtServent;
+	}
+</script>
+<title>Insert title here</title>
+</head>
 <body>
-	<form action="/adddoctor" name="addDoctor">
+	<form action="/adddoctor" name="addDoctor" method="post">
 		<table>
 			<tr>
 				<td><label>Doctor Id</label></td>
@@ -32,8 +45,10 @@
 				<td><label>Doctor Expertise</label></td>
 				<td><input type="text" name="expertise" id="expertise" /></td>
 				<td><label>Doctor GovtServent</label></td>
-				<td>Yes<input type="radio" name="mygroup" id="govtservent" /></td>
-				<td>No<input type="radio" name="mygroup" id="govtservent1" /></td>
+				<td>Yes<input type="radio" name="mygroup" id="govtservent"
+					onclick="myradio();" /></td>
+				<td>No<input type="radio" name="mygroup" id="govtservent1"
+					onclick="myradio();" /></td>
 			</tr>
 			<tr>
 				<td><label>Doctor OneTimeConsultingFee</label></td>
@@ -48,15 +63,17 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td></td>
-				<td><input type="button" value="Submit" onclick="submitform();"></td>
+				<td><input type="text" style="display: none;" value="my"
+					name="booleanvalue" id="display" /></td>
+				<td><input type="submit" value="Submit"></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><div id="message" style="display: none;"></div></td>
+				<td></td>
 			</tr>
 		</table>
 	</form>
+
 	<table border="1">
 		<tr>
 			<th>Doctor Name</th>
@@ -68,6 +85,14 @@
 			<th>Doctor Consulting Fee</th>
 		</tr>
 		<tr align="center">
+
+			<%
+				if (null != request.getAttribute("response")) {
+					DoctorResponse resp = (DoctorResponse) request
+							.getAttribute("response");
+					out.print(resp.getMessage());
+				}
+			%>
 			<td>Aviral Mittal</td>
 			<td>8527701990</td>
 			<td>PHD</td>
