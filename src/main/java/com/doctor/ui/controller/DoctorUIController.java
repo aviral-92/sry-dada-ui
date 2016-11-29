@@ -48,11 +48,13 @@ public class DoctorUIController {
 	}
 
 	@RequestMapping(value = "/adddoctor", method = RequestMethod.POST)
-	public ModelAndView addDoctorTest(ModelMap modelMap, HttpServletRequest request) {
+	public ModelAndView addDoctorTest(ModelMap modelMap,
+			HttpServletRequest request) {
 
 		String URL = "http://localhost:9090/doctor-management/adddoctor";
 		HttpEntity<String> entity = requestHamdler(request);
-		DoctorResponse resp = restTemplate.postForObject(URL, entity, DoctorResponse.class);
+		DoctorResponse resp = restTemplate.postForObject(URL, entity,
+				DoctorResponse.class);
 		System.out.println(resp);
 		return new ModelAndView("test", "response", resp);
 	}
@@ -60,40 +62,34 @@ public class DoctorUIController {
 	@RequestMapping(value = "/getdoctor", method = RequestMethod.GET)
 	public ModelAndView getDoctor(ModelMap modelMap, HttpServletRequest request) {
 
-		Doctor response = null;
-		// String getURL =
-		// "http://localhost:9090/doctor-management/getdoctorbyid/";
-		// HttpEntity<String> entity = requestHamdler(request);
-		// restTemplate.postForObject(URL, entity, Doctor.class);
+		Doctor response[] = null;
 		Doctor doctor = doctorUiImpl.extractDataFromRequest(request);
-		// JSONObject jsonObject = doctorUiImpl.objectToJson(doctor);
 		restTemplate = new RestTemplate();
-		// headers = new HttpHeaders();
-		// headers.setContentType(MediaType.APPLICATION_JSON);
-		// HttpEntity<String> entity = new HttpEntity<String>(
-		// jsonObject.toString(), headers);
 		if (null != doctor.getDoctorId() && doctor.getDoctorId() > 0) {
-			response = (Doctor) restTemplate.getForObject(
-					"http://localhost:9090/doctor-management/getdoctorbyid/" + doctor.getDoctorId(), Doctor.class);
+			response = (Doctor[]) restTemplate.getForObject(
+					"http://localhost:9090/doctor-management/getdoctorbyid/"
+							+ doctor.getDoctorId(), Doctor[].class);
 		} else if (!StringUtils.isEmpty(doctor.getDoctorAdhaarNumber())) {
-			response = (Doctor) restTemplate.getForObject(
-					"http://localhost:9090/doctor-management/getdoctorbyadharNumber/" + doctor.getDoctorAdhaarNumber(),
-					Doctor.class);
+			response = (Doctor[]) restTemplate.getForObject(
+					"http://localhost:9090/doctor-management/getdoctorbyadharNumber/"
+							+ doctor.getDoctorAdhaarNumber(), Doctor[].class);
 		} else if (!StringUtils.isEmpty(doctor.getDoctorNumber())) {
-			response = (Doctor) restTemplate.getForObject(
-					"http://localhost:9090/doctor-management/getdoctorbymobilenumber/" + doctor.getDoctorNumber(),
-					Doctor.class);
+			response = (Doctor[]) restTemplate.getForObject(
+					"http://localhost:9090/doctor-management/getdoctorbymobilenumber/"
+							+ doctor.getDoctorNumber(), Doctor[].class);
 		} else if (!StringUtils.isEmpty(doctor.getDoctorName())) {
-			response = (Doctor) restTemplate.getForObject(
-					"http://localhost:9090/doctor-management/getdoctorbyname/" + doctor.getDoctorName(), Doctor.class);
+			response = (Doctor[]) restTemplate.getForObject(
+					"http://localhost:9090/doctor-management/getdoctorbyname/"
+							+ doctor.getDoctorName(), Doctor[].class);
 		} else if (!StringUtils.isEmpty(doctor.getDoctorExpertized())) {
-			response = (Doctor) restTemplate.getForObject(
-					"http://localhost:9090/doctor-management/getdoctorbyexpertisted/" + doctor.getDoctorExpertized(),
-					Doctor.class);
+			response = (Doctor[]) restTemplate.getForObject(
+					"http://localhost:9090/doctor-management/getdoctorbyexpertisted/"
+							+ doctor.getDoctorExpertized(), Doctor[].class);
 		} else if (!StringUtils.isEmpty(doctor.getDoctorOneTimeConsultingFee())) {
-			response = (Doctor) restTemplate
-					.getForObject("http://localhost:9090/doctor-management/getdoctorbyconsultingfee/"
-							+ doctor.getDoctorOneTimeConsultingFee(), Doctor.class);
+			response = (Doctor[]) restTemplate.getForObject(
+					"http://localhost:9090/doctor-management/getdoctorbyconsultingfee/"
+							+ doctor.getDoctorOneTimeConsultingFee(),
+					Doctor[].class);
 		}
 
 		return new ModelAndView("getDoctor", "response", response);
@@ -106,7 +102,8 @@ public class DoctorUIController {
 		restTemplate = new RestTemplate();
 		headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		HttpEntity<String> entity = new HttpEntity<String>(jsonObject.toString(), headers);
+		HttpEntity<String> entity = new HttpEntity<String>(
+				jsonObject.toString(), headers);
 		return entity;
 	}
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="com.doctor.ui.pojo.Doctor"%>
-<%@ page import="java.util.List"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,7 +19,7 @@
 		document.getElementById('display').value = doctorGovtServent;
 	}
 </script>
-<title>Insert title here</title>
+<title>Get Doctors</title>
 </head>
 <body>
 	<form action="/getdoctor" name="addDoctor" method="get">
@@ -74,7 +74,9 @@
 			</tr>
 		</table>
 	</form>
-
+	<%
+		if (null != request.getAttribute("response")) {
+	%>
 	<table border="1">
 		<tr>
 			<th>Doctor Name</th>
@@ -85,33 +87,25 @@
 			<th>Clinic Address</th>
 			<th>Doctor Consulting Fee</th>
 		</tr>
+		<%
+			Doctor[] doctors = (Doctor[]) request.getAttribute("response");
+				if (doctors != null && doctors.length > 0) {
+					for (Doctor doctor : doctors) {
+		%>
 		<tr align="center">
-
-			<%
-				if (null != request.getAttribute("response")) {
-					Doctor resp = (Doctor) request.getAttribute("response");
-					if (resp != null) {
-			%>
-			<td><%=resp.getDoctorName()%></td>
-			<td><%=resp.getDoctorNumber()%></td>
-			<td><%=resp.getDoctorHighestDegree()%></td>
-			<td><%=resp.getDoctorExpertized()%></td>
-			<td><%=resp.getDoctorGovtServent()%></td>
-			<td><%=resp.getDoctorShopAddress()%></td>
-			<td><%=resp.getDoctorOneTimeConsultingFee()%></td>
-			<%
-				}
-					//out.print(resp.getMessage());
-				}
-			%>
-			<!-- <td>Aviral Mittal</td>
-			<td>8527701990</td>
-			<td>PHD</td>
-			<td>Heart Specialist</td>
-			<td>Yes</td>
-			<td>Shastri Nagar</td>
-			<td>1250</td> -->
+			<td><%=doctor.getDoctorName()%></td>
+			<td><%=doctor.getDoctorNumber()%></td>
+			<td><%=doctor.getDoctorHighestDegree()%></td>
+			<td><%=doctor.getDoctorExpertized()%></td>
+			<td><%=doctor.getDoctorGovtServent()%></td>
+			<td><%=doctor.getDoctorShopAddress()%></td>
+			<td><%=doctor.getDoctorOneTimeConsultingFee()%></td>
 		</tr>
+		<%
+			}
+				}
+			}
+		%>
 	</table>
 </body>
 </html>
