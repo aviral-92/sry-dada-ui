@@ -94,6 +94,23 @@ public class DoctorUIController {
 
 		return new ModelAndView("getDoctor", "response", response);
 	}
+	
+	@RequestMapping(value="/updatedoctor")
+	public ModelAndView updateDoctor(){
+		
+		return new ModelAndView("updateDoctor");
+	}
+	
+	@RequestMapping(value="/updatedoctorui")
+	public ModelAndView updateDoctorUi(ModelMap modelMap, HttpServletRequest request){
+		
+		String URL = "http://localhost:9090/doctor-management/updatedoctor";
+		HttpEntity<String> entity = requestHamdler(request);
+		DoctorResponse resp = restTemplate.postForObject(URL, entity,
+				DoctorResponse.class);
+		System.out.println(resp);
+		return new ModelAndView("updateDoctor", "response", resp);
+	}
 
 	private HttpEntity<String> requestHamdler(HttpServletRequest request) {
 
