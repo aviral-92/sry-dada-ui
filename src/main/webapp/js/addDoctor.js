@@ -1,4 +1,4 @@
-/*function submitform() {
+function submitform() {
 var doctorGovtServent = '';
 	if($('#govtservent').is(':checked')){
 		doctorGovtServent = 'true';
@@ -44,7 +44,7 @@ var doctorGovtServent = '';
 			alert("Error");
 		}
 	});
-}*/
+}
 
 var app = angular.module('myApp', []);
 app.controller('addDoctorController', function($scope) {
@@ -52,5 +52,18 @@ app.controller('addDoctorController', function($scope) {
 	$scope.isVisible = false;
 	$scope.ShowHide = function() {
 	$scope.isVisible = $scope.isVisible ? false : true;
+	}
+	
+	$scope.doctorAdd = function(){
+	
+		var doctorName = $scope.doctorName;
+		var doctorMobileNumber = $scope.doctorMobileNumber;
+		var doctorAdharNumber = $scope.doctorAdharNumber;
+		var doctorHomeAddress = $scope.doctorHomeAddress;
+		var doctorHighestDegree = $scope.doctorHighestDegree;
+		var doctorExpertise = $scope.doctorExpertise;
+		//TODO work on radio button value...
+		var doctorGovt = $scope.doctorGovt;
+		console.log(doctorGovt);
 	}
 });

@@ -5,6 +5,7 @@
 <script src="js/jquery-latest.min.js" type="text/javascript"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="js/addDoctor.js"></script>
 <jsp:include page="/jsp/Header.jsp" />
 <jsp:include page="/jsp/Footer.jsp" />
 </head>
@@ -12,7 +13,9 @@
 
 	<div ng-controller="addDoctorController">
 		<div class="clickText">
-			To add doctor click <a ng-click="ShowHide()">Here</a> 
+			<h3>
+				To add doctor click <a ng-click="ShowHide()" href="">Here</a>
+			</h3>
 		</div>
 		<div class="addForm" ng-show="isVisible">
 			<table>
@@ -40,18 +43,32 @@
 					<td><label>Doctor Expertise</label></td>
 					<td><input type="text" ng-model="doctorExpertise" /></td>
 				</tr>
+						<!-- TODO work on radio button value... -->
 				<tr>
 					<td><label>Doctor Government</label></td>
-					<td>Yes<input type="radio" name="mygroup"
-						ng-model="doctorName" /> No<input type="radio" name="mygroup"
-						ng-model="doctorName" /></td>
+					<td>Yes<input type="radio" name="mygroup" ng-model="doctorGovt" /> 
+					No<input type="radio" name="mygroup" ng-model="doctorGovt" /></td>
 				</tr>
 				<tr>
 					<td><label>Click to Add</label></td>
-					<td><input type="button" ng-click="doctorAdd()"
-						value="Add Doctor" /></td>
+					<td><button ng-click="doctorAdd()">Add
+							Doctor</button></td>
 				</tr>
 			</table>
+		</div>
+		<div class="para">
+			<p>Hi All using this we can add it.......Hi All using this we can
+				add it.......Hi All using this we can add it.......Hi All using this
+				we can add it......Hi All using this we can add it.......Hi All
+				using this we can add it.......Hi All using this we can add
+				it.......Hi All using this we can add it......Hi All using this we
+				can add it.......Hi All using this we can add it.......Hi All using
+				this we can add it.......Hi All using this we can add it......Hi All
+				using this we can add it.......Hi All using this we can add
+				it.......Hi All using this we can add it.......Hi All using this we
+				can add it......Hi All using this we can add it.......Hi All using
+				this we can add it.......Hi All using this we can add it.......Hi
+				All using this we can add it.......</p>
 		</div>
 	</div>
 </body>
