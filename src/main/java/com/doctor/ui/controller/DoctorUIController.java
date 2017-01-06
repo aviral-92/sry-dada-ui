@@ -111,6 +111,18 @@ public class DoctorUIController {
 		System.out.println(resp);
 		return new ModelAndView("updateDoctor", "response", resp);
 	}
+	
+	@RequestMapping("/home")
+	public ModelAndView home(){
+		
+		return new ModelAndView("Index");
+	}
+
+	@RequestMapping("/home1")
+	public ModelAndView addDoc(){
+		
+		return new ModelAndView("AddDoctor");
+	}
 
 	private HttpEntity<String> requestHamdler(HttpServletRequest request) {
 
