@@ -118,7 +118,7 @@ public class DoctorUIController {
 		return new ModelAndView("Index");
 	}
 
-	@RequestMapping("/home1")
+	@RequestMapping(value = "/home1")
 	public ModelAndView addDoc(){
 		
 		return new ModelAndView("AddDoctor");

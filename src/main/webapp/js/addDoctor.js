@@ -1,20 +1,18 @@
 function submitform() {
-var doctorGovtServent = '';
-	if($('#govtservent').is(':checked')){
+	var doctorGovtServent = '';
+	if ($('#govtservent').is(':checked')) {
 		doctorGovtServent = 'true';
 	} else {
 		doctorGovtServent = 'false';
 	}
-	var formData = "{ \"doctorId\":" + $('#id').val()
-			+ ", \"doctorName\" : \"" + $('#name').val()
-			+ "\", \"doctorNumber\" : \"" + $('#number').val()
-			+ "\", \"doctorHomeAddress\" : \"" + $('#address').val()
-			+ "\", \"doctorAdhaarNumber\" : \"" + $('#adhaarnumber').val()
-			+ "\", \"doctorHighestDegree\" : \""
+	var formData = "{ \"doctorId\":" + $('#id').val() + ", \"doctorName\" : \""
+			+ $('#name').val() + "\", \"doctorNumber\" : \""
+			+ $('#number').val() + "\", \"doctorHomeAddress\" : \""
+			+ $('#address').val() + "\", \"doctorAdhaarNumber\" : \""
+			+ $('#adhaarnumber').val() + "\", \"doctorHighestDegree\" : \""
 			+ $('#highestdegree').val() + "\", \"doctorExpertized\" : \""
 			+ $('#expertise').val() + "\", \"doctorGovtServent\" : "
-			+ doctorGovtServent
-			+ ", \"doctorOneTimeConsultingFee\" : \""
+			+ doctorGovtServent + ", \"doctorOneTimeConsultingFee\" : \""
 			+ $('#consultingfee').val()
 			+ "\", \"doctorDaystoCheckFreeInConsultingFee\" : \""
 			+ $('#daysfreeconsultingfees').val()
@@ -23,16 +21,16 @@ var doctorGovtServent = '';
 	console.log(formData);
 	$.ajax({
 		url : "http://localhost:9090/adddoctor",
-		headers: {
-			'Content-Type': 'application/json',
+		headers : {
+			'Content-Type' : 'application/json',
 			'Access-Control-Request-Method' : 'POST'
-        },
+		},
 		data : formData,
 		type : "POST",
 		contentType : "application/json; charset=utf-8",
 		dataType : "json",
 		success : function(data) {
-			alert("Successfully Inserted...!!!	"+JSON.stringify(data));
+			alert("Successfully Inserted...!!!	" + JSON.stringify(data));
 			// console.log(data);
 			var obj = JSON.parse(JSON.stringify(data));
 			// alert(obj.msg);
@@ -47,23 +45,57 @@ var doctorGovtServent = '';
 }
 
 var app = angular.module('myApp', []);
-app.controller('addDoctorController', function($scope) {
+app.controller('addDoctorController', function($scope, $http) {
 
 	$scope.isVisible = false;
 	$scope.ShowHide = function() {
-	$scope.isVisible = $scope.isVisible ? false : true;
+		$scope.isVisible = $scope.isVisible ? false : true;
 	}
-	
-	$scope.doctorAdd = function(){
-	
+
+	$scope.doctorAdd = function() {
+
 		var doctorName = $scope.doctorName;
 		var doctorMobileNumber = $scope.doctorMobileNumber;
 		var doctorAdharNumber = $scope.doctorAdharNumber;
 		var doctorHomeAddress = $scope.doctorHomeAddress;
 		var doctorHighestDegree = $scope.doctorHighestDegree;
 		var doctorExpertise = $scope.doctorExpertise;
-		//TODO work on radio button value...
 		var doctorGovt = $scope.doctorGovt;
-		console.log(doctorGovt);
+		var doctorShopAddress = $scope.doctorShopAddress;
+		var doctorFees = $scope.doctorFees;
+		var doctorDaysCheckFree = $scope.doctorDaysCheckFree;
+
+		var doctorJson = {
+				doctorName : doctorName,
+				doctorNumber : doctorMobileNumber,
+				doctorHomeAddress : doctorHomeAddress,
+				doctorAdhaarNumber : doctorAdharNumber,
+				doctorHighestDegree : doctorHighestDegree,
+				doctorExpertized : doctorExpertise,
+				doctorGovtServent : Boolean(doctorGovt),
+				doctorOneTimeConsultingFee : doctorFees,
+				doctorDaystoCheckFreeInConsultingFee : parseInt(doctorDaysCheckFree),
+				doctorShopAddress : doctorShopAddress
+		};
+		
+		console.log(doctorJson);
+
+		var res = $http
+				.post('http://localhost:9090/doctor-management/adddoctor',
+						doctorJson);
+		res.success(function(data, status, headers, config) {
+			// $scope.message = data;
+			// $scope.students.push(studentVar);
+			alert(data.message);
+			console.log(data);
+			console.log(headers);
+			$scope.isVisible = false;
+			
+		});
+		res.error(function(data, status, headers, config) {
+			alert("failure message: " + JSON.stringify({
+				data : data
+			}));
+		});
 	}
 });

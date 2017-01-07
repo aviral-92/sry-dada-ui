@@ -46,8 +46,20 @@
 						<!-- TODO work on radio button value... -->
 				<tr>
 					<td><label>Doctor Government</label></td>
-					<td>Yes<input type="radio" name="mygroup" ng-model="doctorGovt" /> 
-					No<input type="radio" name="mygroup" ng-model="doctorGovt" /></td>
+					<td>Yes<input type="radio" name="mygroup" ng-model="doctorGovt" ng-value='1' /> 
+					No<input type="radio" name="mygroup" ng-model="doctorGovt" ng-value='0' /></td>
+				</tr>
+				<tr>
+					<td><label>Doctor Shop Address</label></td>
+					<td><input type="text" ng-model="doctorShopAddress" /></td>
+				</tr>
+				<tr>
+					<td><label>Doctor one time Consulting Fees</label></td>
+					<td><input type="text" ng-model="doctorFees" /></td>
+				</tr>
+				<tr>
+					<td><label>Doctor days to check Free</label></td>
+					<td><input type="text" ng-model="doctorDaysCheckFree" /></td>
 				</tr>
 				<tr>
 					<td><label>Click to Add</label></td>
