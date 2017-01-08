@@ -44,7 +44,7 @@
 								<li><a href='#'>Sub Product</a></li>
 							</ul></li> -->
 							<li><a href='#'>Search Doctor</a>
-							<li><a href='#'>Delete Doctor</a>
+							<li><a href='/deletedoctor'>Delete Doctor</a>
 					</ul></li>
 				<li><a href='#'>Location</a></li>
 				<li><a href='#'>Contact</a></li>

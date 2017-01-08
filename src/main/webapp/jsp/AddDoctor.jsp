@@ -1,15 +1,15 @@
 <html>
 <head>
-<title>Insert title here</title>
+<title>Add Doctor</title>
 <link rel="stylesheet" type="text/css" href="css/AddDoctor.css">
 <script src="js/jquery-latest.min.js" type="text/javascript"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-<script src="js/addDoctor.js"></script>
+<script src="js/Doctor.js"></script>
 <jsp:include page="/jsp/Header.jsp" />
 <jsp:include page="/jsp/Footer.jsp" />
 </head>
-<body ng-app="myApp">
+<body ng-app="AddDoctorApp">
 
 	<div ng-controller="addDoctorController">
 		<div class="clickText">

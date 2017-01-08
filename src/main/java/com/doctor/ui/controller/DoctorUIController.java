@@ -47,7 +47,8 @@ public class DoctorUIController {
 		return new ModelAndView("getDoctor");
 	}
 
-	@RequestMapping(value = "/adddoctor", method = RequestMethod.POST)
+	//TODO 
+	/*@RequestMapping(value = "/adddoctor", method = RequestMethod.POST)
 	public ModelAndView addDoctorTest(ModelMap modelMap,
 			HttpServletRequest request) {
 
@@ -57,7 +58,7 @@ public class DoctorUIController {
 				DoctorResponse.class);
 		System.out.println(resp);
 		return new ModelAndView("test", "response", resp);
-	}
+	}*/
 
 	@RequestMapping(value = "/getdoctor", method = RequestMethod.GET)
 	public ModelAndView getDoctor(ModelMap modelMap, HttpServletRequest request) {
@@ -122,6 +123,12 @@ public class DoctorUIController {
 	public ModelAndView addDoc(){
 		
 		return new ModelAndView("AddDoctor");
+	}
+	
+	@RequestMapping(value = "/deletedoctor")
+	public ModelAndView deleteDoctor(){
+		
+		return new ModelAndView("DeleteDoctor");
 	}
 
 	private HttpEntity<String> requestHamdler(HttpServletRequest request) {
