@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Add Doctor</title>
+<title>Get Doctor</title>
 <link rel="stylesheet" type="text/css" href="css/Doctor.css">
 <script src="js/jquery-latest.min.js" type="text/javascript"></script>
 <script
@@ -18,7 +18,7 @@
 			</h3>
 		</div>
 		<div class="addForm" ng-show="isVisible">
-			<table class="table1">
+			<table>
 				<tr>
 					<td><label>Doctor Id</label></td>
 					<td><input type="text" ng-model="doctorId" /></td>
@@ -29,7 +29,9 @@
 				</tr>
 				<tr>
 					<td><label>Doctor Mobile Number</label></td>
-					<td><input type="text" ng-model="doctorMobileNumber" /></td>
+					<td><input name="mobile" type="text"
+						ng-model="doctorMobileNumber" ng-minlength="10" ng-maxlength="10" />
+					</td>
 				</tr>
 				<tr>
 					<td><label>Doctor Adhar Number</label></td>
