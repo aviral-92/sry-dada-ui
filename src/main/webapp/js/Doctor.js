@@ -112,42 +112,98 @@ addDoctorJs
 // Starts------------------------
 
 var deleteDoctorJs = angular.module('deleteDoctorApp', []);
-	deleteDoctorJs.controller(
-		'deleteDoctorController',
-		function($scope, $http) {
+deleteDoctorJs.controller('deleteDoctorController', function($scope, $http) {
 
+	$scope.isVisible = false;
+	$scope.ShowHide = function() {
+		$scope.isVisible = $scope.isVisible ? false : true;
+	}
+
+	$scope.doctorDelete = function() {
+
+		var doctorId = $scope.doctorId;
+		var doctorMobileNumber = $scope.doctorMobileNumber;
+		var doctorAdharNumber = $scope.doctorAdharNumber;
+
+		var doctorJson = {
+			doctorId : doctorId,
+			doctorNumber : doctorMobileNumber,
+			doctorAdhaarNumber : doctorAdharNumber,
+		};
+
+		console.log(doctorJson);
+		var res = $http.post(
+				'http://localhost:9090/doctor-management/deletedoctor',
+				doctorJson);
+		res.success(function(data, status, headers, config) {
+			alert(data.message);
+			console.log(data);
+			console.log(headers);
 			$scope.isVisible = false;
-			$scope.ShowHide = function() {
-				$scope.isVisible = $scope.isVisible ? false : true;
-			}
 
-			$scope.doctorDelete = function() {
-
-				var doctorId = $scope.doctorId;
-				var doctorMobileNumber = $scope.doctorMobileNumber;
-				var doctorAdharNumber = $scope.doctorAdharNumber;
-				
-				var doctorJson = {
-						doctorId: doctorId,
-						doctorNumber : doctorMobileNumber,
-						doctorAdhaarNumber : doctorAdharNumber,
-				};
-
-				console.log(doctorJson);
-				var res = $http.post(
-								'http://localhost:9090/doctor-management/deletedoctor',
-								doctorJson);
-				res.success(function(data, status, headers, config) {
-					alert(data.message);
-					console.log(data);
-					console.log(headers);
-					$scope.isVisible = false;
-
-				});
-				res.error(function(data, status, headers, config) {
-					alert("failure message: " + JSON.stringify({
-						data : data
-					}));
-				});
-			}
 		});
+		res.error(function(data, status, headers, config) {
+			alert("failure message: " + JSON.stringify({
+				data : data
+			}));
+		});
+	}
+});
+
+// -------------------------Delete Doctor Angular JS code
+// Ends----------------------------
+
+// -------------------------Get Doctor Angular JS code
+// Starts------------------------
+
+var deleteDoctorJs = angular.module('GetDoctorApp', []);
+deleteDoctorJs.controller('getDoctorController', function($scope, $http) {
+
+	$scope.isVisible = false;
+	$scope.ShowHide = function() {
+		$scope.isVisible = $scope.isVisible ? false : true;
+	}
+
+	$scope.doctorGet = function() {
+
+		var doctorId = $scope.doctorId;
+		var doctorName = $scope.doctorName;
+		var doctorMobileNumber = $scope.doctorMobileNumber;
+		var doctorAdharNumber = $scope.doctorAdharNumber;
+		var doctorExpertise = $scope.doctorExpertise;
+		var doctorFees = $scope.doctorFees;
+
+		if (doctorId != null && parseInt(doctorId) > 0){
+			console.log(doctorId);
+		}else if(doctorName != null && doctorName != "" && doctorName != " "){
+			console.log(doctorName);
+		}else if(doctorMobileNumber != null && doctorMobileNumber != "" && doctorMobileNumber != " "){
+			console.log(doctorMobileNumber);
+		}
+
+			/*
+			 * var doctorJson = { doctorId: doctorId, doctorNumber :
+			 * doctorMobileNumber, doctorAdhaarNumber : doctorAdharNumber, };
+			 */
+
+			console.log(doctorJson);
+		var res = $http
+				.post('http://localhost:9090/doctor-management/getdoctor',
+						doctorJson);
+		res.success(function(data, status, headers, config) {
+			alert(data.message);
+			console.log(data);
+			console.log(headers);
+			$scope.isVisible = false;
+
+		});
+		res.error(function(data, status, headers, config) {
+			alert("failure message: " + JSON.stringify({
+				data : data
+			}));
+		});
+	}
+});
+
+// -------------------------Get Doctor Angular JS code
+// Ends----------------------------

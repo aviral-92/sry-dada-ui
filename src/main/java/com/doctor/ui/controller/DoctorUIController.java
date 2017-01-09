@@ -60,7 +60,7 @@ public class DoctorUIController {
 		return new ModelAndView("test", "response", resp);
 	}*/
 
-	@RequestMapping(value = "/getdoctor", method = RequestMethod.GET)
+	@RequestMapping(value = "/getdoctor1", method = RequestMethod.GET)
 	public ModelAndView getDoctor(ModelMap modelMap, HttpServletRequest request) {
 
 		Doctor response[] = null;
@@ -129,6 +129,12 @@ public class DoctorUIController {
 	public ModelAndView deleteDoctor(){
 		
 		return new ModelAndView("DeleteDoctor");
+	}
+	
+	@RequestMapping(value = "/getdoctor")
+	public ModelAndView getDoctor(){
+		
+		return new ModelAndView("GetDoctorUI");
 	}
 
 	private HttpEntity<String> requestHamdler(HttpServletRequest request) {
