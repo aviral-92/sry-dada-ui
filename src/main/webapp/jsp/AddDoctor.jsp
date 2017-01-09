@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Add Doctor</title>
-<link rel="stylesheet" type="text/css" href="css/AddDoctor.css">
+<link rel="stylesheet" type="text/css" href="css/Doctor.css">
 <script src="js/jquery-latest.min.js" type="text/javascript"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>

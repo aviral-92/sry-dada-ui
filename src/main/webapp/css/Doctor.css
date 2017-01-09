@@ -23,7 +23,7 @@ table tr:nth-child(even) {
 div.clickText{
 	
 	margin-top:1.2%;
-	margin-left: 10%;
+	margin-left: 7%;
 }
 
 div.clickText a {
@@ -43,7 +43,7 @@ div.clickText a:HOVER {
 
 div.addForm{
 	margin-top: 1.5%;
-	margin-left: 25%;
+	margin-left: 10%;
 }
 
 div.para {
