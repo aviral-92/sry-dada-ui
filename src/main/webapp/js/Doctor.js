@@ -147,8 +147,8 @@ deleteDoctorJs.controller('deleteDoctorController', function($scope, $http) {
 
 // --------------------Get Doctor Angular JS code Starts------------------------
 
-var deleteDoctorJs = angular.module('GetDoctorApp', []);
-deleteDoctorJs.controller('getDoctorController',
+var getDoctorJs = angular.module('GetDoctorApp', []);
+getDoctorJs.controller('getDoctorController',
 		function($scope, $http) {
 
 			$scope.visible = false;
@@ -215,3 +215,91 @@ deleteDoctorJs.controller('getDoctorController',
 		});
 
 // ---------------Get Doctor Angular JS code Ends---------------------
+
+// -------------Update Doctor Angular JS code Starts------------------
+
+var updateDoctorJs = angular.module('UpdateDoctorApp', []);
+updateDoctorJs.controller('updateDoctorController', function($scope, $http) {
+	$scope.visible = false;
+	$scope.isVisible = false;
+	$scope.ShowHide = function() {
+		$scope.isVisible = $scope.isVisible ? false : true;
+	}
+
+	$scope.doctorSearch = function() {
+		var doctorId = $scope.doctorId;
+		var doctorMobileNumber = $scope.doctorMobileNumber;
+		var doctorAdharNumber = $scope.doctorAdharNumber;
+		if (doctorId != null && parseInt(doctorId) > 0) {
+			console.log(doctorId);
+			response('/getdoctorbyid/' + parseInt(doctorId));
+		} else if (doctorMobileNumber != null && doctorMobileNumber != ""
+				&& doctorMobileNumber != " ") {
+			console.log(doctorMobileNumber);
+			response('/getdoctorbymobilenumber/' + doctorMobileNumber);
+		} else if (doctorAdharNumber != null && doctorAdharNumber != ""
+				&& doctorAdharNumber != " ") {
+			console.log(doctorAdharNumber);
+			response('/getdoctorbyadharNumber/' + doctorAdharNumber);
+		} else {
+			alert("Please provide any input");
+		}
+		$scope.visible = true;
+	}
+
+	$scope.doctorUpdate = function(doctor) {
+
+		var updatedDoctorArray = {
+
+				doctorId : doctor.doctorId,
+				doctorName : doctor.doctorName,
+				doctorNumber : doctor.doctorNumber,
+				doctorHomeAddress : doctor.doctorHomeAddress,
+				doctorAdhaarNumber : doctor.doctorAdhaarNumber,
+				doctorHighestDegree : doctor.doctorHighestDegree,
+				doctorExpertized : doctor.doctorExpertized,
+				doctorGovtServent : Boolean(doctor.doctorGovt),
+				doctorOneTimeConsultingFee : doctor.doctorOneTimeConsultingFee,
+				doctorDaystoCheckFreeInConsultingFee : parseInt(doctor.doctorDaystoCheckFreeInConsultingFee),
+				doctorShopAddress : doctor.doctorShopAddress
+		}
+		console.log(updatedDoctorArray);
+		updateDoctor(updatedDoctorArray);
+	};
+
+	function response(pathVariable) {
+
+		var url = 'http://localhost:9090/doctor-management';
+		var res = $http.get(url + pathVariable);
+		res.success(function(data) {
+			alert(data[0].doctorName);
+			
+			console.log(data);
+			$scope.doctors = data;
+		});
+		res.error(function(data, status, headers, config) {
+			alert("failure message: " + JSON.stringify({
+				data : data
+			}));
+		});
+	}
+	
+	function updateDoctor(jsonData) {
+
+		var url = 'http://localhost:9090/doctor-management/updatedoctor';
+		var res = $http.post(url,jsonData);
+		res.success(function(data) {
+			alert(data.message);
+			console.log(data);
+			//$scope.doctors = data;
+		});
+		res.error(function(data, status, headers, config) {
+			alert("failure message: " + JSON.stringify({
+				data : data
+			}));
+		});
+	}
+	
+});
+
+// ---------------Update Doctor Angular JS code Ends---------------------

@@ -136,7 +136,12 @@ public class DoctorUIController {
 		
 		return new ModelAndView("GetDoctorUI");
 	}
-
+	
+	@RequestMapping(value = "/updatedoctorUI")
+	public ModelAndView updateDoctorUI(){
+		
+		return new ModelAndView("UpdateDoctorUI");
+	}
 	private HttpEntity<String> requestHamdler(HttpServletRequest request) {
 
 		Doctor doctor = doctorUiImpl.extractDataFromRequest(request);

@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>Update Doctor</title>
+<link rel="stylesheet" type="text/css" href="css/Doctor.css">
+<script src="js/jquery-latest.min.js" type="text/javascript"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="js/Doctor.js"></script>
+<jsp:include page="/jsp/Header.jsp" />
+<jsp:include page="/jsp/Footer.jsp" />
+</head>
+<body ng-app="UpdateDoctorApp">
+
+	<div ng-controller="updateDoctorController">
+		<div class="clickText">
+			<h3>
+				To update doctor click <a ng-click="ShowHide()" href="">Here</a>
+			</h3>
+		</div>
+		<div class="addForm" ng-show="isVisible">
+			<table>
+				<tr>
+					<td><label>Doctor Id</label></td>
+					<td><input type="text" ng-model="doctorId" /></td>
+				</tr>
+				<tr>
+					<td><label>Doctor Mobile Number</label></td>
+					<td><input name="mobile" type="text"
+						ng-model="doctorMobileNumber" ng-minlength="10" ng-maxlength="10" />
+					</td>
+				</tr>
+				<tr>
+					<td><label>Doctor Adhar Number</label></td>
+					<td><input type="text" ng-model="doctorAdharNumber" /></td>
+				</tr>
+				<tr>
+					<td><label>Click to Search</label></td>
+					<td><button ng-click="doctorSearch()">Search Doctor</button></td>
+				</tr>
+			</table>
+			<br>
+			<table ng-show="visible" ng-repeat="doctor in doctors">
+				<tr>
+					<td>Doctor Id</td>
+					<td><input ng-readonly="true" name="mobile" type="text"
+						ng-model="doctor.doctorId" /></td>
+				</tr>
+				<tr>
+					<td>Doctor Name</td>
+					<td><input name="mobile" type="text"
+						ng-model="doctor.doctorName" /></td><!-- {{doctor.doctorName}} -->
+				</tr>
+				<tr>
+					<td>Mobile Number</td>
+					<td><input ng-readonly="true" name="mobile" type="text" ng-model="doctor.doctorNumber"  /></td>
+				</tr>
+				<tr>
+					<td>Adhar Number</td>
+					<td><input ng-readonly="true" name="mobile" type="text" ng-model="doctor.doctorAdhaarNumber"  /></td>
+				</tr>
+				<tr>
+					<td>Highest Degree</td>
+					<td><input name="mobile" type="text"
+						ng-model="doctor.doctorHighestDegree"  /></td><!-- {{doctor.doctorHighestDegree}} -->
+				</tr>
+				<tr>
+					<td>Govt Servent</td>
+					<td><input name="mobile" type="text"
+						ng-model="doctor.doctorGovtServent"  /></td><!-- {{doctor.doctorGovtServent}} -->
+				</tr>
+				<tr>
+					<td>Home Address</td>
+					<td><input name="mobile" type="text"
+						ng-model="doctor.doctorHomeAddress"  /></td><!-- {{doctor.doctorHomeAddress}} -->
+				</tr>
+				<tr>
+					<td>Expertise</td>
+					<td><input name="mobile" type="text"
+						ng-model="doctor.doctorExpertized"  /></td><!-- {{doctor.doctorExpertized}} -->
+				</tr>
+				<tr>
+					<td>Shop Address</td>
+					<td><input name="address" type="text"
+						ng-model="doctor.doctorShopAddress" /></td><!-- {{doctor.doctorShopAddress}} -->
+						<!--  <p>Text box status: {{ TextBoxStatus }}</p> -->
+				</tr>
+				<tr>
+					<td>Consulting Fee</td>
+					<td><input name="mobile" type="text"
+						ng-model="doctor.doctorOneTimeConsultingFee"  /></td><!-- {{doctor.doctorOneTimeConsultingFee}} -->
+				</tr>
+				<tr>
+					<td>Free Consulting Fee</td>
+					<td><input name="mobile" type="text"
+						ng-model="doctor.doctorDaystoCheckFreeInConsultingFee"  /></td><!-- {{doctor.doctorDaystoCheckFreeInConsultingFee}} -->
+				</tr>
+				<tr>
+					<td><label>Click to Update</label></td>
+					<td><button ng-click="doctorUpdate(doctor)">Submit</button></td>
+				</tr>
+			</table>
+		</div>
+		<div class="para">
+			<p>Hi All using this we can add it.......Hi All using this we can
+				add it.......Hi All using this we can add it.......Hi All using this
+				we can add it......Hi All using this we can add it.......Hi All
+				using this we can add it.......Hi All using this we can add
+				it.......Hi All using this we can add it......Hi All using this we
+				can add it.......Hi All using this we can add it.......Hi All using
+				this we can add it.......Hi All using this we can add it......Hi All
+				using this we can add it.......Hi All using this we can add
+				it.......Hi All using this we can add it.......Hi All using this we
+				can add it......Hi All using this we can add it.......Hi All using
+				this we can add it.......Hi All using this we can add it.......Hi
+				All using this we can add it.......</p>
+		</div>
+	</div>
+</body>
+</html>
