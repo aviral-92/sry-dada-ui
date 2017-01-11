@@ -5,6 +5,7 @@
 <script src="js/jquery-latest.min.js" type="text/javascript"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min.js"></script>
 <script src="js/Doctor.js"></script>
 <jsp:include page="/jsp/Header.jsp" />
 <jsp:include page="/jsp/Footer.jsp" />
@@ -18,14 +19,17 @@
 			</h3>
 		</div>
 		<div class="addForm" ng-show="isVisible">
-			<table>
+		<form name="validationForm">
+			<table>				<!-- ng-blur="textValidation()" -->
 				<tr>
 					<td><label>Doctor Name</label></td>
-					<td><input type="text" ng-model="doctorName" /></td>
+					<td><input type="text" ng-model="doctorName" name="doctorName" required ng-pattern="/^(\D)+$/" /></td>
+					<td ng-show="validationForm.doctorName.$error.pattern" style="color:red">Please enter alphabets only</td>
 				</tr>
 				<tr>
 					<td><label>Doctor Mobile Number</label></td>
-					<td><input type="text" ng-model="doctorMobileNumber" /></td>
+					<td><input type="text" ng-model="doctorMobileNumber" name="mobile" ng-minlength="10" ng-maxlength="10" required ng-pattern="/^(\d)+$/" /></td>
+					<td ng-show="validationForm.mobile.$error.pattern" >Please enter Numbers only</td>
 				</tr>
 				<tr>
 					<td><label>Doctor Adhar Number</label></td>
@@ -67,6 +71,7 @@
 							Doctor</button></td>
 				</tr>
 			</table>
+			</form>
 		</div>
 		<div class="para">
 			<p>Hi All using this we can add it.......Hi All using this we can

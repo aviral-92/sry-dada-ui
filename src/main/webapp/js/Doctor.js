@@ -1,4 +1,4 @@
-function submitform() {
+/*function submitform() {
 	var doctorGovtServent = '';
 	if ($('#govtservent').is(':checked')) {
 		doctorGovtServent = 'true';
@@ -42,7 +42,7 @@ function submitform() {
 			alert("Error");
 		}
 	});
-}
+}*/
 
 // -------------------Add Doctor Angular JS code Starts------------------------
 var addDoctorJs = angular.module('AddDoctorApp', []);
@@ -52,9 +52,22 @@ addDoctorJs
 				function($scope, $http) {
 
 					$scope.isVisible = false;
+					$scope.notVisible = false;
 					$scope.ShowHide = function() {
 						$scope.isVisible = $scope.isVisible ? false : true;
 					}
+					
+					/*$scope.textValidation = function(){
+						
+						if($scope.doctorName == null || $scope.doctorName == ""){
+							$scope.notVisible = true;
+							console.log("-------"+$scope.doctorName);
+							$scope.notValid = "Please enter Doctor Name.";
+							//$scope.doctorName.focus();
+						}
+					}*/
+					
+					
 					$scope.doctorAdd = function() {
 						var doctorName = $scope.doctorName;
 						var doctorMobileNumber = $scope.doctorMobileNumber;
