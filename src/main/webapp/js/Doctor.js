@@ -1,4 +1,4 @@
-/*function submitform() {
+function submitform() {
 	var doctorGovtServent = '';
 	if ($('#govtservent').is(':checked')) {
 		doctorGovtServent = 'true';
@@ -42,7 +42,7 @@
 			alert("Error");
 		}
 	});
-}*/
+}
 
 // -------------------Add Doctor Angular JS code Starts------------------------
 var addDoctorJs = angular.module('AddDoctorApp', []);
@@ -131,23 +131,18 @@ deleteDoctorJs.controller('deleteDoctorController', function($scope, $http) {
 	$scope.ShowHide = function() {
 		$scope.isVisible = $scope.isVisible ? false : true;
 	}
+//TODO
+	$scope.doctorDelete = function(doctor, formName) {
+		
+		$scope.submit = true;
+		console.log($scope.submit);
+		console.log(formName);
 
-	$scope.doctorDelete = function() {
-
-		var doctorId = $scope.doctorId;
-		var doctorMobileNumber = $scope.doctorMobileNumber;
-		var doctorAdharNumber = $scope.doctorAdharNumber;
-
-		var doctorJson = {
-			doctorId : doctorId,
-			doctorNumber : doctorMobileNumber,
-			doctorAdhaarNumber : doctorAdharNumber,
-		};
-
-		console.log(doctorJson);
+		if ($scope[formName].$valid) {
+			   alert("test");
 		var res = $http.post(
 				'http://localhost:9090/doctor-management/deletedoctor',
-				doctorJson);
+				doctor);
 		res.success(function(data, status, headers, config) {
 			alert(data.message);
 			console.log(data);
@@ -161,7 +156,20 @@ deleteDoctorJs.controller('deleteDoctorController', function($scope, $http) {
 			}));
 		});
 	}
+		console.log(doctor);
+	}
 });
+/*var doctorId = $scope.doctorId;
+var doctorMobileNumber = $scope.doctorMobileNumber;
+var doctorAdharNumber = $scope.doctorAdharNumber;
+
+var doctorJson = {
+	doctorId : doctorId,
+	doctorNumber : doctorMobileNumber,
+	doctorAdhaarNumber : doctorAdharNumber,
+};
+
+console.log(doctorJson);*/
 
 // ----------------------Delete Doctor Angular JS code Ends---------------------
 

@@ -38,13 +38,13 @@
 								<li><a href='#'>Sub Product</a></li>
 								<li><a href='#'>Sub Product</a></li>
 							</ul></li> -->
-						<li><a href='#'>Update Doctor</a>
+						<li><a href='/UpdateDoctorUI'>Update Doctor</a>
 							<!-- <ul>
 								<li><a href='#'>Sub Product</a></li>
 								<li><a href='#'>Sub Product</a></li>
 							</ul></li> -->
 							<li><a href='#'>Search Doctor</a>
-							<li><a href='/deletedoctor'>Delete Doctor</a>
+							<li><a href='/DeleteDoctor'>Delete Doctor</a>
 					</ul></li>
 				<li><a href='#'>Location</a></li>
 				<li><a href='#'>Contact</a></li>
