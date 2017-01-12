@@ -5,7 +5,8 @@
 <script src="js/jquery-latest.min.js" type="text/javascript"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min.js"></script>
 <script src="js/Doctor.js"></script>
 <jsp:include page="/jsp/Header.jsp" />
 <jsp:include page="/jsp/Footer.jsp" />
@@ -19,58 +20,74 @@
 			</h3>
 		</div>
 		<div class="addForm" ng-show="isVisible">
-		<form name="validationForm">
-			<table>				<!-- ng-blur="textValidation()" -->
-				<tr>
-					<td><label>Doctor Name</label></td>
-					<td><input type="text" ng-model="doctorName" name="doctorName" required ng-pattern="/^(\D)+$/" /></td>
-					<td ng-show="validationForm.doctorName.$error.pattern" style="color:red">Please enter alphabets only</td>
-				</tr>
-				<tr>
-					<td><label>Doctor Mobile Number</label></td>
-					<td><input type="text" ng-model="doctorMobileNumber" name="mobile" ng-minlength="10" ng-maxlength="10" required ng-pattern="/^(\d)+$/" /></td>
-					<td ng-show="validationForm.mobile.$error.pattern" >Please enter Numbers only</td>
-				</tr>
-				<tr>
-					<td><label>Doctor Adhar Number</label></td>
-					<td><input type="text" ng-model="doctorAdharNumber" /></td>
-				</tr>
-				<tr>
-					<td><label>Doctor Home Address</label></td>
-					<td><input type="text" ng-model="doctorHomeAddress" /></td>
-				</tr>
-				<tr>
-					<td><label>Doctor Highest Degree</label></td>
-					<td><input type="text" ng-model="doctorHighestDegree" /></td>
-				</tr>
-				<tr>
-					<td><label>Doctor Expertise</label></td>
-					<td><input type="text" ng-model="doctorExpertise" /></td>
-				</tr>
-						<!-- TODO work on radio button value... -->
-				<tr>
-					<td><label>Doctor Government</label></td>
-					<td>Yes<input type="radio" name="mygroup" ng-model="doctorGovt" ng-value='1' /> 
-					No<input type="radio" name="mygroup" ng-model="doctorGovt" ng-value='0' /></td>
-				</tr>
-				<tr>
-					<td><label>Doctor Shop Address</label></td>
-					<td><input type="text" ng-model="doctorShopAddress" /></td>
-				</tr>
-				<tr>
-					<td><label>Doctor one time Consulting Fees</label></td>
-					<td><input type="text" ng-model="doctorFees" /></td>
-				</tr>
-				<tr>
-					<td><label>Doctor days to check Free</label></td>
-					<td><input type="text" ng-model="doctorDaysCheckFree" /></td>
-				</tr>
-				<tr>
-					<td><label>Click to Add</label></td>
-					<td><button ng-click="doctorAdd()">Add
-							Doctor</button></td>
-				</tr>
-			</table>
+			<form name="validateAddForm" method="post" novalidate="novalidate">
+				<table>
+					<!-- ng-blur="textValidation()" -->
+					<!-- <input type="text" placeholder="First Name*" class="form-control" name="firstName" ng-model="addLead.firstName"  
+					ng-class="{blankInput: addLeadForm.firstName.$error.required &amp;&amp; submit}"/> -->
+
+					<tr>
+						<td><label>Doctor Name <span style="color:red;">*</span></label></td>
+						<td><input type="text" ng-model="doctor.doctorName"
+							name="doctorName" ng-required="true" placeholder="Doctor Name"
+							ng-class="{blankInput: validateAddForm.doctorName.$error.required &amp;&amp; submit}" /></td>
+
+					</tr>
+					<tr>
+						<td><label>Doctor Mobile Number<span style="color:red;" >*</span></label></td>
+						<td><input type="text" ng-model="doctor.doctorNumber"
+							name=mobile ng-required="true" placeholder="Doctor Mobile number"
+							ng-class="{blankInput: validateAddForm.mobile.$error.required &amp;&amp; submit}" /></td>
+					</tr>
+					<tr>
+						<td><label>Doctor Adhar Number<span style="color:red;" >*</span></label></td>
+						<td><input type="text" ng-model="doctor.doctorAdhaarNumber" name="adhar" placeholder="Doctor Adhar Number"
+							ng-required="true" ng-class="{blankInput: validateAddForm.adhar.$error.required &amp;&amp; submit}" /></td>
+					</tr>
+					<tr>
+						<td><label>Doctor Home Address<span style="color:red;" >*</span></label></td>
+						<td><input type="text" ng-model="doctor.doctorHomeAddress" name="homeAddress" placeholder="Doctor Home Address"
+							ng-required="true" ng-class="{blankInput: validateAddForm.homeAddress.$error.required &amp;&amp; submit}" /></td>
+					</tr>
+					<tr>
+						<td><label>Doctor Highest Degree<span style="color:red;" >*</span></label></td>
+						<td><input type="text" ng-model="doctor.doctorHighestDegree" name="highestDegree" placeholder="Doctor Highest Degree"
+							ng-required="true" ng-class="{blankInput: validateAddForm.highestDegree.$error.required &amp;&amp; submit}" /></td>
+					</tr>
+					<tr>
+						<td><label>Doctor Expertise<span style="color:red;" >*</span></label></td>
+						<td><input type="text" ng-model="doctor.doctorExpertized" name="expertise" placeholder="Doctor Expertise"
+							ng-required="true" ng-class="{blankInput: validateAddForm.expertise.$error.required &amp;&amp; submit}" /></td>
+					</tr>
+					<tr>
+						<td><label>Doctor Government<span style="color:red;" >*</span></label></td>
+						<td>Yes<input type="radio" checked="checked" name="mygroup" ng-required="true"
+							ng-model="doctor.doctorGovtServent" ng-value='1' /> No<input
+							type="radio" name="mygroup"  ng-model="doctor.doctorGovtServent" ng-value='0'
+							ng-required="true" /></td>
+					</tr>
+					<tr>
+						<td><label>Doctor Shop Address<span style="color:red;" >*</span></label></td>
+						<td><input type="text" ng-model="doctor.doctorShopAddress" name="shopAddress" placeholder="Doctor Shop Address"
+							ng-required="true" ng-class="{blankInput: validateAddForm.shopAddress.$error.required &amp;&amp; submit}" /></td>
+					</tr>
+					<tr>
+						<td><label>Doctor one time Consulting Fees<span style="color:red;" >*</span></label></td>
+						<td><input type="text" ng-model="doctor.doctorOneTimeConsultingFee" name="fees" placeholder="Doctor one time consulting fees"
+							ng-required="true" ng-class="{blankInput: validateAddForm.fees.$error.required &amp;&amp; submit}" /></td>
+					</tr>
+					<tr>
+						<td><label>Doctor days to check Free<span style="color:red;" >*</span></label></td>
+						<td><input type="text" ng-model="doctor.doctorDaystoCheckFreeInConsultingFee" name="days" placeholder="Doctor days to check free"
+							ng-required="true" ng-class="{blankInput: validateAddForm.days.$error.required &amp;&amp; submit}" /></td>
+					</tr>
+					<tr>
+						<td><label>Click to Add</label></td>
+						<td><button id="button"
+								ng-click="doctorAdd(doctor, 'validateAddForm')"><span>+Add
+								Doctor</span></button></td>
+					</tr>
+				</table>
 			</form>
 		</div>
 		<div class="para">

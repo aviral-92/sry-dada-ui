@@ -57,19 +57,43 @@ addDoctorJs
 						$scope.isVisible = $scope.isVisible ? false : true;
 					}
 					
-					/*$scope.textValidation = function(){
+					$scope.textValidation = function(){
 						
 						if($scope.doctorName == null || $scope.doctorName == ""){
 							$scope.notVisible = true;
 							console.log("-------"+$scope.doctorName);
 							$scope.notValid = "Please enter Doctor Name.";
-							//$scope.doctorName.focus();
 						}
-					}*/
+					}
 					
 					
-					$scope.doctorAdd = function() {
-						var doctorName = $scope.doctorName;
+					$scope.doctorAdd = function(doctor, formName) {
+						
+						$scope.submit = true;
+						console.log($scope.submit);
+						console.log(formName);
+						   if ($scope[formName].$valid) {
+							   alert("test");
+							   var res = $http
+								.post(
+										'http://localhost:9090/doctor-management/adddoctor',
+										doctor);
+						res.success(function(data) {
+							alert(data.message);
+							$scope.isVisible = false;
+
+						});
+						res.error(function(data, status, headers, config) {
+							alert("failure message: " + data.message);
+						});
+					}
+						   console.log(doctor);
+						
+							
+					}
+				});
+			// TODO Need to refactored...
+						/*var doctorName = $scope.doctorName;
 						var doctorMobileNumber = $scope.doctorMobileNumber;
 						var doctorAdharNumber = $scope.doctorAdharNumber;
 						var doctorHomeAddress = $scope.doctorHomeAddress;
@@ -91,28 +115,11 @@ addDoctorJs
 							doctorOneTimeConsultingFee : doctorFees,
 							doctorDaystoCheckFreeInConsultingFee : parseInt(doctorDaysCheckFree),
 							doctorShopAddress : doctorShopAddress
-						};
+						};*/
 
-						console.log(doctorJson);
+						//console.log(doctorJson);
 
-						var res = $http
-								.post(
-										'http://localhost:9090/doctor-management/adddoctor',
-										doctorJson);
-						res.success(function(data) {
-							alert(data.message);
-							console.log(data);
-							console.log(headers);
-							$scope.isVisible = false;
-
-						});
-						res.error(function(data, status, headers, config) {
-							alert("failure message: " + JSON.stringify({
-								data : data
-							}));
-						});
-					}
-				});
+					
 // ---------------------Add Doctor Angular JS code Ends--------------------
 
 // ------------------Delete Doctor Angular JS code Starts-------------------
