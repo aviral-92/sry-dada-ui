@@ -150,7 +150,7 @@ getDoctorJs.controller('getDoctorController',
 			function response(pathVariable) {
 
 				var url = 'http://localhost:9090/doctor-management';
-				var res = $http.get(url + pathVariable);
+				var res = $http.post(url + pathVariable);
 				res.success(function(data) {
 					alert(data[0].doctorName);
 					console.log(data);
