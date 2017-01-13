@@ -18,31 +18,27 @@
 			</h3>
 		</div>
 		<div class="addForm" ng-show="isVisible">
-		<form name="validateAddForm" method="post" novalidate="novalidate">
+		<form name="validateDeleteForm" method="get" novalidate="novalidate">
 			<table>
 				<tr>
-					<td><label>Doctor Id<span style="color: red;">*</span></label></td>
-					<td><input type="text" ng-model="doctorId" name="doctorId"
-						placeholder="Doctor Id" ng-required="true"
-						ng-class="{blankInput: validateAddForm.doctorId.$error.required &amp;&amp; submit}" /></td>
+					<td><label>Doctor Id</label></td>
+					<td><input type="number" ng-model="doctor.doctorId" name="doctorId"
+						placeholder="Doctor Id"
+						/></td>
 				</tr>
 				<tr>
-					<td><label>Doctor Mobile Number<span
-							style="color: red;">*</span></label></td>
-					<td><input type="text" ng-model="doctorMobileNumber"  name="doctorMobileNumber"
-						placeholder="Doctor Mobile Number" ng-required="true"
-						ng-class="{blankInput: validateAddForm.doctorMobileNumber.$error.required &amp;&amp; submit}" /></td>
+					<td><label>Doctor Mobile Number</label></td>
+					<td><input type="text" ng-model="doctor.doctorNumber"  name="doctorMobileNumber"
+						placeholder="Doctor Mobile Number"  /></td>
 				</tr>
 				<tr>
-					<td><label>Doctor Adhar Number<span
-							style="color: red;">*</span></label></td>
-					<td><input type="text" ng-model="doctorAdharNumber"  name="doctorAdharNumber"
-						placeholder="Doctor Adhar Number" ng-required="true"
-						ng-class="{blankInput: validateAddForm.doctorAdharNumber.$error.required &amp;&amp; submit}" /></td>
+					<td><label>Doctor Adhar Number</label></td>
+					<td><input type="text" ng-model="doctor.doctorAdhaarNumber"  name="doctorAdharNumber"
+						placeholder="Doctor Adhar Number" /></td>
 				</tr>
 				<tr>
 					<td><label>Click to Delete</label></td>
-					<td><button id="button" ng-click="doctorDelete(doctor, 'validateAddForm')">
+					<td><button id="button" ng-click="doctorDelete(doctor)">
 							<span>Delete Doctor</span>
 						</button></td>
 				</tr>

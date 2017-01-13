@@ -1,49 +1,3 @@
-function submitform() {
-	var doctorGovtServent = '';
-	if ($('#govtservent').is(':checked')) {
-		doctorGovtServent = 'true';
-	} else {
-		doctorGovtServent = 'false';
-	}
-	var formData = "{ \"doctorId\":" + $('#id').val() + ", \"doctorName\" : \""
-			+ $('#name').val() + "\", \"doctorNumber\" : \""
-			+ $('#number').val() + "\", \"doctorHomeAddress\" : \""
-			+ $('#address').val() + "\", \"doctorAdhaarNumber\" : \""
-			+ $('#adhaarnumber').val() + "\", \"doctorHighestDegree\" : \""
-			+ $('#highestdegree').val() + "\", \"doctorExpertized\" : \""
-			+ $('#expertise').val() + "\", \"doctorGovtServent\" : "
-			+ doctorGovtServent + ", \"doctorOneTimeConsultingFee\" : \""
-			+ $('#consultingfee').val()
-			+ "\", \"doctorDaystoCheckFreeInConsultingFee\" : \""
-			+ $('#daysfreeconsultingfees').val()
-			+ "\", \"doctorShopAddress\" : \"" + $('#clinicaddress').val()
-			+ "\"}";
-	console.log(formData);
-	$.ajax({
-		url : "http://localhost:9090/adddoctor",
-		headers : {
-			'Content-Type' : 'application/json',
-			'Access-Control-Request-Method' : 'POST'
-		},
-		data : formData,
-		type : "POST",
-		contentType : "application/json; charset=utf-8",
-		dataType : "json",
-		success : function(data) {
-			alert("Successfully Inserted...!!!	" + JSON.stringify(data));
-			// console.log(data);
-			var obj = JSON.parse(JSON.stringify(data));
-			// alert(obj.msg);
-			$('#message').html(obj.msg);
-			$('#message').show();
-
-		},
-		error : function(data) {
-			alert("Error");
-		}
-	});
-}
-
 // -------------------Add Doctor Angular JS code Starts------------------------
 var addDoctorJs = angular.module('AddDoctorApp', []);
 addDoctorJs
@@ -65,8 +19,6 @@ addDoctorJs
 							$scope.notValid = "Please enter Doctor Name.";
 						}
 					}
-					
-					
 					$scope.doctorAdd = function(doctor, formName) {
 						
 						$scope.submit = true;
@@ -88,37 +40,8 @@ addDoctorJs
 						});
 					}
 						   console.log(doctor);
-						
-							
 					}
 				});
-			// TODO Need to refactored...
-						/*var doctorName = $scope.doctorName;
-						var doctorMobileNumber = $scope.doctorMobileNumber;
-						var doctorAdharNumber = $scope.doctorAdharNumber;
-						var doctorHomeAddress = $scope.doctorHomeAddress;
-						var doctorHighestDegree = $scope.doctorHighestDegree;
-						var doctorExpertise = $scope.doctorExpertise;
-						var doctorGovt = $scope.doctorGovt;
-						var doctorShopAddress = $scope.doctorShopAddress;
-						var doctorFees = $scope.doctorFees;
-						var doctorDaysCheckFree = $scope.doctorDaysCheckFree;
-
-						var doctorJson = {
-							doctorName : doctorName,
-							doctorNumber : doctorMobileNumber,
-							doctorHomeAddress : doctorHomeAddress,
-							doctorAdhaarNumber : doctorAdharNumber,
-							doctorHighestDegree : doctorHighestDegree,
-							doctorExpertized : doctorExpertise,
-							doctorGovtServent : Boolean(doctorGovt),
-							doctorOneTimeConsultingFee : doctorFees,
-							doctorDaystoCheckFreeInConsultingFee : parseInt(doctorDaysCheckFree),
-							doctorShopAddress : doctorShopAddress
-						};*/
-
-						//console.log(doctorJson);
-
 					
 // ---------------------Add Doctor Angular JS code Ends--------------------
 
@@ -131,45 +54,44 @@ deleteDoctorJs.controller('deleteDoctorController', function($scope, $http) {
 	$scope.ShowHide = function() {
 		$scope.isVisible = $scope.isVisible ? false : true;
 	}
-//TODO
-	$scope.doctorDelete = function(doctor, formName) {
-		
+	$scope.doctorDelete = function(doctor) {
 		$scope.submit = true;
 		console.log($scope.submit);
-		console.log(formName);
-
-		if ($scope[formName].$valid) {
+		var res = null;
+		if (doctor != null) {
+			if(doctor.doctorId!=null && doctor.doctorId != ""){
 			   alert("test");
-		var res = $http.post(
-				'http://localhost:9090/doctor-management/deletedoctor',
-				doctor);
-		res.success(function(data, status, headers, config) {
-			alert(data.message);
-			console.log(data);
-			console.log(headers);
-			$scope.isVisible = false;
+			   res = $http.delete(
+				'http://localhost:9090/doctor-management/deletedoctorById/'+doctor.doctorId);
+		}else if(doctor.doctorNumber != null && doctor.doctorNumber != ""){
+				res = $http.delete(
+					'http://localhost:9090/doctor-management/deletedoctorByMobileNumber/'+doctor.doctorNumber);
+		}else if(doctor.doctorAdhaarNumber != null && doctor.doctorAdhaarNumber != ""){
+				res = $http.delete(
+					'http://localhost:9090/doctor-management/deletedoctorByAdharNumber/'+doctor.doctorAdhaarNumber);
+		}
+				if(res != null){
+				res.success(function(data, status, headers, config) {
+				alert(data.message);
+				console.log(data);
+				console.log(headers);
+				$scope.isVisible = false;
 
-		});
-		res.error(function(data, status, headers, config) {
-			alert("failure message: " + JSON.stringify({
-				data : data
-			}));
-		});
-	}
-		console.log(doctor);
+			});
+				res.error(function(data, status, headers, config) {
+					alert("failure message: " + JSON.stringify({
+						data : data
+					}));
+				});
+				}else{
+					alert("dfdfg");
+				}
+			}else{
+				alert("Please provide input");
+			}
+			console.log(doctor);
 	}
 });
-/*var doctorId = $scope.doctorId;
-var doctorMobileNumber = $scope.doctorMobileNumber;
-var doctorAdharNumber = $scope.doctorAdharNumber;
-
-var doctorJson = {
-	doctorId : doctorId,
-	doctorNumber : doctorMobileNumber,
-	doctorAdhaarNumber : doctorAdharNumber,
-};
-
-console.log(doctorJson);*/
 
 // ----------------------Delete Doctor Angular JS code Ends---------------------
 
@@ -319,7 +241,6 @@ updateDoctorJs.controller('updateDoctorController', function($scope, $http) {
 		res.success(function(data) {
 			alert(data.message);
 			console.log(data);
-			//$scope.doctors = data;
 		});
 		res.error(function(data, status, headers, config) {
 			alert("failure message: " + JSON.stringify({
@@ -327,7 +248,6 @@ updateDoctorJs.controller('updateDoctorController', function($scope, $http) {
 			}));
 		});
 	}
-	
 });
 
 // ---------------Update Doctor Angular JS code Ends---------------------
