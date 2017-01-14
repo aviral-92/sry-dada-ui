@@ -60,7 +60,7 @@ public class DoctorUIController {
 		return new ModelAndView("test", "response", resp);
 	}*/
 
-	@RequestMapping(value = "/getdoctor1", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/getdoctor1", method = RequestMethod.GET)
 	public ModelAndView getDoctor(ModelMap modelMap, HttpServletRequest request) {
 
 		Doctor response[] = null;
@@ -94,15 +94,15 @@ public class DoctorUIController {
 		}
 
 		return new ModelAndView("getDoctor", "response", response);
-	}
+	}*/
 	
 	@RequestMapping(value="/updatedoctor")
 	public ModelAndView updateDoctor(){
 		
-		return new ModelAndView("updateDoctor");
+		return new ModelAndView("DoctorService/updateDoctor");
 	}
 	
-	@RequestMapping(value="/updatedoctorui")
+	/*@RequestMapping(value="/updatedoctorui")
 	public ModelAndView updateDoctorUi(ModelMap modelMap, HttpServletRequest request){
 		
 		String URL = "http://localhost:9090/doctor-management/updatedoctor";
@@ -111,38 +111,38 @@ public class DoctorUIController {
 				DoctorResponse.class);
 		System.out.println(resp);
 		return new ModelAndView("updateDoctor", "response", resp);
-	}
+	}*/
 	
 	@RequestMapping("/home")
 	public ModelAndView home(){
 		
-		return new ModelAndView("Index");
+		return new ModelAndView("DoctorService/Index");
 	}
 
 	@RequestMapping(value = "/home1")
 	public ModelAndView addDoc(){
 		
-		return new ModelAndView("AddDoctor");
+		return new ModelAndView("DoctorService/AddDoctor");
 	}
 	
 	@RequestMapping(value = "/deletedoctor")
 	public ModelAndView deleteDoctor(){
 		
-		return new ModelAndView("DeleteDoctor");
+		return new ModelAndView("DoctorService/DeleteDoctor");
 	}
 	
 	@RequestMapping(value = "/getdoctor")
 	public ModelAndView getDoctor(){
 		
-		return new ModelAndView("GetDoctorUI");
+		return new ModelAndView("DoctorService/GetDoctorUI");
 	}
 	
 	@RequestMapping(value = "/updatedoctorUI")
 	public ModelAndView updateDoctorUI(){
 		
-		return new ModelAndView("UpdateDoctorUI");
+		return new ModelAndView("DoctorService/UpdateDoctorUI");
 	}
-	private HttpEntity<String> requestHamdler(HttpServletRequest request) {
+	/*private HttpEntity<String> requestHamdler(HttpServletRequest request) {
 
 		Doctor doctor = doctorUiImpl.extractDataFromRequest(request);
 		JSONObject jsonObject = doctorUiImpl.objectToJson(doctor);
@@ -152,5 +152,5 @@ public class DoctorUIController {
 		HttpEntity<String> entity = new HttpEntity<String>(
 				jsonObject.toString(), headers);
 		return entity;
-	}
+	}*/
 }

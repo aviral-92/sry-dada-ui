@@ -3,8 +3,8 @@
 <title>Home Page</title>
 <link rel="stylesheet" type="text/css" href="css/home.css">
 <script src="js/jquery-latest.min.js" type="text/javascript"></script>
-<jsp:include page="/jsp/Header.jsp" />
-<jsp:include page="/jsp/Footer.jsp" />
+<jsp:include page="/jsp/DoctorService/Header.jsp" />
+<jsp:include page="/jsp/DoctorService/Footer.jsp" />
 </head>
 <body background="img/bg-banner.jpg">
 	<!---------------- box Div start--------------->
