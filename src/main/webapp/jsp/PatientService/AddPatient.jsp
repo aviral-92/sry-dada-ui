@@ -12,6 +12,11 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min.js"></script>
+<script src="js/Patient.js"></script>
 <jsp:include page="/jsp/Header.jsp" />
 <jsp:include page="/jsp/Footer.jsp" />
 </head>
@@ -54,16 +59,18 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="pwd">Home Address:</label>
+				<label class="control-label col-sm-2" for="pwd">Home
+					Address:</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="homeAddress"
-						ng-model="customer.custHomeAddress" placeholder="Enter home address">
+						ng-model="customer.custHomeAddress"
+						placeholder="Enter home address">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-default" ng-click="customerAdd(customer)">Register</button>
+					<button class="btn btn-default" ng-click="customerAdd(customer)">Register</button>
 				</div>
 			</div>
 		</form>

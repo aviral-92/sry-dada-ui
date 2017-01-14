@@ -1,8 +1,9 @@
 /************************add Customer Start************************/
 
-var addCustomerJs = app.module('patientApp',[])
+var addCustomerJs = angular.module('patientApp',[])
 addCustomerJs.controller('addCustomerController', function($scope, $http){
 	$scope.customerAdd = function(customer){
+		console.log(customer);
 		 var res = $http
 			.post(
 					'http://localhost:9090/customermanagement/addcustomer',
@@ -15,7 +16,7 @@ addCustomerJs.controller('addCustomerController', function($scope, $http){
 			res.error(function(data, status, headers, config) {
 				alert("failure message: " + data.message);
 			});
-			console.log(customer);
+			
 	}
 });
 /************************add Customer Ends************************/
