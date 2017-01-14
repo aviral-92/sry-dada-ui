@@ -6,8 +6,8 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="js/Doctor.js"></script>
-<jsp:include page="/jsp/DoctorService/Header.jsp" />
-<jsp:include page="/jsp/DoctorService/Footer.jsp" />
+<jsp:include page="/jsp/Header.jsp" />
+<jsp:include page="/jsp/Footer.jsp" />
 </head>
 <body ng-app="deleteDoctorApp">
 

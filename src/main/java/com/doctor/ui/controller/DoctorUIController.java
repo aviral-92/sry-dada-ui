@@ -116,7 +116,7 @@ public class DoctorUIController {
 	@RequestMapping("/home")
 	public ModelAndView home(){
 		
-		return new ModelAndView("DoctorService/Index");
+		return new ModelAndView("Index");
 	}
 
 	@RequestMapping(value = "/home1")

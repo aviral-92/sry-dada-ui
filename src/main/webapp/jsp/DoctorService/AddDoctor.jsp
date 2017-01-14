@@ -8,8 +8,8 @@
 <script
 	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min.js"></script>
 <script src="js/Doctor.js"></script>
-<jsp:include page="/jsp/DoctorService/Header.jsp" />
-<jsp:include page="/jsp/DoctorService/Footer.jsp" />
+<jsp:include page="/jsp/Header.jsp" />
+<jsp:include page="/jsp/Footer.jsp" />
 </head>
 <body ng-app="AddDoctorApp">
 
