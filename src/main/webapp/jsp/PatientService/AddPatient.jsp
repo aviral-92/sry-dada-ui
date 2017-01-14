@@ -16,7 +16,7 @@
 <jsp:include page="/jsp/Footer.jsp" />
 </head>
 <body ng-app="patientApp">
-	<div class="container">
+	<div class="container" ng-controller="addCustomerController">
 		<h3>
 			<center>Register yourself.</center>
 		</h3>
@@ -63,7 +63,7 @@
 
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-default">Register</button>
+					<button type="submit" class="btn btn-default" ng-click="customerAdd(customer)">Register</button>
 				</div>
 			</div>
 		</form>
