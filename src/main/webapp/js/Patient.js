@@ -1,6 +1,6 @@
-/** **********************add Customer Start************************/
+/** **********************add Customer Start*********************** */
 
-var addCustomerJs = angular.module('patientApp',[])
+var addCustomerJs = angular.module('patientApp',['UserValidation']);
 addCustomerJs.controller('addCustomerController', function($scope, $http){
 	$scope.customerAdd = function(customer){
 		console.log(customer);
@@ -19,9 +19,74 @@ addCustomerJs.controller('addCustomerController', function($scope, $http){
 			
 	}
 });
-/** **********************add Customer Ends************************/
 
-/** **********************delete Customer Start************************/
+//var app = angular.module('patientApp', ['UserValidation']);
+
+addCustomerController = function($scope) {
+    $scope.formAllGood = function () {
+        return ($scope.nameGood && $scope.passwordGood && $scope.passwordCGood)
+    }
+        
+}
+
+angular.module('UserValidation', []).directive('validName', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elm, attrs, ctrl) {
+            ctrl.$parsers.unshift(function (viewValue) {
+                // Any way to read the results of a "required" angular validator
+				// here?
+                var isBlank = viewValue === ''
+                var invalidChars = !isBlank && !/^[a-zA-Z][a-zA-Z ]+[a-zA-Z]$/.test(viewValue)
+                var invalidLen = !isBlank && !invalidChars && (viewValue.length < 3 || viewValue.length > 20)
+                ctrl.$setValidity('isBlank', !isBlank)
+                ctrl.$setValidity('invalidChars', !invalidChars)
+                ctrl.$setValidity('invalidLen', !invalidLen)
+                scope.usernameGood = !isBlank && !invalidChars && !invalidLen
+
+            })
+        }
+    }
+}).directive('validEmail', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elm, attrs, ctrl) {
+            ctrl.$parsers.unshift(function (viewValue) {
+                // Any way to read the results of a "required" angular validator
+				// here?
+                var isBlank = viewValue === ''
+                var invalidChars = !isBlank && !/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(viewValue)
+                var invalidLen = !isBlank && !invalidChars && (viewValue.length < 3 || viewValue.length > 20)
+                ctrl.$setValidity('isBlank', !isBlank)
+                ctrl.$setValidity('invalidChars', !invalidChars)
+                ctrl.$setValidity('invalidLen', !invalidLen)
+                scope.usernameGood = !isBlank && !invalidChars && !invalidLen
+
+            })
+        }
+    }
+}).directive('validMobile', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elm, attrs, ctrl) {
+            ctrl.$parsers.unshift(function (viewValue) {
+                // Any way to read the results of a "required" angular validator
+				// here?
+                var isBlank = viewValue === ''
+                var invalidChars = !isBlank && !/^\d+$/.test(viewValue)
+                var invalidLen = !isBlank && !invalidChars && (viewValue.length < 9 || viewValue.length > 11)
+                ctrl.$setValidity('isBlank', !isBlank)
+                ctrl.$setValidity('invalidChars', !invalidChars)
+                ctrl.$setValidity('invalidLen', !invalidLen)
+                scope.usernameGood = !isBlank && !invalidChars && !invalidLen
+
+            })
+        }
+    }
+})
+/** **********************add Customer Ends*********************** */
+
+/** **********************delete Customer Start*********************** */
 var deleteDoctorJs = angular.module('deletePatientApp', []);
 deleteDoctorJs.controller('deletePatientController', function($scope, $http) {
 	$scope.customerDelete = function(customer) {
@@ -61,10 +126,10 @@ deleteDoctorJs.controller('deletePatientController', function($scope, $http) {
 	}
 });
 
-/** **********************delete Customer Ends************************/
+/** **********************delete Customer Ends*********************** */
 
 
-/** **********************get Customer Start************************/
+/** **********************get Customer Start*********************** */
 
 var getDoctorJs = angular.module('getPatientApp', []);
 getDoctorJs.controller('getPatientController',
@@ -116,4 +181,4 @@ getDoctorJs.controller('getPatientController',
 			}
 		});
 
-/** **********************get Customer Ends************************/
+/** **********************get Customer Ends*********************** */
