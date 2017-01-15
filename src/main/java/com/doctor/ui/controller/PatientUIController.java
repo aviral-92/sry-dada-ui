@@ -12,4 +12,22 @@ public class PatientUIController {
 		
 		return new ModelAndView("PatientService/AddPatient");
 	}
-}
+	
+	@RequestMapping("deletePatient")
+	public ModelAndView deletePatient(){
+		
+		return new ModelAndView("PatientService/DeletePatient");
+	}
+	
+	@RequestMapping("getPatient")
+	public ModelAndView getPatient(){
+		
+		return new ModelAndView("PatientService/GetPatient");
+	}
+	
+	@RequestMapping("headerPatient")
+	public ModelAndView updatePatient(){
+		
+		return new ModelAndView("PatientService/PatientHeader");
+	}
+	}
