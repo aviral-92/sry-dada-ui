@@ -17,13 +17,15 @@
 <script
 	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min.js"></script>
 <script src="js/Patient.js"></script>
+<!-- <script src="js/Validation.js"></script> -->
+
 <jsp:include page="/jsp/Header.jsp" />
 <jsp:include page="/jsp/Footer.jsp" />
 </head>
 <body ng-app="patientApp">
 	<div class="container" ng-controller="addCustomerController">
 		<h3>
-			<center>Register yourself.</center>
+			<center>Customer SignUp.</center>
 		</h3>
 		<form name="patientForm" class="form form-horizontal" role="form"
 			novalidate>
@@ -33,18 +35,19 @@
 					Name:</label>
 				<div class="col-sm-10">
 					<input type="text" name="name" class="form-control" id="name"
-						ng-model="name" placeholder="Enter name" valid-Name>
+						ng-model="customer.name" placeholder="Enter name" valid-Name />
 
 					<div class="help-inline">
-						<span ng-show="!!patientForm.name.$error.isBlank">Patient Name
-							Required.</span> <span ng-show="!!patientForm.name.$error.invalidChars">Patient Name
-							must contain letters &amp; spaces only.</span> <span
-							ng-show="!!patientForm.name.$error.invalidLen">Patient Name
-							must be 3-20 characters.</span>
+						<span ng-show="!!patientForm.name.$error.isBlank">Patient
+							Name Required.</span> <span
+							ng-show="!!patientForm.name.$error.invalidChars">Patient
+							Name must contain letters &amp; spaces only.</span> <span
+							ng-show="!!patientForm.name.$error.invalidLen">Patient
+							Name must be 3-20 characters.</span>
 					</div>
 				</div>
 			</div>
-			<div class="form-group" ng-class="{error:!patientForm.email.$valid}">
+			<!-- <div class="form-group" ng-class="{error:!patientForm.email.$valid}">
 				<label class="control-label col-sm-2" for="name">Patient
 					Email:</label>
 				<div class="col-sm-10">
@@ -52,15 +55,16 @@
 						ng-model="email" placeholder="Enter email" valid-Email>
 
 					<div class="help-inline">
-						<span ng-show="!!patientForm.email.$error.isBlank">Patient email
-							Required.</span> <span ng-show="!!patientForm.email.$error.invalidChars">Patient email
-							is not valid.</span> <span
-							ng-show="!!patientForm.email.$error.invalidLen">Patient Name
-							must be 3-20 characters.</span>
+						<span ng-show="!!patientForm.email.$error.isBlank">Patient
+							email Required.</span> <span
+							ng-show="!!patientForm.email.$error.invalidChars">Patient
+							email is not valid.</span> <span
+							ng-show="!!patientForm.email.$error.invalidLen">Patient
+							Name must be 3-20 characters.</span>
 					</div>
 				</div>
-			</div>
-			<div class="form-group" ng-class="{error:!patientForm.mobile.$valid}">
+			</div> -->
+			<!-- <div class="form-group" ng-class="{error:!patientForm.mobile.$valid}">
 				<label class="control-label col-sm-2" for="name">Mobile
 					Number:</label>
 				<div class="col-sm-10">
@@ -68,31 +72,50 @@
 						ng-model="mobile" placeholder="Enter mobile" valid-Mobile>
 
 					<div class="help-inline">
-						<span ng-show="!!patientForm.mobile.$error.isBlank">Patient email
-							Required.</span> <span ng-show="!!patientForm.mobile.$error.invalidChars">Patient mobile
-							is not valid.</span> <span
-							ng-show="!!patientForm.mobile.$error.invalidLen">Patient mobile
-							number should be 10 digits.</span>
+						<span ng-show="!!patientForm.mobile.$error.isBlank">Patient
+							mobile Required.</span> <span
+							ng-show="!!patientForm.mobile.$error.invalidChars">Patient
+							mobile is not valid.</span> <span
+							ng-show="!!patientForm.mobile.$error.invalidLen">Patient
+							mobile number should be 10 digits.</span>
 					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="pwd">Adhaar
+			</div> -->
+			<!-- <div class="form-group" ng-class="{error:!patientForm.adhaar.$valid}">
+				<label class="control-label col-sm-2" for="name">Adhaar
 					Number:</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="adhaar"
-						ng-model="customer.custAadhaar" placeholder="Enter adhaar number">
+					<input type="text" name="adhaar" class="form-control" id="adhaar"
+						ng-model="adhaar" placeholder="Enter adhaar number" valid-Adhar>
+
+					<div class="help-inline">
+						<span ng-show="!!patientForm.adhaar.$error.isBlank">Patient
+							adhaar Required.</span> <span
+							ng-show="!!patientForm.adhaar.$error.invalidChars">Patient
+							adhaar is not valid.</span> <span
+							ng-show="!!patientForm.adhaar.$error.invalidLen">Patient
+							adhaar number should be 12 digits.</span>
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="pwd">Home
+			</div> -->
+			<!-- <div class="form-group"
+				ng-class="{error:!patientForm.address.$valid}">
+				<label class="control-label col-sm-2" for="name">Home
 					Address:</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="homeAddress"
-						ng-model="customer.custHomeAddress"
-						placeholder="Enter home address">
+					<input type="text" name="address" class="form-control" id="address"
+						ng-model="address" placeholder="Enter home address" valid-Address>
+
+					<div class="help-inline">
+						<span ng-show="!!patientForm.address.$error.isBlank">Patient
+							address Required.</span> <span
+							ng-show="!!patientForm.address.$error.invalidChars">Patient
+							address is not valid.</span> <span
+							ng-show="!!patientForm.address.$error.invalidLen">Patient
+							address should be 5 to 30 characters.</span>
+					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="form-group" ng-show="formAllGood()"></div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">

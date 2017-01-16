@@ -80,7 +80,7 @@
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 							<h4 class="modal-title">Your Details</h4>
 						</div>
-						<table class="modal-body">
+						<table class="modal-body" border="1">
 							<tr>
 								<th>Patient Id</th>
 								<th>Patient Mobile number</th>
