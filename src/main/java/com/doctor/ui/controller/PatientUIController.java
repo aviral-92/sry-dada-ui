@@ -25,8 +25,14 @@ public class PatientUIController {
 		return new ModelAndView("PatientService/GetPatient");
 	}
 	
-	@RequestMapping("headerPatient")
+	@RequestMapping("updatePatient")
 	public ModelAndView updatePatient(){
+		
+		return new ModelAndView("PatientService/UpdatePatient");
+	}
+	
+	@RequestMapping("headerPatient")
+	public ModelAndView headerPatient(){
 		
 		return new ModelAndView("PatientService/PatientHeader");
 	}

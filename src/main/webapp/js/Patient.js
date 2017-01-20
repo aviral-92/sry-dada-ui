@@ -125,21 +125,21 @@ angular.module('UserValidation', []).directive('validName', function () {
 /** **********************add Customer Ends*********************** */
 
 /** **********************delete Customer Start*********************** */
-var deleteDoctorJs = angular.module('deletePatientApp', []);
-deleteDoctorJs.controller('deletePatientController', function($scope, $http) {
+var deleteCustomerJs = angular.module('deletePatientApp', []);
+deleteCustomerJs.controller('deletePatientController', function($scope, $http) {
 	$scope.customerDelete = function(customer) {
 		var res = null;
 		if (customer != null) {
 			if(customer.custId!=null && customer.custId != ""){
 			   alert("test");
 			   res = $http.delete(
-				'http://localhost:9090/customermanagement/deletedoctorById/'+customer.custId);
+				'http://localhost:9090/customermanagement/deletecustomerById/'+customer.custId);
 		}else if(customer.custMobile != null && customer.custMobile != ""){
 				res = $http.delete(
-					'http://localhost:9090/customermanagement/deletedoctorByMobileNumber/'+doctor.custMobile);
+					'http://localhost:9090/customermanagement/deletecustomerByMobileNumber/'+doctor.custMobile);
 		}else if(customer.custAadhaar != null && customer.custAadhaar != ""){
 				res = $http.delete(
-					'http://localhost:9090/customermanagement/deletedoctorByAdharNumber/'+customer.custAadhaar);
+					'http://localhost:9090/customermanagement/deletecustomerByAdharNumber/'+customer.custAadhaar);
 		}
 				if(res != null){
 				res.success(function(data, status, headers, config) {
@@ -169,8 +169,8 @@ deleteDoctorJs.controller('deletePatientController', function($scope, $http) {
 
 /** **********************get Customer Start*********************** */
 
-var getDoctorJs = angular.module('getPatientApp', []);
-getDoctorJs.controller('getPatientController',
+var getCustomerJs = angular.module('getPatientApp', []);
+getCustomerJs.controller('getPatientController',
 		function($scope, $http) {
 
 			$scope.visible = false;
@@ -182,20 +182,20 @@ getDoctorJs.controller('getPatientController',
 
 				if (custId != null && parseInt(custId) > 0) {
 					console.log(custId);
-					response('/getdoctorbyid/' + parseInt(custId));
-				} else if (custName != null && custName != ""
+					response('/deletecustomerById/' + parseInt(custId));
+				}/* else if (custName != null && custName != ""
 						&& custName != " ") {
 					console.log(custName);
 					response('/getdoctorbyname/' + custName);
-				}else if (custMobile != null
+				}*/else if (custMobile != null
 						&& custMobile != ""
 						&& custMobile != " ") {
 					console.log(custMobile);
-					response('/getdoctorbymobilenumber/' + custMobile);
+					response('/deletecustomerByMobileNumber/' + custMobile);
 				} else if (custAadhaar != null && custAadhaar != ""
 						&& custAadhaar != " ") {
 					console.log(custAadhaar);
-					response('/getdoctorbyadharNumber/' + custAadhaar);
+					response('/deletecustomerByAdharNumber/' + custAadhaar);
 				} else {
 					alert("Please provide any input");
 				}
@@ -220,3 +220,92 @@ getDoctorJs.controller('getPatientController',
 		});
 
 /** **********************get Customer Ends*********************** */
+
+/** **********************Update Customer Starts*********************** */
+
+var updateCustomerJs = angular.module('UpdateCustomerApp', []);
+updateCustomerJs.controller('updateCustomerController', function($scope, $http) {
+	$scope.visible = false;
+	$scope.isVisible = false;
+	$scope.ShowHide = function() {
+		$scope.isVisible = $scope.isVisible ? false : true;
+	}
+
+	$scope.customerSearch = function() {
+		var custId = $scope.custId;
+		var custMobile = $scope.custMobile;
+		var custAadhaar = $scope.custAadhaar;
+		if (custId != null && parseInt(custId) > 0) {
+			console.log(custId);
+			response('/getdoctorbyid/' + parseInt(custId));
+		} else if (custMobile != null && custMobile != ""
+				&& custMobile != " ") {
+			console.log(custMobile);
+			response('/getdoctorbymobilenumber/' + custMobile);
+		} else if (custAadhaar != null && custAadhaar != ""
+				&& custAadhaar != " ") {
+			console.log(custAadhaar);
+			response('/getdoctorbyadharNumber/' + custAadhaar);
+		} else {
+			alert("Please provide any input");
+		}
+		
+		$scope.isVisible = $scope.isVisible ? false : true;
+		//$scope.visible = true;
+	}
+
+	$scope.customerUpdate = function(customer) {
+
+		var updatedCustomerArray = {
+
+				custId : customer.custId,
+				custName : customer.custName,
+				custMobile : customer.custMobile,
+				custEmail: customer.custEmail,
+				custHomeAddress : customer.custHomeAddress,
+				custAadhaar : customer.custAadhaar,
+				/*doctorHighestDegree : customer.doctorHighestDegree,
+				doctorExpertized : customer.doctorExpertized,
+				doctorGovtServent : Boolean(customer.doctorGovt),
+				doctorOneTimeConsultingFee : customer.doctorOneTimeConsultingFee,
+				doctorDaystoCheckFreeInConsultingFee : parseInt(customer.doctorDaystoCheckFreeInConsultingFee),
+				doctorShopAddress : customer.doctorShopAddress*/
+		}
+		console.log(updateCustomerArray);
+		updateCustomer(updateCustomerArray);
+	};
+
+	function response(pathVariable) {
+
+		var url = 'http://localhost:9090/customermanagement';
+		var res = $http.get(url + pathVariable);
+		res.success(function(data) {
+			alert(data[0].custName);
+			
+			console.log(data);
+			$scope.customers = data;
+		});
+		res.error(function(data, status, headers, config) {
+			alert("failure message: " + JSON.stringify({
+				data : data
+			}));
+		});
+	}
+	
+	function updateCustomer(jsonData) {
+
+		var url = 'http://localhost:9090/customermanagement/updatedoctor';
+		var res = $http.post(url,jsonData);
+		res.success(function(data) {
+			alert(data.message);
+			console.log(data);
+		});
+		res.error(function(data, status, headers, config) {
+			alert("failure message: " + JSON.stringify({
+				data : data
+			}));
+		});
+	}
+});
+
+/** **********************Update Customer Ends*********************** */
