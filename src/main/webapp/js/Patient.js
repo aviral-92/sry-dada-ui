@@ -250,8 +250,7 @@ updateCustomerJs.controller('updateCustomerController', function($scope, $http) 
 			alert("Please provide any input");
 		}
 		
-		$scope.isVisible = $scope.isVisible ? false : true;
-		//$scope.visible = true;
+		$scope.visible = true;
 	}
 
 	$scope.customerUpdate = function(customer) {

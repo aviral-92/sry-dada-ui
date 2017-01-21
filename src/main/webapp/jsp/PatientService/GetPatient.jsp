@@ -22,15 +22,14 @@
 <body ng-app="getPatientApp">
 	<div class="container" ng-controller="getPatientController">
 		<h3>
-			<left>Get Patient Details</left>
-			<!--  <a href="#demo" class="btn btn-info" data-toggle="collapse">Get Patient Details</a> -->
+			<center>Get Patient Details</center>
 		</h3>
-		<br />
+		<br/>
 		<form class="form-horizontal" role="form">
 
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name">Patient Id:</label>
-				<div class="col-sm-3">
+				<div class="col-sm-8">
 					<input type="text" class="form-control" id="name"
 						ng-model="customer.custId" placeholder="Enter Id">
 					<!-- data-toggle="collapse" data-target="#demo" -->
@@ -40,7 +39,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name">Patient
 					Name:</label>
-				<div class="col-sm-3">
+				<div class="col-sm-8">
 					<input type="text" class="form-control" id="name"
 						ng-model="customer.custName" placeholder="Enter name">
 				</div>
@@ -48,7 +47,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="pwd">Mobile
 					Number:</label>
-				<div class="col-sm-3">
+				<div class="col-sm-8">
 					<input type="text" class="form-control" id="mobile"
 						ng-model="customer.custMobile" placeholder="Enter mobile number">
 				</div>
@@ -56,14 +55,13 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="pwd">Adhaar
 					Number:</label>
-				<div class="col-sm-3">
+				<div class="col-sm-8">
 					<input type="text" class="form-control" id="adhaar"
 						ng-model="customer.custAadhaar" placeholder="Enter adhaar number">
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<!-- <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo" ng-click="customerGet(customer)">Get Patient</button> -->
 					<button type="button" class="btn btn-info" data-toggle="modal"
 						data-target="#myModal"><span class="glyphicon glyphicon-chevron-right"></span> Get Patient</button>
 				</div>
