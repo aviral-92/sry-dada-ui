@@ -21,15 +21,19 @@
 <!-- 
 <script
 	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min.js"></script> -->
-<jsp:include page="/jsp/Header.jsp" />
-<jsp:include page="/jsp/Footer.jsp" />
+<jsp:include page="/jsp/PatientService/PatientHeader.jsp" />
 </head>
 <body ng-app="UpdateCustomerApp">
 	<div class="container" ng-controller="updateCustomerController">
+		<br />
+		<br />
+		<br />
+
+
 		<h3>
 			<center>Update Patient Details</center>
 		</h3>
-		<br/>
+		<br />
 		<div>
 			<form class="form-horizontal" role="form">
 
@@ -41,7 +45,14 @@
 							ng-model="customer.custId" placeholder="Enter Id">
 					</div>
 				</div>
-
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="name">Patient
+						Name:</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="name"
+							ng-model="customer.custName" placeholder="Enter name">
+					</div>
+				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">Mobile
 						Number:</label>
@@ -56,6 +67,13 @@
 					<div class="col-sm-8">
 						<input type="text" class="form-control" id="adhaar"
 							ng-model="customer.custAadhaar" placeholder="Enter adhaar number">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd">Email Id:</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="email"
+							ng-model="customer.CustEmail" placeholder="Enter Email Id">
 					</div>
 				</div>
 				<div class="form-group">

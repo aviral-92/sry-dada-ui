@@ -16,11 +16,11 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script
 	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min.js"></script> -->
-<jsp:include page="/jsp/Header.jsp" />
-<jsp:include page="/jsp/Footer.jsp" />
+<jsp:include page="/jsp/PatientService/PatientHeader.jsp" />
 </head>
 <body ng-app="getPatientApp">
 	<div class="container" ng-controller="getPatientController">
+	<br/><br/><br/>
 		<h3>
 			<center>Get Patient Details</center>
 		</h3>
@@ -58,6 +58,14 @@
 				<div class="col-sm-8">
 					<input type="text" class="form-control" id="adhaar"
 						ng-model="customer.custAadhaar" placeholder="Enter adhaar number">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="pwd">Email
+					Id:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="email"
+						ng-model="customer.CustEmail" placeholder="Enter Email Id">
 				</div>
 			</div>
 			<div class="form-group">

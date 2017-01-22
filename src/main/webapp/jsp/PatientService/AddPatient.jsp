@@ -17,16 +17,14 @@
 <script
 	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min.js"></script>
 <script src="js/Patient.js"></script>
-<!-- <script src="js/Validation.js"></script> -->
-
-<jsp:include page="/jsp/Header.jsp" />
-<jsp:include page="/jsp/Footer.jsp" />
+<jsp:include page="/jsp/PatientService/PatientHeader.jsp" />
 </head>
 <body ng-app="patientApp">
 	<div class="container" ng-controller="addCustomerController">
+	<br/><br/><br/>
 		<h3>
 			<center>Customer SignUp.</center>
-		</h3>
+		</h3><br/>
 		<form name="patientForm" class="form form-horizontal" role="form"
 			novalidate>
 

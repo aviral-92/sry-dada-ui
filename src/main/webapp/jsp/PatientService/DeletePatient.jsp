@@ -16,11 +16,11 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script
 	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min.js"></script> -->
-<jsp:include page="/jsp/Header.jsp" />
-<jsp:include page="/jsp/Footer.jsp" />
+<jsp:include page="/jsp/PatientService/PatientHeader.jsp" />
 </head>
 <body ng-app="deletePatientApp">
 	<div class="container" ng-controller="deletePatientController">
+	<br/><br/><br/>
 		<h3>
 			<center>Delete Patient Details</center>
 		</h3>

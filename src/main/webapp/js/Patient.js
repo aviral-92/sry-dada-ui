@@ -136,10 +136,10 @@ deleteCustomerJs.controller('deletePatientController', function($scope, $http) {
 				'http://localhost:9090/customermanagement/deletecustomerById/'+customer.custId);
 		}else if(customer.custMobile != null && customer.custMobile != ""){
 				res = $http.delete(
-					'http://localhost:9090/customermanagement/deletecustomerByMobileNumber/'+doctor.custMobile);
+					'http://localhost:9090/customermanagement/deleteCustomerByMobile/'+doctor.custMobile);
 		}else if(customer.custAadhaar != null && customer.custAadhaar != ""){
 				res = $http.delete(
-					'http://localhost:9090/customermanagement/deletecustomerByAdharNumber/'+customer.custAadhaar);
+					'http://localhost:9090/customermanagement/deleteCustomerByAadhar/'+customer.custAadhaar);
 		}
 				if(res != null){
 				res.success(function(data, status, headers, config) {
@@ -182,21 +182,26 @@ getCustomerJs.controller('getPatientController',
 
 				if (custId != null && parseInt(custId) > 0) {
 					console.log(custId);
-					response('/deletecustomerById/' + parseInt(custId));
-				}/* else if (custName != null && custName != ""
+					response('/getCustomerById/' + parseInt(custId));
+				} else if (custName != null && custName != ""
 						&& custName != " ") {
 					console.log(custName);
-					response('/getdoctorbyname/' + custName);
-				}*/else if (custMobile != null
+					response('/getCustomerByName/' + custName);
+				} else if (custMobile != null
 						&& custMobile != ""
-						&& custMobile != " ") {
-					console.log(custMobile);
-					response('/deletecustomerByMobileNumber/' + custMobile);
-				} else if (custAadhaar != null && custAadhaar != ""
+							&& custMobile != " ") {
+						console.log(custMobile);
+						response('/getCustomerByMobile/' + custMobile);
+					}else if (custAadhaar != null && custAadhaar != ""
 						&& custAadhaar != " ") {
 					console.log(custAadhaar);
-					response('/deletecustomerByAdharNumber/' + custAadhaar);
-				} else {
+					response('/getCustomerByAadhar/' + custAadhaar);
+				}else if (CustEmail != null
+						&& CustEmail != ""
+							&& CustEmail != " ") {
+						console.log(CustEmail);
+						response('/getCustomerByEmail/' + CustEmail);
+					} else {
 					alert("Please provide any input");
 				}
 				$scope.visible = true;
@@ -237,15 +242,15 @@ updateCustomerJs.controller('updateCustomerController', function($scope, $http) 
 		var custAadhaar = $scope.custAadhaar;
 		if (custId != null && parseInt(custId) > 0) {
 			console.log(custId);
-			response('/getdoctorbyid/' + parseInt(custId));
+			response('/getCustomerById/' + parseInt(custId));
 		} else if (custMobile != null && custMobile != ""
 				&& custMobile != " ") {
 			console.log(custMobile);
-			response('/getdoctorbymobilenumber/' + custMobile);
+			response('/getCustomerByMobile/' + custMobile);
 		} else if (custAadhaar != null && custAadhaar != ""
 				&& custAadhaar != " ") {
 			console.log(custAadhaar);
-			response('/getdoctorbyadharNumber/' + custAadhaar);
+			response('/getCustomerByAadhar/' + custAadhaar);
 		} else {
 			alert("Please provide any input");
 		}
@@ -293,7 +298,7 @@ updateCustomerJs.controller('updateCustomerController', function($scope, $http) 
 	
 	function updateCustomer(jsonData) {
 
-		var url = 'http://localhost:9090/customermanagement/updatedoctor';
+		var url = 'http://localhost:9090/customermanagement/updatecustomer';
 		var res = $http.post(url,jsonData);
 		res.success(function(data) {
 			alert(data.message);
