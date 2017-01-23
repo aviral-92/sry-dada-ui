@@ -6,11 +6,11 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="js/Doctor.js"></script>
-<jsp:include page="/jsp/Header.jsp" />
-<jsp:include page="/jsp/Footer.jsp" />
+
 </head>
 <body ng-app="GetDoctorApp">
-
+<div ng-include = "'/html/Header.html'"></div>
+<div ng-include = "'/html/Footer.html'"></div>
 	<div ng-controller="getDoctorController">
 		<div class="clickText">
 			<h3>

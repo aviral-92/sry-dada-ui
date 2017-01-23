@@ -6,11 +6,10 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="js/Doctor.js"></script>
-<jsp:include page="/jsp/Header.jsp" />
-<jsp:include page="/jsp/Footer.jsp" />
 </head>
 <body ng-app="UpdateDoctorApp">
-
+	<div ng-include="'/html/Header.html'"></div>
+	<div ng-include="'/html/Footer.html'"></div>
 	<div ng-controller="updateDoctorController">
 		<div class="clickText">
 			<h3>
@@ -48,51 +47,61 @@
 				<tr>
 					<td>Doctor Name</td>
 					<td><input name="mobile" type="text"
-						ng-model="doctor.doctorName" /></td><!-- {{doctor.doctorName}} -->
+						ng-model="doctor.doctorName" /></td>
+					<!-- {{doctor.doctorName}} -->
 				</tr>
 				<tr>
 					<td>Mobile Number</td>
-					<td><input ng-readonly="true" name="mobile" type="text" ng-model="doctor.doctorNumber"  /></td>
+					<td><input ng-readonly="true" name="mobile" type="text"
+						ng-model="doctor.doctorNumber" /></td>
 				</tr>
 				<tr>
 					<td>Adhar Number</td>
-					<td><input ng-readonly="true" name="mobile" type="text" ng-model="doctor.doctorAdhaarNumber"  /></td>
+					<td><input ng-readonly="true" name="mobile" type="text"
+						ng-model="doctor.doctorAdhaarNumber" /></td>
 				</tr>
 				<tr>
 					<td>Highest Degree</td>
 					<td><input name="mobile" type="text"
-						ng-model="doctor.doctorHighestDegree"  /></td><!-- {{doctor.doctorHighestDegree}} -->
+						ng-model="doctor.doctorHighestDegree" /></td>
+					<!-- {{doctor.doctorHighestDegree}} -->
 				</tr>
 				<tr>
 					<td>Govt Servent</td>
 					<td><input name="mobile" type="text"
-						ng-model="doctor.doctorGovtServent"  /></td><!-- {{doctor.doctorGovtServent}} -->
+						ng-model="doctor.doctorGovtServent" /></td>
+					<!-- {{doctor.doctorGovtServent}} -->
 				</tr>
 				<tr>
 					<td>Home Address</td>
 					<td><input name="mobile" type="text"
-						ng-model="doctor.doctorHomeAddress"  /></td><!-- {{doctor.doctorHomeAddress}} -->
+						ng-model="doctor.doctorHomeAddress" /></td>
+					<!-- {{doctor.doctorHomeAddress}} -->
 				</tr>
 				<tr>
 					<td>Expertise</td>
 					<td><input name="mobile" type="text"
-						ng-model="doctor.doctorExpertized"  /></td><!-- {{doctor.doctorExpertized}} -->
+						ng-model="doctor.doctorExpertized" /></td>
+					<!-- {{doctor.doctorExpertized}} -->
 				</tr>
 				<tr>
 					<td>Shop Address</td>
 					<td><input name="address" type="text"
-						ng-model="doctor.doctorShopAddress" /></td><!-- {{doctor.doctorShopAddress}} -->
-						<!--  <p>Text box status: {{ TextBoxStatus }}</p> -->
+						ng-model="doctor.doctorShopAddress" /></td>
+					<!-- {{doctor.doctorShopAddress}} -->
+					<!--  <p>Text box status: {{ TextBoxStatus }}</p> -->
 				</tr>
 				<tr>
 					<td>Consulting Fee</td>
 					<td><input name="mobile" type="text"
-						ng-model="doctor.doctorOneTimeConsultingFee"  /></td><!-- {{doctor.doctorOneTimeConsultingFee}} -->
+						ng-model="doctor.doctorOneTimeConsultingFee" /></td>
+					<!-- {{doctor.doctorOneTimeConsultingFee}} -->
 				</tr>
 				<tr>
 					<td>Free Consulting Fee</td>
 					<td><input name="mobile" type="text"
-						ng-model="doctor.doctorDaystoCheckFreeInConsultingFee"  /></td><!-- {{doctor.doctorDaystoCheckFreeInConsultingFee}} -->
+						ng-model="doctor.doctorDaystoCheckFreeInConsultingFee" /></td>
+					<!-- {{doctor.doctorDaystoCheckFreeInConsultingFee}} -->
 				</tr>
 				<tr>
 					<td><label>Click to Update</label></td>

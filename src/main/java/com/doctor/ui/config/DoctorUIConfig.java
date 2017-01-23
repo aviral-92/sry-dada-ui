@@ -19,8 +19,8 @@ public class DoctorUIConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/jsp/");
-		resolver.setSuffix(".jsp");
+		resolver.setPrefix("/html/");
+		resolver.setSuffix(".html");
 		return resolver;
 	}
 }
