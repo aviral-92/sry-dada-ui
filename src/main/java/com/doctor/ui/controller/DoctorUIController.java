@@ -1,23 +1,17 @@
 package com.doctor.ui.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.doctor.ui.impl.DoctorUiImpl;
-
 @RestController
 public class DoctorUIController {
 
-	@Autowired
-	private DoctorUiImpl doctorUiImpl;
-
-	@RequestMapping(value = "/")
+	/*@RequestMapping(value = "/")
 	public ModelAndView addDoctor() {
 
 		return new ModelAndView("test");
-	}
+	}*/
 
 	@RequestMapping(value = "/getdoctorui")
 	public ModelAndView getDoctorUI() {
@@ -60,5 +54,11 @@ public class DoctorUIController {
 	public ModelAndView updateDoctorUI(){
 		
 		return new ModelAndView("DoctorService/UpdateDoctorUI");
+	}
+	
+	@RequestMapping(value = "/test")
+	public ModelAndView test(){
+		
+		return new ModelAndView("test/index");
 	}
 }
