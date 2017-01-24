@@ -1,7 +1,7 @@
 /** **********************add Customer Start*********************** */
 
 var addCustomerJs = angular.module('patientApp',[]);
-addCustomerJs.controller('addCustomerController', function($scope, $http){
+addCustomerJs.controller('mainController', function($scope, $http){
 	$scope.customerAdd = function(customer){
 		console.log(customer);
 		 var res = $http
