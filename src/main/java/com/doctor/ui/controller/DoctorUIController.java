@@ -38,6 +38,12 @@ public class DoctorUIController {
 		return new ModelAndView("DoctorService/AddDoctor");
 	}
 	
+	@RequestMapping(value = "/testDoctor")
+	public ModelAndView testDoctor(){
+		
+		return new ModelAndView("testDoctor/DoctorIndex");
+	}
+	
 	@RequestMapping(value = "/deletedoctor")
 	public ModelAndView deleteDoctor(){
 		

@@ -36,4 +36,10 @@ public class PatientUIController {
 		
 		return new ModelAndView("PatientService/PatientHeader");
 	}
+	
+	@RequestMapping("test1")
+	public ModelAndView test(){
+		
+		return new ModelAndView("test/index");
+	}
 	}
