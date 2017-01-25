@@ -1,0 +1,107 @@
+<div class="container">
+	<h3 style="margin-left: 31%;">
+		Doctor SignUp
+	</h3>
+	<br />
+
+	<form name="patientForm" class="form form-horizontal" role="form"
+		novalidate>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name"> Name:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="name"
+					ng-model="customer.custName" placeholder="Enter name">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name"> Mobile
+				Number :</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="name"
+					ng-model="customer.custName" placeholder="Enter Mobile Number">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name"> Adhar
+				Number:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="name"
+					ng-model="customer.custName" placeholder="Enter Adhar Number">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name"> Home
+				Address:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="name"
+					ng-model="customer.custName" placeholder="Enter  Home Address">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name"> Highest
+				Degree:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="name"
+					ng-model="customer.custName" placeholder="Enter Highest Degree">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name"> Expertise:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="name"
+					ng-model="customer.custName" placeholder="Enter Expertise">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name"> Government:</label>
+			<div class="control-label col-sm-2" style="margin-top: -1%;">
+				<label class="radio-inline"> <input type="radio"
+					name="optradio">Yes
+				</label> <label class="radio-inline"> <input type="radio"
+					name="optradio">No
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name"> Shop
+				Address:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="name"
+					ng-model="customer.custName" placeholder="Enter Shop Address">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name">Consulting
+				Fees:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="name"
+					ng-model="customer.custName"
+					placeholder="Enter one time Consulting Fees">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name"> Free days:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="name"
+					ng-model="customer.custName" placeholder="Enter days to check Free">
+			</div>
+		</div>
+		<div class="form-group" ng-show="formAllGood()"></div>
+		<div class="form-group">
+			<div class="control-label col-sm-5">
+				<button class="btn btn-primary" ng-click="customerAdd(customer)">
+					<span class="glyphicon glyphicon-ok-circle"></span> Register
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

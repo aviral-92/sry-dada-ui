@@ -1,8 +1,12 @@
-scotchApp.controller('DoctorApp', function($scope){
+scotchApp.controller('middleContent',function($scope){
 	
 });
 
-scotchApp.controller('home',function($scope){
+scotchApp.controller('login',function($scope){
+	
+});
+
+scotchApp.controller('signUp',function($scope){
 	
 });
 

@@ -67,4 +67,11 @@ public class DoctorUIController {
 		
 		return new ModelAndView("test/index");
 	}
+	
+	@RequestMapping(value = "/template")
+	public ModelAndView template(){
+		
+		return new ModelAndView("/Template/index");
+	}
+	
 }
