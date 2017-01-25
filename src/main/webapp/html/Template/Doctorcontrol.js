@@ -6,8 +6,34 @@ scotchApp.controller('login',function($scope){
 	
 });
 
-scotchApp.controller('signUp',function($scope){
+scotchApp.controller('signUp',function($scope, $http){
+	console.log("Hello");
 	
+	$scope.doctorAdd = function(doctor, formName) {
+		
+		console.log(doctor);
+		$scope.submit = true;
+		/* console.log($scope.submit); */
+		console.log(formName);
+		   if ($scope[formName].$valid) {
+			   alert("test");
+			   var res = $http
+				.post(
+						'http://localhost:9090/doctor-management/adddoctor',
+						doctor);
+		res.success(function(data) {
+			alert(data.message);
+			$scope.isVisible = false;
+
+		});
+		res.error(function(data, status, headers, config) {
+			alert("failure message: " + data.message);
+		});
+	}else{
+		console.log("invalid")
+	}
+		   
+	}
 });
 
 scotchApp
@@ -53,7 +79,7 @@ scotchApp
 			}
 		});
 			
-//---------------------Add Doctor Angular JS code Ends--------------------
+// ---------------------Add Doctor Angular JS code Ends--------------------
 
 /** **********************get Customer Start*********************** */
 
@@ -156,7 +182,7 @@ scotchApp.controller('contactController', function($scope, $http) {
 /** **********************delete Customer Ends*********************** */
 /** **********************Update Customer Starts*********************** */
 
-//var updateCustomerJs = angular.module('UpdateCustomerApp', []);
+// var updateCustomerJs = angular.module('UpdateCustomerApp', []);
 scotchApp.controller('updateCustomerController', function($scope, $http) {
 	$scope.visible = false;
 	$scope.isVisible = false;
@@ -196,12 +222,16 @@ scotchApp.controller('updateCustomerController', function($scope, $http) {
 				custEmail: customer.custEmail,
 				custHomeAddress : customer.custHomeAddress,
 				custAadhaar : customer.custAadhaar,
-				/*doctorHighestDegree : customer.doctorHighestDegree,
-				doctorExpertized : customer.doctorExpertized,
-				doctorGovtServent : Boolean(customer.doctorGovt),
-				doctorOneTimeConsultingFee : customer.doctorOneTimeConsultingFee,
-				doctorDaystoCheckFreeInConsultingFee : parseInt(customer.doctorDaystoCheckFreeInConsultingFee),
-				doctorShopAddress : customer.doctorShopAddress*/
+				/*
+				 * doctorHighestDegree : customer.doctorHighestDegree,
+				 * doctorExpertized : customer.doctorExpertized,
+				 * doctorGovtServent : Boolean(customer.doctorGovt),
+				 * doctorOneTimeConsultingFee :
+				 * customer.doctorOneTimeConsultingFee,
+				 * doctorDaystoCheckFreeInConsultingFee :
+				 * parseInt(customer.doctorDaystoCheckFreeInConsultingFee),
+				 * doctorShopAddress : customer.doctorShopAddress
+				 */
 		}
 		console.log(updateCustomerArray);
 		updateCustomer(updateCustomerArray);
