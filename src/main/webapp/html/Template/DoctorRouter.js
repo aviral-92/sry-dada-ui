@@ -21,15 +21,15 @@ scotchApp.config(function($routeProvider) {
 	})
 
 	// route for the contact page
-	.when('/deletePatient', {
-		templateUrl : '/html/testDoctor/deletePatient.html',
-		controller : 'deleteDoctorController'
+	.when('/about', {
+		templateUrl : '/html/Template/about.html',
+		controller : 'about'
 	})
 
 	
-	.when('/updatePatient', {
-		templateUrl : '/html/testDoctor/updatePatient.html',
-		controller : 'updateDoctorController'
+	.when('/contact', {
+		templateUrl : '/html/Template/contact.html',
+		controller : 'contact'
 	});
 });
 

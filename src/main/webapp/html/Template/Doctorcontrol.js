@@ -6,17 +6,24 @@ scotchApp.controller('login',function($scope){
 	
 });
 
+scotchApp.controller('about',function($scope){
+	
+});
+
+scotchApp.controller('contact',function($scope){
+	
+});
+
 scotchApp.controller('signUp',function($scope, $http){
 	console.log("Hello");
-	
+
 	$scope.doctorAdd = function(doctor, formName) {
 		
-		console.log(doctor);
 		$scope.submit = true;
-		/* console.log($scope.submit); */
+		/*console.log($scope.submit);*/
 		console.log(formName);
 		   if ($scope[formName].$valid) {
-			   alert("test");
+			  /* alert("test");*/
 			   var res = $http
 				.post(
 						'http://localhost:9090/doctor-management/adddoctor',
@@ -29,12 +36,10 @@ scotchApp.controller('signUp',function($scope, $http){
 		res.error(function(data, status, headers, config) {
 			alert("failure message: " + data.message);
 		});
-	}else{
-		console.log("invalid")
 	}
-		   
+		   console.log(doctor);
 	}
-});
+	});
 
 scotchApp
 .controller(
