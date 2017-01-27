@@ -1,0 +1,109 @@
+<div class="container">
+	<h3 style="margin-left: 31%;">Patient SignUp</h3>
+	<br />
+
+	<form name="doctorForm" class="form form-horizontal"
+		novalidate="novalidate">
+
+		<div class="form-group" ng-class="{error:!doctorForm.name.$valid}">
+			<label class="control-label col-sm-2" for="name"> Name:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="name" name="name"
+					ng-model="doctor.doctorName" placeholder="Enter name" valid-Name />
+
+				<div class="help-inline">
+					<span ng-show="!!doctorForm.name.$error.isBlank">Patient
+						Name Required.</span> <span
+						ng-show="!!doctorForm.name.$error.invalidChars">Patient
+						Name must contain letters &amp; spaces only.</span> <span
+						ng-show="!!doctorForm.name.$error.invalidLen">Patient Name
+						must be 3-20 characters.</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group" ng-class="{error:!doctorForm.mobile.$valid}">
+			<label class="control-label col-sm-2" for="name"> Mobile
+				Number :</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="mobile" name="mobile"
+					ng-model="doctor.doctorNumber" placeholder="Enter Mobile Number"
+					valid-Mobile />
+
+				<div class="help-inline">
+					<span ng-show="!!doctorForm.mobile.$error.isBlank">Patient
+						mobile number Required.</span> <span
+						ng-show="!!doctorForm.mobile.$error.invalidChars">Patient
+						mobile number must contain numbers only.</span> <span
+						ng-show="!!doctorForm.mobile.$error.invalidLen">Patient
+						mobile number must be 10 digits.</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group" ng-class="{error:!doctorForm.adhar.$valid}">
+			<label class="control-label col-sm-2" for="name"> Adhar
+				Number:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="adhar" name="adhar"
+					ng-model="doctor.doctorAdhaarNumber"
+					placeholder="Enter Adhar Number" valid-Adhar />
+
+				<div class="help-inline">
+					<span ng-show="!!doctorForm.adhar.$error.isBlank">Patient
+						adhar number Required.</span> <span
+						ng-show="!!doctorForm.adhar.$error.invalidChars">Patient
+						adhar number must contain numbers only.</span> <span
+						ng-show="!!doctorForm.adhar.$error.invalidLen">Patient
+						adhar number must be 12 digits.</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group" ng-class="{error:!doctorForm.adhar.$valid}">
+			<label class="control-label col-sm-2" for="name"> Email Id:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="adhar" name="adhar"
+					ng-model="doctor.doctorAdhaarNumber"
+					placeholder="Enter Adhar Number" valid-Adhar />
+
+				<div class="help-inline">
+					<span ng-show="!!doctorForm.adhar.$error.isBlank">Patient
+						adhar number Required.</span> <span
+						ng-show="!!doctorForm.adhar.$error.invalidChars">Patient
+						adhar number must contain numbers only.</span> <span
+						ng-show="!!doctorForm.adhar.$error.invalidLen">Patient
+						adhar number must be 12 digits.</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" ng-class="{error:!doctorForm.address.$valid}">
+			<label class="control-label col-sm-2" for="name"> Home
+				Address:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="address" name="address"
+					ng-model="doctor.doctorHomeAddress"
+					placeholder="Enter  Home Address" valid-Address />
+
+				<div class="help-inline">
+					<span ng-show="!!doctorForm.address.$error.isBlank">Patient
+						address Required.</span> <span
+						ng-show="!!doctorForm.address.$error.invalidChars">Patient
+						address must contain Alphabets and spaces only.</span> <span
+						ng-show="!!doctorForm.address.$error.invalidLen">Patient
+						address must be 3 to 30 characters.</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group" ng-show="formAllGood()"></div>
+		<div class="form-group">
+			<div class="control-label col-sm-5">
+				<button class="btn btn-primary"
+					ng-click="doctorAdd(doctor, 'doctorForm')">
+					<span class="glyphicon glyphicon-ok-circle"></span> Register
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

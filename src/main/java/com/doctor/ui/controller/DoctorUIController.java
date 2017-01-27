@@ -74,4 +74,9 @@ public class DoctorUIController {
 		return new ModelAndView("/Template/index");
 	}
 	
+	@RequestMapping(value = "/mahi")
+	public ModelAndView template123(){
+		
+		return new ModelAndView("/dummy folder/updatedialoguebox");
+	}
 }

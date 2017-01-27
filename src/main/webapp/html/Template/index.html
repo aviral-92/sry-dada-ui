@@ -4,41 +4,104 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Doctor Home Page</title>
 <link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/html/Template/style.css"
-	media="screen" />
-<!--[if IE 6]> <link rel="stylesheet" type="text/css" href="iecss.css" /> <![endif]-->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<!-- Image Preloader -->
-<script type="text/javascript"
-	src="http://ajax.googlesapi.com/ajax/libs/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="/html/Template/DoctorRouter.js"></script>
-<script type="text/javascript" src="/html/Template/Doctorcontrol.js"></script>
-<script type="text/javascript" src="/html/Template/DoctorValidation.js"></script>
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/html/Template/style.css"
+		media="screen" />
+	<!--[if IE 6]> <link rel="stylesheet" type="text/css" href="iecss.css" /> <![endif]-->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script
+		src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Image Preloader -->
+	<script type="text/javascript"
+		src="http://ajax.googlesapi.com/ajax/libs/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/html/Template/DoctorRouter.js"></script>
+	<script type="text/javascript" src="/html/Template/Doctorcontrol.js"></script>
+	<script type="text/javascript" src="/html/Template/DoctorValidation.js"></script>
+	<style>
+.dropbtn {
+	background-color: #ffffff;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+}
+</style>
 </head>
 <body>
 	<div id="main_container">
 		<div class="header">
 			<div id="logo">
-				<a href="/html/Template/index.html"><img src="/html/Template/images/logo.png"
-					alt="" title="" border="0" height="54" width="162" /></a>
+				<a href="/html/Template/index.html"><img
+					src="/html/Template/images/logo.png" alt="" title="" border="0"
+					height="54" width="162" /></a>
 			</div>
 			<div class="right_header">
 				<div class="top_menu">
-					<a href="#/login" class="login">login</a> <a href="#/signUp" class="sign_up">signup</a>
+					<div class="dropdown">
+						<button>
+							<a href="#" class="login">login</a>
+						</button>
+						<div class="dropdown-content">
+							<a href="#/login">Doctor Login</a>
+							 <a href="#/plogin">Patient Login</a>
+						</div>
+					</div>
+					
+					<div class="dropdown">
+						<button>
+							<a href="#" class="sign_up">signup</a>
+						</button>
+						<div class="dropdown-content">
+							<a href="#/signUp">Doctor signup</a>
+							 <a href="#/psignup">Patient signup</a>
+						</div>
+					</div>
+					
 				</div>
 				<div id="menu">
 					<ul>
 						<li><a class="current" href="#" title="">Home</a></li>
 						<li><a href="#/about" title="">About Us</a></li>
-						<li><a href="#" title="">Services</a></li>
+						<li><a href="#/get" title="">Services</a></li>
 						<li><a href="#/contact" title="">Contact Us</a></li>
 					</ul>
 				</div>

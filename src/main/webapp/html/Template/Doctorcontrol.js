@@ -13,6 +13,16 @@ scotchApp.controller('about',function($scope){
 scotchApp.controller('contact',function($scope){
 	
 });
+scotchApp.controller('plogin',function($scope){
+	
+});
+scotchApp.controller('psignup',function($scope){
+	
+});
+// dummy folder linked up for get, update, delete doctor UI 
+scotchApp.controller('get',function($scope){
+
+});
 
 scotchApp.controller('signUp',function($scope, $http){
 	console.log("Hello");
@@ -20,10 +30,10 @@ scotchApp.controller('signUp',function($scope, $http){
 	$scope.doctorAdd = function(doctor, formName) {
 		
 		$scope.submit = true;
-		/*console.log($scope.submit);*/
+		/* console.log($scope.submit); */
 		console.log(formName);
 		   if ($scope[formName].$valid) {
-			  /* alert("test");*/
+			  /* alert("test"); */
 			   var res = $http
 				.post(
 						'http://localhost:9090/doctor-management/adddoctor',
