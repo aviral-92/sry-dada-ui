@@ -13,9 +13,9 @@ scotchApp.config(function($routeProvider) {
 		templateUrl : '/html/Template/Login.html',
 		controller : 'login'
 	})
-	.when('/plogin', {
+	.when('/patientlogin', {
 		templateUrl : '/html/dummy folder/PatientLogin.html',
-		controller : 'plogin'
+		controller : 'patientlogin'
 	})
 
 	// route for the about page
@@ -24,14 +24,14 @@ scotchApp.config(function($routeProvider) {
 		controller : 'signUp'
 	})
 
-	// route for the contact page PatientSignUp
+	// route for the contact page 
 	.when('/about', {
 		templateUrl : '/html/Template/about.html',
 		controller : 'about'
 	})
-	.when('/psignup', {
+	.when('/patientsignup', {
 		templateUrl : '/html/dummy folder/PatientSignUp.html',
-		controller : 'psignup'
+		controller : 'patientsignup'
 	})
 
 	.when('/contact', {
