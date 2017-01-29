@@ -2,8 +2,46 @@ scotchApp.controller('middleContent',function($scope){
 	
 });
 
-scotchApp.controller('login',function($scope){
+scotchApp.controller('login',function($scope, $rootScope){
+	alert("ddd");
+	$scope.doctorLogin = function(loginDetail){
+		console.log(loginDetail);
+		if(loginDetail.password == 'admin'){
+			$scope.message = 'Successfully Logged in...!!!';
+			$rootScope.login = loginDetail;
+			window.location = "#/drLoginSuccess";
+		}else{
+			$scope.message = 'Invalid Credentials...!!!';
+		}
+	}
+});
+
+scotchApp.controller('drLoginSuccess', function($scope, $rootScope, $http){
 	
+//	$scope.message = 'Hi '+$rootScope.login.email+ ', Login successful...';
+	$scope.drUpdate = false;
+	$scope.updateVisible = false;
+	$scope.newValue = function(value){
+		console.log(value);
+		if(value == 'update'){
+			$scope.drUpdate = true;
+			$scope.demo = function(doctor){
+				console.log(">>>>>>>>>>>> Demo" +doctor);
+				$scope.updateVisible = true;
+				var res = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyid/'+doctor.doctorId);
+				res.success(function(data) {
+					alert(data);
+					$scope.updateVisible = true;
+					$scope.doctors = data;
+				});
+				res.error(function(data, status, headers, config) {
+					alert("failure message: " + data.message);
+				});
+			}
+		}else{
+			$scope.drUpdate = false;
+		}
+	}
 });
 
 scotchApp.controller('about',function($scope){

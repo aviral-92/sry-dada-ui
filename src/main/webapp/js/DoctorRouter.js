@@ -14,6 +14,13 @@ scotchApp.config(function($routeProvider) {
 		templateUrl : '/html/Login.html',
 		controller : 'login'
 	})
+	
+	// route for the login Success page
+	.when('/drLoginSuccess', {
+		templateUrl : '/html/Dr_LoginSuccess.html',
+		controller : 'drLoginSuccess'
+	})
+	
 	// route for the patient login page
 	.when('/patientlogin', {
 		templateUrl : '/html/PatientLogin.html',
