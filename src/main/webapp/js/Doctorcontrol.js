@@ -18,31 +18,56 @@ scotchApp.controller('login',function($scope, $rootScope){
 
 scotchApp.controller('drLoginSuccess', function($scope, $rootScope, $http){
 	
-//	$scope.message = 'Hi '+$rootScope.login.email+ ', Login successful...';
+// $scope.message = 'Hi '+$rootScope.login.email+ ', Login successful...';
 	$scope.drUpdate = false;
-	$scope.updateVisible = false;
 	$scope.newValue = function(value){
 		console.log(value);
 		if(value == 'update'){
 			$scope.drUpdate = true;
 			$scope.demo = function(doctor){
 				console.log(">>>>>>>>>>>> Demo" +doctor);
-				$scope.updateVisible = true;
-				var res = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyid/'+doctor.doctorId);
-				res.success(function(data) {
-					alert(data);
-					$scope.updateVisible = true;
-					$scope.doctors = data;
-				});
-				res.error(function(data, status, headers, config) {
-					alert("failure message: " + data.message);
-				});
+				var doctorGet = null;
+				if(doctor.doctorId != null){
+					doctorGet = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyid/'+doctor.doctorId);
+					doctorUpdateAjax(doctorGet, $scope);
+				}
+				else if(doctor.doctorMobileNumber != null){
+					doctorGet = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbymobilenumber/'+doctor.doctorMobileNumber);
+					doctorUpdateAjax(doctorGet, $scope);
+				}else if(doctor.doctorAdharNumber != null){
+					doctorGet = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyadharNumber/'+doctor.doctorAdharNumber);
+					doctorUpdateAjax(doctorGet, $scope);
+				}else{
+					
+				}
 			}
 		}else{
 			$scope.drUpdate = false;
 		}
 	}
 });
+
+function doctorUpdateAjax(doctorGet, $scope){
+	
+	doctorGet.success(function(data) {
+		$scope.doctors = data;
+		console.log($scope.doctors);
+		
+		$scope.doctorUpdate = function(doctorUpdate){
+			console.log(doctorUpdate);
+			var doctorUpdate = $http.put('https://doctor-service.cfapps.io/doctor-management/updatedoctor', doctorUpdate);
+			doctorUpdate.success(function(updateResponse) {
+				$scope.doctorUpdate = updateResponse.message;
+			});
+			doctorGet.error(function(updateResponse, status, headers, config) {
+				alert("failure message: " + updateResponse.message);
+			});
+		}
+	});
+	doctorGet.error(function(data, status, headers, config) {
+		alert("failure message: " + data.message);
+	});
+}
 
 scotchApp.controller('about',function($scope){
 	
