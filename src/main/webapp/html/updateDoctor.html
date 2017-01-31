@@ -46,108 +46,111 @@
 						<h4 class="modal-title">Doctor Update</h4>
 					</div>
 					<div class="modal-body">
-						<form class="form-horizontal" role="form">
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name">Doctor
-									Id:</label>
-								<div class="col-sm-5">
-									<input type="text" ng-readonly="true" class="form-control"
-										id="name" ng-model="doctors.doctorId">
+						<div ng-show="modalBody">
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name">Doctor
+										Id:</label>
+									<div class="col-sm-5">
+										<input type="text" ng-readonly="true" class="form-control"
+											id="name" ng-model="doctors.doctorId">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name">Name:</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="name"
-										ng-model="doctors.doctorName">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name">Name:</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="name"
+											ng-model="doctors.doctorName">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name">Mobile
-									Number:</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="name"
-										ng-model="doctors.doctorNumber">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name">Mobile
+										Number:</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="name"
+											ng-model="doctors.doctorNumber">
+									</div>
 								</div>
-							</div>
 
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name"> Adhar
-									Number:</label>
-								<div class="col-sm-5">
-									<input type="text" ng-readonly="true" class="form-control"
-										id="name" ng-model="doctors.doctorAdhaarNumber">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name"> Adhar
+										Number:</label>
+									<div class="col-sm-5">
+										<input type="text" ng-readonly="true" class="form-control"
+											id="name" ng-model="doctors.doctorAdhaarNumber">
+									</div>
 								</div>
-							</div>
 
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name">Highest
-									Degree:</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="name"
-										ng-model="doctors.doctorHighestDegree">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name">Highest
+										Degree:</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="name"
+											ng-model="doctors.doctorHighestDegree">
+									</div>
 								</div>
-							</div>
 
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name">Goverment
-									Servent:</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="name"
-										ng-model="doctors.doctorGovtServent">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name">Goverment
+										Servent:</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="name"
+											ng-model="doctors.doctorGovtServent">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name">Home
-									Address:</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="name"
-										ng-model="doctors.doctorHomeAddress">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name">Home
+										Address:</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="name"
+											ng-model="doctors.doctorHomeAddress">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name">Expertise:</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="name"
-										ng-model="doctors.doctorExpertized">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name">Expertise:</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="name"
+											ng-model="doctors.doctorExpertized">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name">Shop
-									Address:</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="name"
-										ng-model="doctors.doctorShopAddress">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name">Shop
+										Address:</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="name"
+											ng-model="doctors.doctorShopAddress">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name">Consulting
-									Fees:</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="name"
-										ng-model="doctors.doctorOneTimeConsultingFee">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name">Consulting
+										Fees:</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="name"
+											ng-model="doctors.doctorOneTimeConsultingFee">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-2" for="name">Free
-									Days:</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="name"
-										ng-model="doctors.doctorDaystoCheckFreeInConsultingFee">
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="name">Free
+										Days:</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="name"
+											ng-model="doctors.doctorDaystoCheckFreeInConsultingFee">
+									</div>
 								</div>
-							</div>
 
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-10">
-									<button class="btn btn-success"
-										ng-click="doctorUpdate(doctors)" data-toggle="modal"
-										data-target="#myModal1">
-										<span class="glyphicon glyphicon-circle-arrow-right"></span>
-										Update Doctor
-									</button>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button class="btn btn-success"
+											ng-click="doctorUpdate(doctors)" data-toggle="modal"
+											data-target="#myModal1">
+											<span class="glyphicon glyphicon-circle-arrow-right"></span>
+											Update Doctor
+										</button>
+									</div>
 								</div>
-							</div>
-						</form>
+							</form>
+						</div>
+						{{modalBodyMsg}}
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
