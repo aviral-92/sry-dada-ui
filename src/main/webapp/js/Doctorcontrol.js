@@ -31,20 +31,20 @@ scotchApp.controller('drLoginSuccess', function($scope, $rootScope, $http){
 					// Ajax on basis of doctorId.
 					doctorGet = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyid/'+doctor.doctorId);
 					// Function called
-					doctorUpdateAjax(doctorGet, $scope);
+					doctorUpdateAjax(doctorGet, $scope, $http);
 					$scope.modalBody = true;
 				}
 				else if(doctor != null && doctor.doctorMobileNumber != null && doctor.doctorMobileNumber != ""){
 					// Ajax on basis of doctorMobileNumber.
 					doctorGet = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbymobilenumber/'+doctor.doctorMobileNumber);
 					// Function called
-					doctorUpdateAjax(doctorGet, $scope);
+					doctorUpdateAjax(doctorGet, $scope, $http);
 					$scope.modalBody = true;
 				}else if(doctor != null && doctor.doctorAdharNumber != null && doctor.doctorAdharNumber != ""){
 					// Ajax on basis of doctorAdhaarNumber.
 					doctorGet = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyadharNumber/'+doctor.doctorAdharNumber);
 					// Function called
-					doctorUpdateAjax(doctorGet, $scope);
+					doctorUpdateAjax(doctorGet, $scope, $http);
 					$scope.modalBody = true;
 				}else{
 					$scope.modalBody = false;
@@ -57,7 +57,7 @@ scotchApp.controller('drLoginSuccess', function($scope, $rootScope, $http){
 	}
 });
 
-function doctorUpdateAjax(doctorGet, $scope){
+function doctorUpdateAjax(doctorGet, $scope, $http){
 	
 	// Get before update...
 	doctorGet.success(function(data) {
@@ -70,12 +70,12 @@ function doctorUpdateAjax(doctorGet, $scope){
 			$scope.modalBodyMsg = " Please provide correct value.";
 		}
 		// Update function calls
-		$scope.doctorUpdate = function(doctorUpdate){
-			console.log(doctorUpdate);
+		$scope.doctorUpdate = function(doctorUpdateValue){
+			console.log(doctorUpdateValue);
 			// Update Ajax hit
-			var doctorUpdate = $http.put('https://doctor-service.cfapps.io/doctor-management/updatedoctor', doctorUpdate);
+			var updateDoctor = $http.put('https://doctor-service.cfapps.io/doctor-management/updatedoctor', doctorUpdateValue);
 			// For success
-			doctorUpdate.success(function(updateResponse) {
+			updateDoctor.success(function(updateResponse) {
 				$scope.doctorUpdate = updateResponse.message;
 			});
 			// For error
