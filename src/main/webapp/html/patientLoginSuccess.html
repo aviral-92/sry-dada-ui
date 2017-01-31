@@ -1,0 +1,18 @@
+<div class="control-label">{{message}}</div>
+<div class=" control-label">What you want to do...!!!</div>
+<div class="control-label">
+	<label class="radio-inline"><input type="radio"
+		ng-change="newValue('update')" name="patientDeleteUpdate"
+		value="update" ng-model="value">Update</label> <label
+		class="radio-inline"><input type="radio"
+		ng-change="newValue('delete')" name="patientDeleteUpdate"
+		value="delete" ng-model="value">Delete</label>
+</div>
+
+
+<div ng-show="patientUpdate">
+
+	<br> <br>
+	<div ng-include="'/html/updatePatient.html'"></div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
