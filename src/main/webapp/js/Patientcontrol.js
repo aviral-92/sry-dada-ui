@@ -17,28 +17,30 @@ scotchApp.controller('patientlogin',function($scope){
 scotchApp.controller('patientLoginSuccess', function($scope, $rootScope, $http){
 	
 	$scope.patientUpdate = false;
+	$scope.patientDelete = false;
 	$scope.newValue = function(value){
 		console.log(value);
 		if(value=='update'){
+			$scope.patientDelete = false;
 			$scope.patientUpdate = true;
 			$scope.demo = function(patient){
 				console.log(">>>>>>>>>>>> Demo" +patient.patientId);
 				var patientGet = null;
 				if(patient!=null && patient.patientId!=null && patient.patientId!=""){
-					patientGet = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyid/'+patient.patientId);
+					patientGet = $http.get('http://patient-service.cfapps.io/patient/getpatientById/'+patient.patientId);
 					patientUpdateAjax(patientGet, $scope, $http);
 					$scope.modalBody = true;
 					}
 				else if(patient!=null && patient.patientMobileNumber != null && patient.patientMobileNumber!=""){
 					// Ajax on basis of patientMobileNumber.
-					patientGet = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbymobilenumber/'+patient.patientMobileNumber);
+					patientGet = $http.get('http://patient-service.cfapps.io/patient/getPatientByMobile/'+patient.patientMobileNumber);
 					// Function called
 					patientUpdateAjax(patientGet, $scope, $http);
 					$scope.modalBody = true;
 					
 				}else if(patient != null && patient.patientAdharNumber != null && patient.patientAdharNumber != ""){
 					// Ajax on basis of patientAdhaarNumber.
-					patientGet = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyadharNumber/'+patient.patientAdharNumber);
+					patientGet = $http.get('http://patient-service.cfapps.io/patient/getPatientByAadhar/'+patient.patientAdharNumber);
 					// Function called
 					patientUpdateAjax(patientGet, $scope, $http);
 					$scope.modalBody = true;
@@ -47,12 +49,16 @@ scotchApp.controller('patientLoginSuccess', function($scope, $rootScope, $http){
 					$scope.modalBodyMsg = " Please provide input";
 				}
 				}
+			}else if(value=='delete'){
+			$scope.patientDelete = true;
+			$scope.patientUpdate = false;
 			}else{
+				$scope.patientDelete = false;
 				$scope.patientUpdate = false;
 			}
 		}
 });
-
+//patientUpdateAjax Starts
 function patientUpdateAjax(patientGet, $scope, $http){
 	
 	// Get before update...
@@ -69,7 +75,7 @@ function patientUpdateAjax(patientGet, $scope, $http){
 		$scope.patientUpdate = function(patientUpdateValue){
 			console.log(patientUpdateValue);
 			// Update Ajax hit
-			var updatepatient = $http.put('https://doctor-service.cfapps.io/doctor-management/updatedoctor', patientUpdateValue);
+			var updatepatient = $http.put('http://patient-service.cfapps.io/patient', patientUpdateValue);
 			// For success
 			updatepatient.success(function(updateResponse) {
 				$scope.patientUpdate = updateResponse.message;
@@ -87,6 +93,45 @@ function patientUpdateAjax(patientGet, $scope, $http){
 	});
 	return;
 }
+// patientUpdateAjax Ends
+
+
+//------------------------------------------------------------patientDeleteAjax Starts
+function patientDeleteAjax(patientGet, $scope, $http){
+	
+	// Get before update...
+	patientGet.success(function(data) {
+		$scope.patients = data;
+		console.log($scope.patients);
+		
+		// if no value found then it will display this
+		if(data.patientId == null){
+			$scope.modalBody = false;
+			$scope.modalBodyMsg = " Please provide correct value.";
+		}
+		// Update function calls
+		$scope.patientDelete = function(patientUpdateValue){
+			console.log(patientDeleteValue);
+			// Update Ajax hit
+			var deletepatient = $http.put('https://doctor-service.cfapps.io/doctor-management/updatedoctor', patientUpdateValue);
+			// For success
+			deletepatient.success(function(updateResponse) {
+				$scope.patientDelete = updateResponse.message;
+			});
+			// For error
+			patientGet.error(function(deleteResponse, status, headers, config) {
+				alert("failure message: " + deleteResponse.message);
+			});
+		}
+	});
+	patientGet.error(function(data, status, headers, config) {
+		alert("failure message: " + data.message);
+		$scope.modalBody = false;
+		$scope.modalBodyMsg = " Please provide correct value.";
+	});
+	return;
+}
+//------------------------------------------------------------patientDeleteAjax Ends
 //Patient Login Success Ends---------------------------------------------------------------------------------------
 //patient sign up Starts------------------------------------------------------------------------------------------------
 scotchApp.controller('patientsignup',function($scope, $http){
