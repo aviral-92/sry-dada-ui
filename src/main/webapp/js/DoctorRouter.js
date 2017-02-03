@@ -17,7 +17,7 @@ scotchApp.config(function($routeProvider) {
 
 	// route for the login Success page
 	.when('/drLoginSuccess', {
-		templateUrl : '/html/Dr_LoginSuccess.html',
+		templateUrl : '/html/Dashboard/AfterLogin.html',
 		controller : 'drLoginSuccess'
 	})
 

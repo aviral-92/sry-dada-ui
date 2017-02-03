@@ -20,12 +20,15 @@ scotchApp.controller('drLoginSuccess', function($scope, $rootScope, $http){
 	
 // $scope.message = 'Hi '+$rootScope.login.email+ ', Login successful...';
 	$scope.drUpdate = false;
+	$scope.drDelete = false;
 	$scope.newValue = function(value){
 		console.log(value);
 		if(value == 'update'){
+			$scope.drDelete = false;
 			$scope.drUpdate = true;
+			// getDoctorFields on button click
 			$scope.demo = function(doctor){
-				console.log(">>>>>>>>>>>> Demo" +doctor.doctorId);
+				console.log(">>>>>>>>>>>> getDoctorFields" +doctor.doctorId);
 				var doctorGet = null;
 				if(doctor != null && doctor.doctorId != null && doctor.doctorId != ""){
 					// Ajax on basis of doctorId.
@@ -51,6 +54,10 @@ scotchApp.controller('drLoginSuccess', function($scope, $rootScope, $http){
 					$scope.modalBodyMsg = " Please provide input";
 				}
 			}
+		}else if(value == 'delete'){
+			$scope.drUpdate = false;
+			$scope.drDelete = true;
+			
 		}else{
 			$scope.drUpdate = false;
 		}
