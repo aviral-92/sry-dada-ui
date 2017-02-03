@@ -2,7 +2,7 @@ scotchApp.controller('middleContent',function($scope){
 	
 });
 
-scotchApp.controller('login',function($scope, $rootScope, $http){
+scotchApp.controller('login',function($scope, $rootScope, $http/*, $cookieStore*/){
 
 	$scope.doctorLogin = function(loginDetail){
 		console.log(loginDetail);
@@ -17,6 +17,7 @@ scotchApp.controller('login',function($scope, $rootScope, $http){
 			if(getDoctorDetails.doctorId != null){
 				$scope.message = 'Successfully Logged in...!!!';
 				$rootScope.getDoctorByMobile = getDoctorDetails; //TODO need to change by Email...
+				
 				window.location = "#/afterLogin";
 			}else{
 				$scope.message = 'Invalid Credentials...!!!';
@@ -481,7 +482,7 @@ scotchApp.controller('updateProfile',function($scope, $rootScope, $http){
 
 scotchApp.controller('afterLogin',function($scope, $rootScope){
 	
-	console.log(">"+$rootScope.getDoctorByMobile);
+	console.log(">>>>>>>"+$rootScope.getDoctorByMobile);
 	$scope.doctor = $rootScope.getDoctorByMobile;
 });
 /** **********************Dashboard Ends*********************** */

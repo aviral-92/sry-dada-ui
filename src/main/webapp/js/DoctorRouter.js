@@ -1,4 +1,4 @@
-var scotchApp = angular.module('myApp', [ 'ngRoute', 'UserValidation' ]);
+var scotchApp = angular.module('myApp', [ 'ngCookies', 'ngRoute', 'UserValidation' ]);
 
 scotchApp.config(function($routeProvider) {
 	$routeProvider
