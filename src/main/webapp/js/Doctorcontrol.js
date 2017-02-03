@@ -2,17 +2,40 @@ scotchApp.controller('middleContent',function($scope){
 	
 });
 
-scotchApp.controller('login',function($scope, $rootScope){
-	alert("ddd");
+scotchApp.controller('login',function($scope, $rootScope, $http){
+
 	$scope.doctorLogin = function(loginDetail){
 		console.log(loginDetail);
-		if(loginDetail.password == 'admin'){
+		//TODO need to change with email.
+		var loginSuccessful = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbymobilenumber/'+loginDetail.email);
+		console.log(">>>>>>>>>" + loginSuccessful.success);
+		
+		loginSuccessful.success(function(getDoctorDetails) {
+			alert("ddd");
+//			$scope.doctors = data;
+//			console.log($scope.doctors);
+			if(getDoctorDetails.doctorId != null){
+				$scope.message = 'Successfully Logged in...!!!';
+				$rootScope.getDoctorByMobile = getDoctorDetails; //TODO need to change by Email...
+				window.location = "#/afterLogin";
+			}else{
+				$scope.message = 'Invalid Credentials...!!!';
+			}
+		});
+		loginSuccessful.error(function(data, status, headers, config) {
+			alert("failure message: " + data.message);
+			$scope.message = 'Invalid Credentials...!!!';
+//			$scope.modalBody = false;
+//			$scope.modalBodyMsg = " Please provide correct value.";
+		});
+		
+		/*if(loginDetail.password == 'admin'){
 			$scope.message = 'Successfully Logged in...!!!';
 			$rootScope.login = loginDetail;
 			window.location = "#/drLoginSuccess";
 		}else{
 			$scope.message = 'Invalid Credentials...!!!';
-		}
+		}*/
 	}
 });
 
@@ -434,3 +457,31 @@ scotchApp.controller('updateCustomerController', function($scope, $http) {
 });
 
 /** **********************Update Customer Ends*********************** */
+
+
+/** **********************Dashboard Starts*********************** */
+scotchApp.controller('updateProfile',function($scope, $rootScope, $http){
+	
+	$scope.doctors = $rootScope.getDoctorByMobile;
+	
+	$scope.doctorUpdate = function(doctorUpdateValue){
+		console.log(doctorUpdateValue);
+		// Update Ajax hit
+		var updateDoctor = $http.put('https://doctor-service.cfapps.io/doctor-management/updatedoctor', doctorUpdateValue);
+		// For success
+		updateDoctor.success(function(updateResponse) {
+			$scope.successMessage = "Successfully Updated...!!!";
+		});
+		// For error
+		updateDoctor.error(function(updateResponse, status, headers, config) {
+			alert("failure message: " + updateResponse.message);
+		});
+	}
+});
+
+scotchApp.controller('afterLogin',function($scope, $rootScope){
+	
+	console.log(">"+$rootScope.getDoctorByMobile);
+	$scope.doctor = $rootScope.getDoctorByMobile;
+});
+/** **********************Dashboard Ends*********************** */

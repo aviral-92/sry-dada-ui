@@ -54,5 +54,15 @@ scotchApp.config(function($routeProvider) {
 	.when('/contact', {
 		templateUrl : '/html/contact.html',
 		controller : 'contact'
+	})
+	//route for dashboard update profile
+	.when('/updateProfile', {
+		templateUrl : '/html/Dashboard/updateProfile.html',
+		controller : 'updateProfile'
+	})
+	//route for dashboard home page
+	.when('/afterLogin', {
+		templateUrl : '/html/Dashboard/AfterLogin.html',
+		controller : 'afterLogin'
 	});
 });
