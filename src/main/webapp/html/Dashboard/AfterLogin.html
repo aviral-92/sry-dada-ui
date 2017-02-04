@@ -16,7 +16,7 @@
 				<div class="col-sm-3">
 					<!-- <input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="" placeholder="Enter Name"/> -->
-					<label class="control-label col-sm-3" for="inputError2">{{doctor.doctorName}}
+					<label class="control-label col-sm-3" for="inputError2">{{doctor.name}}
 					</label>
 				</div>
 			</div>
@@ -27,7 +27,7 @@
 					<!-- <input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="" placeholder="Enter Mobile"/> -->
 					<label class="control-label col-sm-3" for="inputError2">
-						{{doctor.doctorNumber}}</label>
+						{{doctor.mobile}}</label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -37,7 +37,7 @@
 					<!-- 	<input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="" placeholder="Enter Adhaar"/> -->
 					<label class="control-label col-sm-3" for="inputError2">
-						{{doctor.doctorAdhaarNumber}}</label>
+						{{doctor.aadhaarNumber}}</label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -47,7 +47,28 @@
 					<!-- <input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="" placeholder="Enter Email"/> -->
 					<label class="control-label col-sm-3" for="inputError2">
-						Email</label>
+						{{doctor.email}}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="inputError2">
+					Age :</label>
+				<div class="col-sm-3">
+					<!-- <input type="text" class="form-control" id="mobile" name="mobile"
+					ng-model="" placeholder="Enter Email"/> -->
+					<label class="control-label col-sm-3" for="inputError2">
+						{{doctor.age}}</label>
+				</div>
+			</div>
+				<div class="form-group">
+				<label class="control-label col-sm-3" for="name">
+					Gender:</label>
+				<div class="control-label col-sm-2" style="margin-top: -1%;">
+					<label class="radio-inline"> <input type="radio"
+						name="optradio1" ng-model="doctor.gender" ng-value='1' />Male
+					</label> <label class="radio-inline"> <input type="radio"
+						name="optradio1" ng-model="doctor.gender" ng-value='0' />Female
+					</label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -57,7 +78,7 @@
 					<!-- <input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="" placeholder="Enter Clinic Address"/> -->
 					<label class="control-label col-sm-3" for="inputError2">
-						{{doctor.doctorShopAddress}}</label>
+						{{doctor.clinicAddress}}</label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -67,7 +88,7 @@
 					<!-- <input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="" placeholder="Enter Home Address"/> -->
 					<label class="control-label col-sm-3" for="inputError2">
-						{{doctor.doctorHomeAddress}}</label>
+						{{doctor.homeAddress}}</label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -77,7 +98,7 @@
 					<!-- 	<input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="" placeholder="Enter Expertise"/> -->
 					<label class="control-label col-sm-3" for="inputError2">
-						{{doctor.doctorExpertized}}</label>
+						{{doctor.expertized}}</label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -87,7 +108,7 @@
 					<!-- 	<input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="" placeholder="Enter Highest Degree"/> -->
 					<label class="control-label col-sm-3" for="inputError2">
-						{{doctor.doctorHighestDegree}}</label>
+						{{doctor.highestDegree}}</label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -95,9 +116,9 @@
 					Government:</label>
 				<div class="control-label col-sm-2" style="margin-top: -1%;">
 					<label class="radio-inline"> <input type="radio"
-						name="optradio" ng-model="doctor.doctorGovtServent" ng-value='1' />Yes
+						name="optradio" ng-model="doctor.isGovernmentServent" ng-value='1' />Yes
 					</label> <label class="radio-inline"> <input type="radio"
-						name="optradio" ng-model="doctor.doctorGovtServent" ng-value='0' />No
+						name="optradio" ng-model="doctor.isGovernmentServent" ng-value='0' />No
 					</label>
 				</div>
 			</div>
@@ -108,7 +129,7 @@
 					<!-- <input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="" placeholder="Enter Fees"/> -->
 					<label class="control-label col-sm-3" for="inputError2">
-						{{doctor.doctorOneTimeConsultingFee}} </label>
+						{{doctor.oneTimeFee}} </label>
 				</div>
 			</div>
 			<div class="form-group">
@@ -118,7 +139,7 @@
 					<!-- <input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="" placeholder="EnterDays to Check"/> -->
 					<label class="control-label col-sm-3" for="inputError2">
-						{{doctor.doctorDaystoCheckFreeInConsultingFee}}</label>
+						{{doctor.daysCheckFree}}</label>
 				</div>
 			</div>
 		</form>

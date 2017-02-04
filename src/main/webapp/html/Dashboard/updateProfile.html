@@ -20,7 +20,7 @@
 				<label class="control-label col-sm-2" for="name">Name:</label>
 				<div class="col-sm-3">
 					<input type="text" class="form-control" id="name"
-						ng-model="doctors.doctorName" placeholder="Enter Name">
+						ng-model="doctors.name" placeholder="Enter Name">
 				</div>
 			</div>
 			<div class="form-group">
@@ -28,7 +28,7 @@
 					Number:</label>
 				<div class="col-sm-3">
 					<input type="text" class="form-control" id="name"
-						ng-model="doctors.doctorNumber" placeholder="Enter Mobile">
+						ng-model="doctors.mobile" placeholder="Enter Mobile">
 				</div>
 			</div>
 
@@ -37,7 +37,7 @@
 					Number:</label>
 				<div class="col-sm-3">
 					<input type="text" ng-readonly="true" class="form-control"
-						id="name" ng-model="doctors.doctorAdhaarNumber"
+						id="name" ng-model="doctors.aadhaarNumber"
 						placeholder="Enter Adhaar">
 				</div>
 			</div>
@@ -45,19 +45,66 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name"> Email Id:</label>
 				<div class="col-sm-3">
-					<input type="text" ng-readonly="true" class="form-control"
-						id="name" ng-model="doctors.doctorEmail"
+					<input type="text" ng-readonly="true"  class="form-control"
+						id="name" ng-model="doctors.email"
 						placeholder="Enter Email Id">
 				</div>
 			</div>
 
+			<!-- Age -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="name">Age:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="name"
+						ng-model="doctors.age" placeholder="Enter Age">
+				</div>
+			</div>
+			<!-- Age -->
+			<!-- Gender -->
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="name"> Gender:</label>
+				<div class="control-label col-sm-2" style="margin-top: -1%;">
+					<label class="radio-inline"> <input type="radio"
+						name="optradio1" ng-model="doctors.gender" ng-value='1' />Male
+					</label> <label class="radio-inline"> <input type="radio"
+						name="optradio1" ng-model="doctors.gender" ng-value='0' />Female
+					</label>
+				</div>
+			</div>
+			<!-- Gender -->
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name">Highest
 					Degree:</label>
 				<div class="col-sm-3">
 					<input type="text" class="form-control" id="name"
-						ng-model="doctors.doctorHighestDegree"
+						ng-model="doctors.highestDegree"
 						placeholder="Enter Highest Degree">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="name">Home
+					Address:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="name"
+						ng-model="doctors.homeAddress"
+						placeholder="Enter Home Address">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="name">Expertise:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="name"
+						ng-model="doctors.expertized" placeholder="Enter Expertise">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="name">Clinic
+					Address:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="name"
+						ng-model="doctors.clinicAddress"
+						placeholder="Enter Clinic Address">
 				</div>
 			</div>
 
@@ -66,35 +113,10 @@
 					Servent:</label>
 				<div class="control-label col-sm-2" style="margin-top: -1%;">
 					<label class="radio-inline"> <input type="radio"
-						name="optradio" ng-model="doctors.doctorGovtServent" ng-value='1' />Yes
+						name="optradio" ng-model="doctors.isGovernmentServent" ng-value='1' />Yes
 					</label> <label class="radio-inline"> <input type="radio"
-						name="optradio" ng-model="doctors.doctorGovtServent" ng-value='0' />No
+						name="optradio" ng-model="doctors.isGovernmentServent" ng-value='0' />No
 					</label>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="name">Home
-					Address:</label>
-				<div class="col-sm-3">
-					<input type="text" class="form-control" id="name"
-						ng-model="doctors.doctorHomeAddress"
-						placeholder="Enter Home Address">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="name">Expertise:</label>
-				<div class="col-sm-3">
-					<input type="text" class="form-control" id="name"
-						ng-model="doctors.doctorExpertized" placeholder="Enter Expertise">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="name">Clinic
-					Address:</label>
-				<div class="col-sm-3">
-					<input type="text" class="form-control" id="name"
-						ng-model="doctors.doctorShopAddress"
-						placeholder="Enter Clinic Address">
 				</div>
 			</div>
 			<div class="form-group">
@@ -102,7 +124,7 @@
 					Fees:</label>
 				<div class="col-sm-3">
 					<input type="text" class="form-control" id="name"
-						ng-model="doctors.doctorOneTimeConsultingFee"
+						ng-model="doctors.oneTimeFee"
 						placeholder="Enter Consulting Fees">
 				</div>
 			</div>
@@ -110,7 +132,7 @@
 				<label class="control-label col-sm-2" for="name">Free Days:</label>
 				<div class="col-sm-3">
 					<input type="text" class="form-control" id="name"
-						ng-model="doctors.doctorDaystoCheckFreeInConsultingFee"
+						ng-model="doctors.daysCheckFree"
 						placeholder="Enter Days to Check">
 				</div>
 			</div>

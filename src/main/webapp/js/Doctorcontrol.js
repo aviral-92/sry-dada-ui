@@ -7,7 +7,7 @@ scotchApp.controller('login',function($scope, $rootScope, $http/*, $cookieStore*
 	$scope.doctorLogin = function(loginDetail){
 		console.log(loginDetail);
 		//TODO need to change with email.
-		var loginSuccessful = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbymobilenumber/'+loginDetail.email);
+		var loginSuccessful = $http.get('https://doctor-service.cfapps.io/doctor/getdoctorbymobilenumber/'+loginDetail.email);
 		console.log(">>>>>>>>>" + loginSuccessful.success);
 		
 		loginSuccessful.success(function(getDoctorDetails) {
@@ -137,7 +137,7 @@ scotchApp.controller('signUp',function($scope, $http){
 			$scope.submit = true;
 			console.log(formName);
 			if ($scope[formName].$valid) {
-			   var res = $http.post('https://doctor-service.cfapps.io/doctor-management/adddoctor',doctor);
+			   var res = $http.post('//https://doctor-service.cfapps.io/doctor/',doctor);
 			   res.success(function(data) {
 				   alert(data.message);
 				   $scope.isVisible = false;
@@ -468,7 +468,7 @@ scotchApp.controller('updateProfile',function($scope, $rootScope, $http){
 	$scope.doctorUpdate = function(doctorUpdateValue){
 		console.log(doctorUpdateValue);
 		// Update Ajax hit
-		var updateDoctor = $http.put('https://doctor-service.cfapps.io/doctor-management/updatedoctor', doctorUpdateValue);
+		var updateDoctor = $http.put('https://doctor-service.cfapps.io/doctor/updatedoctor', doctorUpdateValue);
 		// For success
 		updateDoctor.success(function(updateResponse) {
 			$scope.successMessage = "Successfully Updated...!!!";

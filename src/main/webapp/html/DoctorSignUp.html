@@ -72,7 +72,37 @@
 				</div>
 			</div>
 		</div>
+		<!-- Email -->
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="pwd">Email:</label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" id="email"
+					ng-model="doctor.email" placeholder="Enter Email">
+			</div>
+		</div>
+		<!-- Email -->
 
+		<!-- Age -->
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="pwd">Age:</label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" id="email"
+					ng-model="doctor.age" placeholder="Enter Age">
+			</div>
+		</div>
+		<!-- Age -->
+		<!-- Gender -->
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name"> Gender:</label>
+			<div class="control-label col-sm-2" style="margin-top: -1%;">
+				<label class="radio-inline"> <input type="radio"
+					name="optradio1" ng-model="doctor.gender" ng-value='1' />Male
+				</label> <label class="radio-inline"> <input type="radio"
+					name="optradio1" ng-model="doctor.gender" ng-value='0' />Female
+				</label>
+			</div>
+		</div>
+		<!-- Gender -->
 		<div class="form-group has-feedback "
 			ng-class="{'has-success' : doctorForm.address.$dirty && doctorForm.address.$valid ,
 			 'has-error' : doctorForm.address.$dirty && doctorForm.address.$invalid}">
@@ -162,12 +192,12 @@
 		<div class="form-group has-feedback "
 			ng-class="{'has-success' : doctorForm.shop.$dirty && doctorForm.shop.$valid ,
 			 'has-error' : doctorForm.shop.$dirty && doctorForm.shop.$invalid}">
-			<label class="control-label col-sm-2" for="name"> Shop
+			<label class="control-label col-sm-2" for="name"> Clinic
 				Address:</label>
 			<div class="col-sm-3">
 				<input type="text" class="form-control" id="shop" name="shop"
 					ng-model="doctor.doctorShopAddress"
-					placeholder="Enter Shop Address"
+					placeholder="Enter Clinic Address"
 					ng-blur="doBlurShopAddress($event)" valid-Shop />
 
 				<div class="help-inline">
