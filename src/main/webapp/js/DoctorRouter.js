@@ -29,13 +29,13 @@ scotchApp.config(function($routeProvider) {
 
 	// route for the patient login page
 	.when('/patientlogin', {
-		templateUrl : '/html/PatientLogin.html',
+		templateUrl : '/html/PatientService/PatientLogin.html',
 		controller : 'patientlogin'
 	})
 
 	// route for the patient login Success page
 	.when('/patientLoginSuccess', {
-		templateUrl : '/html/patientLoginSuccess.html',
+		templateUrl : '/html/PatientService/patientLoginSuccess.html',
 		controller : 'patientLoginSuccess'
 	})
 	// route for the SignUp page
@@ -46,7 +46,7 @@ scotchApp.config(function($routeProvider) {
 
 	// route for the patient signup page
 	.when('/patientsignup', {
-		templateUrl : '/html/PatientSignUp.html',
+		templateUrl : '/html/PatientService/PatientSignUp.html',
 		controller : 'patientsignup'
 	})
 
