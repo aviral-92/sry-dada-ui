@@ -13,7 +13,6 @@ scotchApp.controller('login',function($scope, $rootScope, $http, $cookieStore, $
 			console.log(">>>>>>>>>" + loginSuccessful.success);
 			
 			loginSuccessful.success(function(getDoctorDetails) {
-				alert("ddd");
 				if(getDoctorDetails.doctorId != null){
 					$scope.message = 'Successfully Logged in...!!!';
 					$rootScope.getDoctorByMobile = getDoctorDetails; // TODO
@@ -23,11 +22,6 @@ scotchApp.controller('login',function($scope, $rootScope, $http, $cookieStore, $
 																		// by
 																		// Email...
 					$cookieStore.put('loginData', getDoctorDetails);
-					
-					/*
-					 * $window.location.href =
-					 * "/html/Dashboard/DoctorDashboard.html";
-					 */
 					window.location = "#/dashboard";
 				}else{
 					$scope.message = 'Invalid Credentials...!!!';
