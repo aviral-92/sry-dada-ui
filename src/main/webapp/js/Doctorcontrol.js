@@ -448,53 +448,64 @@ scotchApp.controller('updateCustomerController', function($scope, $http) {
 scotchApp.controller('dashboard',function($scope, $rootScope, $http, $cookieStore){
 	
 	var doctorDetail = $cookieStore.get('loginData');
-	var doctors = $http.get('https://doctor-service.cfapps.io/doctor/get/'+doctorDetail.email+'/email');
+// var doctors =
+// $http.get('https://doctor-service.cfapps.io/doctor/get/'+doctorDetail.email+'/email');
 	// For success
-	doctors.success(function(progressBar) {
-		var fieldCounter = checkDoctorField(progressBar);
+// doctors.success(function(progressBar) {
+		var fieldCounter = checkDoctorField(doctorDetail);
 		$scope.percent = parseInt((fieldCounter /13)*100)+'%';
 		
-	});
+// });
 	// For error
-	doctors.error(function(progressBar, status, headers, config) {
-		// alert("failure message: " + updateResponse.message);
-	});
-	$scope.hi = "00000";
-	
+	/*
+	 * doctors.error(function(progressBar, status, headers, config) { //
+	 * alert("failure message: " + updateResponse.message); });
+	 */
 });
 
 function checkDoctorField(doctors){
 	
-	var field = 6;
-	if(doctors.homeAddress != null){
-		field++;
+	if(doctors != null){
+		var field = 6;
+		if(doctors.homeAddress != null){
+			field++;
+		}
+		if(doctors.highestDegree != null){
+			field++;
+		}
+		if(doctors.expertized != null){
+			field++;
+		}
+		if(doctors.isGovernmentServent != null){
+			field++;
+		}
+		if(doctors.clinicAddress != null){
+			field++;
+		}
+		if(doctors.oneTimeFee != null && doctors.oneTimeFee != ''){
+			field++;
+		}
+		if(doctors.daysCheckFree != null){
+			field++;
+		}
+		return field;
 	}
-	if(doctors.highestDegree != null){
-		field++;
-	}
-	if(doctors.expertized != null){
-		field++;
-	}
-	if(doctors.isGovernmentServent != null){
-		field++;
-	}
-	if(doctors.clinicAddress != null){
-		field++;
-	}
-	if(doctors.oneTimeFee != null && doctors.oneTimeFee != ''){
-		field++;
-	}
-	if(doctors.daysCheckFree != null){
-		field++;
-	}
-	alert(field);
-	return field;
 }
 
-scotchApp.controller('retrievePassword',function($scope, $rootScope){
+function getByEmail($http, $cookieStore){
 	
-});
-scotchApp.controller('updateProfile',function($scope, $rootScope, $http){
+	alert($cookieStore.get('email'));
+	var doctors = $http.get('https://doctor-service.cfapps.io/doctor/get/'+$cookieStore.get('email')+'/email');
+	doctors.success(function(data) {
+		return data;
+	});
+	// For error
+	doctors.error(function(data, status, headers, config) {
+		// alert("failure message: " + updateResponse.message);
+	});
+}
+
+scotchApp.controller('updateProfile',function($scope, $rootScope, $http, $cookieStore){
 	
 	$scope.doctors = $rootScope.getDoctorByMobile;
 	
@@ -505,13 +516,26 @@ scotchApp.controller('updateProfile',function($scope, $rootScope, $http){
 		// For success
 		updateDoctor.success(function(updateResponse) {
 			$scope.successMessage = "Successfully Updated...!!!";
+
+			// Rest hit to get data and refresh cookies......Strats
+			var doctorSuccess = $http.get('https://doctor-service.cfapps.io/doctor/get/'+$cookieStore.get('email')+'/email');
+			doctorSuccess.success(function(data) {
+				$cookieStore.remove('loginData');
+				$cookieStore.put('loginData', data);
+			});
+			// For error
+			doctorSuccess.error(function(data, status, headers, config) {
+				// alert("failure message: " + updateResponse.message);
+			});
+			// Rest hit to get data and refresh cookies......Ends
 		});
 		// For error
 		updateDoctor.error(function(updateResponse, status, headers, config) {
 			alert("failure message: " + updateResponse.message);
 		});
 	}
-	// check validation
+	
+	// validation Added......................
 	$scope.doBlurName = function($event){
 		var target = $event.target;
 		if($scope.doctor != null && $scope.doctor.name.length > 0){
@@ -580,17 +604,17 @@ scotchApp.controller('updateProfile',function($scope, $rootScope, $http){
 });
 
 scotchApp.controller('retrievePassword',function($scope, $rootScope){
-
+	$scope.submit = function(){
+        /* $scope.message = "Password send to your E-mail Id"; */
+        alert("Password send to your E-mail Id");
+	}
 });
-
-
 
 scotchApp.controller('afterLogin',function($scope, $rootScope, $cookieStore){
 	
 	
 	if($cookieStore.get('loginData') != undefined && $cookieStore.get('email') != undefined){
-		// console.log(">>>>>>>"+$rootScope.getDoctorByMobile);
-		// console.log("........." +$cookieStore.get('email'));
+
 		console.log("<<<<<<<<<<<<" +$cookieStore.get('loginData'));
 		var getLoginDetails = $cookieStore.get('loginData');
 		if(getLoginDetails.gender == '0'){

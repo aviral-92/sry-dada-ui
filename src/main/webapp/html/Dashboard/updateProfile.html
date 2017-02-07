@@ -37,7 +37,7 @@
 								Name:</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="inputError2"
-									name="name" ng-model="doctor.name" placeholder="Enter name"
+									name="name" ng-model="doctors.name" placeholder="Enter name"
 									ng-blur="doBlurName($event)" valid-Name>
 
 								<div class="help-inline">
@@ -70,7 +70,7 @@
 								Mobile Number :</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="mobile"
-									name="mobile" ng-model="doctor.mobile"
+									name="mobile" ng-model="doctors.mobile"
 									placeholder="Enter Mobile Number"
 									ng-blur="doBlurMobile($event)" valid-Mobile />
 
@@ -146,7 +146,7 @@
 								Degree:</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="degree"
-									name="degree" ng-model="doctor.highestDegree"
+									name="degree" ng-model="doctors.highestDegree"
 									placeholder="Enter Highest Degree"
 									ng-blur="doBlurDegree($event)" valid-Degree />
 
@@ -182,7 +182,7 @@
 								Address:</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="address"
-									name="address" ng-model="doctor.homeAddress"
+									name="address" ng-model="doctors.homeAddress"
 									placeholder="Enter  Home Address"
 									ng-blur="doBlurHomeAddress($event)" valid-Address />
 
@@ -216,7 +216,7 @@
 								Expertise:</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="expertise"
-									name="expertise" ng-model="doctor.expertized"
+									name="expertise" ng-model="doctors.expertized"
 									placeholder="Enter Expertise" ng-blur="doBlurExpertise($event)"
 									valid-Expertise />
 
@@ -252,7 +252,7 @@
 								Address:</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="shop" name="shop"
-									ng-model="doctor.clinicAddress"
+									ng-model="doctors.clinicAddress"
 									placeholder="Enter Clinic Address"
 									ng-blur="doBlurShopAddress($event)" valid-Shop />
 
@@ -303,7 +303,7 @@
 								Fees:</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="fees"
-									ng-model="doctor.oneTimeFee"
+									ng-model="doctors.oneTimeFee"
 									placeholder="Enter one time Consulting Fees" name="fees"
 									ng-blur="doBlurFees($event)" valid-Fees />
 
@@ -338,7 +338,7 @@
 								days:</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" id="consulting"
-									name="consulting" ng-model="doctor.daysCheckFree"
+									name="consulting" ng-model="doctors.daysCheckFree"
 									placeholder="Enter days to check Free"
 									ng-blur="doBlurConsulting($event)" valid-Consulting />
 
