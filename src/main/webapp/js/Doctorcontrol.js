@@ -2,6 +2,10 @@ scotchApp.controller('middleContent',function($scope){
 	
 });
 
+scotchApp.controller('doctorSearch',function($scope){
+	
+});
+
 scotchApp.controller('login',function($scope, $rootScope, $http, $cookieStore, $window){
 
 	if($cookieStore.get('loginData') == undefined || $cookieStore.get('email') == undefined){
