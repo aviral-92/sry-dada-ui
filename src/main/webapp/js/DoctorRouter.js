@@ -68,6 +68,11 @@ scotchApp.config(function($routeProvider) {
 		controller : 'dashboard'
 	})
 	
+		//route for dashboard retrieve password
+	.when('/retrievePassword', {
+		templateUrl : '/html/Dashboard/RetrievePassword.html',
+		controller : 'retrievePassword'
+	})
 	//route for dashboard update profile
 	.when('/updateProfile', {
 		templateUrl : '/html/Dashboard/updateProfile.html',
