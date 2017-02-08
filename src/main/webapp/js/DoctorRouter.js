@@ -9,6 +9,12 @@ scotchApp.config(function($routeProvider) {
 		templateUrl : '/html/Container.html',
 		controller : 'middleContent'
 	})
+	
+	// route for Search
+	.when('/search', {
+		templateUrl : '/html/DoctorSearch.html',
+		controller : 'doctorSearch'
+	})
 
 	// route for the login page
 	.when('/login', {

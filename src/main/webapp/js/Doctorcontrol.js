@@ -1,5 +1,42 @@
-scotchApp.controller('middleContent',function($scope){
+scotchApp.controller('middleContent',function($scope, $cookieStore){
 	
+	if($cookieStore.get('loginData') != undefined && $cookieStore.get('email') != undefined){
+		window.location = "#/dashboard";
+	}
+});
+
+scotchApp.controller('doctorSearch',function($scope, $http){
+	
+	$scope.loader = false;
+	$scope.searchDoctor = function(loginDetail){
+		var doctorSearch = null;
+		if(loginDetail != null && loginDetail.doctorId != null && loginDetail.doctorId != ""){
+			doctorSearch = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyid/'+loginDetail.doctorId);
+		} else if(loginDetail != null && loginDetail.mobile != null && loginDetail.mobile != ""){
+			doctorSearch = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbymobilenumber/'+loginDetail.mobile);
+		} else if(loginDetail != null && loginDetail.aadhaarNumber != null && loginDetail.aadhaarNumber != ""){
+			doctorSearch = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyadharNumber/'+loginDetail.aadhaarNumber);
+		}else if(loginDetail != null && loginDetail.email != null && loginDetail.email != ""){
+			doctorSearch = $http.get('https://doctor-service.cfapps.io/doctor/get/'+loginDetail.email+'/email');
+			$scope.loader = true;
+		}else{
+			$scope.message = "please provide input";
+		}
+		if(doctorSearch != null){
+			doctorSearch.success(function(getDoctor) {
+				console.log(">>>>>>>" +getDoctor.mobile);
+				$scope.doctors = getDoctor;
+				$scope.modalBody = true;
+				$scope.loader = false;
+			});
+			doctorSearch.error(function(data, status, headers, config) {
+				alert("failure message: " + data.message);
+				$scope.message = 'No Data Found!!!';
+			});
+			
+		}
+		/* $scope.message = "Search successfully...!!!!"; */
+	}
 });
 
 scotchApp.controller('login',function($scope, $rootScope, $http, $cookieStore, $window){
