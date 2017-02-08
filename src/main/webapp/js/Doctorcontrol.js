@@ -17,7 +17,6 @@ scotchApp.controller('doctorSearch',function($scope, $http){
 		} else if(loginDetail != null && loginDetail.aadhaarNumber != null && loginDetail.aadhaarNumber != ""){
 			doctorSearch = $http.get('https://doctor-service.cfapps.io/doctor-management/getdoctorbyadharNumber/'+loginDetail.aadhaarNumber);
 		}else if(loginDetail != null && loginDetail.email != null && loginDetail.email != ""){
-			alert(loginDetail.email);
 			doctorSearch = $http.get('https://doctor-service.cfapps.io/doctor/get/'+loginDetail.email+'/email');
 			$scope.loader = true;
 		}else{
@@ -25,8 +24,6 @@ scotchApp.controller('doctorSearch',function($scope, $http){
 		}
 		if(doctorSearch != null){
 			doctorSearch.success(function(getDoctor) {
-				
-				//alert("Hello");
 				console.log(">>>>>>>" +getDoctor.mobile);
 				$scope.doctors = getDoctor;
 				$scope.modalBody = true;
@@ -38,7 +35,7 @@ scotchApp.controller('doctorSearch',function($scope, $http){
 			});
 			
 		}
-		/*$scope.message = "Search successfully...!!!!";*/
+		/* $scope.message = "Search successfully...!!!!"; */
 	}
 });
 
