@@ -6,6 +6,8 @@ scotchApp.controller('middleContent',function($scope, $cookieStore){
 });
 
 scotchApp.controller('doctorSearch',function($scope, $http){
+	
+	$scope.loader = false;
 	$scope.searchDoctor = function(loginDetail){
 		var doctorSearch = null;
 		if(loginDetail != null && loginDetail.doctorId != null && loginDetail.doctorId != ""){
@@ -17,20 +19,24 @@ scotchApp.controller('doctorSearch',function($scope, $http){
 		}else if(loginDetail != null && loginDetail.email != null && loginDetail.email != ""){
 			alert(loginDetail.email);
 			doctorSearch = $http.get('https://doctor-service.cfapps.io/doctor/get/'+loginDetail.email+'/email');
+			$scope.loader = true;
 		}else{
 			$scope.message = "please provide input";
 		}
 		if(doctorSearch != null){
 			doctorSearch.success(function(getDoctor) {
-				alert("Hello");
+				
+				//alert("Hello");
 				console.log(">>>>>>>" +getDoctor.mobile);
 				$scope.doctors = getDoctor;
 				$scope.modalBody = true;
+				$scope.loader = false;
 			});
 			doctorSearch.error(function(data, status, headers, config) {
 				alert("failure message: " + data.message);
 				$scope.message = 'No Data Found!!!';
 			});
+			
 		}
 		/*$scope.message = "Search successfully...!!!!";*/
 	}
