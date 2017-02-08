@@ -485,49 +485,32 @@ scotchApp.controller('updateCustomerController', function($scope, $http) {
 scotchApp.controller('dashboard',function($scope, $rootScope, $http, $cookieStore){
 	
 	var doctorDetail = $cookieStore.get('loginData');
-// var doctors =
-// $http.get('https://doctor-service.cfapps.io/doctor/get/'+doctorDetail.email+'/email');
-	// For success
-// doctors.success(function(progressBar) {
-		var fieldCounter = checkDoctorField(doctorDetail);
-		$scope.percent = parseInt((fieldCounter /13)*100)+'%';
-		
-// });
-	// For error
-	/*
-	 * doctors.error(function(progressBar, status, headers, config) { //
-	 * alert("failure message: " + updateResponse.message); });
-	 */
-});
-
-function checkDoctorField(doctors){
-	
-	if(doctors != null){
+	if(doctorDetail != null){
 		var field = 6;
-		if(doctors.homeAddress != null){
+		if(doctorDetail.homeAddress != null){
 			field++;
 		}
-		if(doctors.highestDegree != null){
+		if(doctorDetail.highestDegree != null){
 			field++;
 		}
-		if(doctors.expertized != null){
+		if(doctorDetail.expertized != null){
 			field++;
 		}
-		if(doctors.isGovernmentServent != null){
+		if(doctorDetail.isGovernmentServent != null){
 			field++;
 		}
-		if(doctors.clinicAddress != null){
+		if(doctorDetail.clinicAddress != null){
 			field++;
 		}
-		if(doctors.oneTimeFee != null && doctors.oneTimeFee != ''){
+		if(doctorDetail.oneTimeFee != null && doctorDetail.oneTimeFee != ''){
 			field++;
 		}
-		if(doctors.daysCheckFree != null){
+		if(doctorDetail.daysCheckFree != null){
 			field++;
 		}
-		return field;
+		$scope.percent = parseInt((field /13)*100)+'%';
 	}
-}
+});
 
 function getByEmail($http, $cookieStore){
 	
