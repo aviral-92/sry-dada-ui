@@ -2,6 +2,9 @@ scotchApp.controller('middleContent', function($scope, $cookieStore) {
 	if ($cookieStore.get('loginData') != undefined
 			&& $cookieStore.get('email') != undefined) {
 		window.location = "#/dashboard";
+	} else if ($cookieStore.get('patientData') != undefined
+			&& $cookieStore.get('patientEmail') != undefined) {
+		window.location = "#/patientdashboard";
 	}
 });
 

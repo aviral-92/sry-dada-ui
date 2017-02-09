@@ -1,15 +1,15 @@
 scotchApp.controller('patientlogin',function($scope, $rootScope, $http, $cookieStore, $window){
 	
-	if($cookieStore.get('loginData') == undefined || $cookieStore.get('email') == undefined){
+	if($cookieStore.get('patientData') == undefined || $cookieStore.get('patientEmail') == undefined){
 		$scope.patientLogin = function(loginDetails){
 			console.log(loginDetails);
-			$cookieStore.put('email', loginDetails.email);
+			$cookieStore.put('patientEmail', loginDetails.email);
 			var loginSuccessful = $http.get('http://patient-service.cfapps.io/patient/getPatientByEmail/'+loginDetails.email);
 			console.log(">>>>>>>>>" + loginSuccessful.success);
 			loginSuccessful.success(function(getPatientDetails) {
 				if(getPatientDetails.patientId != null){
 					$scope.message = 'Successfully Logged in...!!!';
-					$cookieStore.put('loginData', getPatientDetails);
+					$cookieStore.put('patientData', getPatientDetails);
 					window.location = "#/patientdashboard";
 				}else{
 					$scope.message = 'Invalid Credentials...!!!';
@@ -27,31 +27,26 @@ scotchApp.controller('patientlogin',function($scope, $rootScope, $http, $cookieS
 
 scotchApp.controller('patientlogout',function($scope, $rootScope, $http, $cookieStore, $window){
 	
-	$cookieStore.remove('email');
-	$cookieStore.remove('loginData');
+	$cookieStore.remove('patientEmail');
+	$cookieStore.remove('patientData');
 	window.location = "#/patientlogin";
 });
 scotchApp.controller('patientdashboard',function($scope, $rootScope, $http, $cookieStore){
-	var patientDetail = $cookieStore.get('loginData');
-	var fieldCounter = checkDoctorField(patientDetail);
-	$scope.percent = parseInt((fieldCounter /7)*100)+'%';
+	var patientDetail = $cookieStore.get('patientData');
 	
-});
-
-function checkDoctorField(patients){
-	
-	if(patients != null){
-		var field = 1;
-		if(patients.homeAddress != null){
+	if(patientDetail != null){
+		var field = 6;
+		if(patientDetail.homeAddress != null){
 			field++;
 		}
-		return field;
+		$scope.percent = parseInt((field / 7)*100)+'%';
 	}
-}
+});
+
 function getByEmail($http, $cookieStore){
 	
-	alert($cookieStore.get('email'));
-	var patients = $http.get('http://patient-service.cfapps.io/patient/getPatientByEmail/'+$cookieStore.get('email'));
+	alert($cookieStore.get('patientEmail'));
+	var patients = $http.get('http://patient-service.cfapps.io/patient/getPatientByEmail/'+$cookieStore.get('patientEmail'));
 	patients.success(function(data) {
 		return data;
 	});
@@ -102,7 +97,7 @@ scotchApp.controller('patientsignup',function($scope, $http){
 	}
 });
 scotchApp.controller('patientupdateProfile',function($scope, $rootScope, $http, $cookieStore){
-	$scope.patients = $cookieStore.get('loginData');
+	$scope.patients = $cookieStore.get('patientData');
 	$scope.patientUpdate = function(patientUpdateValue){
 		console.log(patientUpdateValue);
 		var updatepatient = $http.put('http://patient-service.cfapps.io/patient/', patientUpdateValue);
@@ -112,8 +107,8 @@ scotchApp.controller('patientupdateProfile',function($scope, $rootScope, $http, 
 			patientSuccess.success(function(data) {
 				alert("dfdfdf");
 				console.log(data.mobile);
-				$cookieStore.remove('loginData');
-				$cookieStore.put('loginData', data);
+				$cookieStore.remove('patientData');
+				$cookieStore.put('patientData', data);
 			});
 			patientSuccess.error(function(data, status, headers, config) {
 			});
@@ -154,9 +149,10 @@ scotchApp.controller('retrievePassword',function($scope, $rootScope){
 });
 
 scotchApp.controller('patientafterLogin',function($scope, $rootScope, $cookieStore){
-	if($cookieStore.get('loginData') != undefined && $cookieStore.get('email') != undefined){
-		console.log("<<<<<<<<<<<<" +$cookieStore.get('loginData'));
-		var getLoginDetails = $cookieStore.get('loginData');
+
+	if($cookieStore.get('patientData') != undefined && $cookieStore.get('patientEmail') != undefined){
+		console.log("<<<<<<<<<<<<" +$cookieStore.get('patientData'));
+		var getLoginDetails = $cookieStore.get('patientData');
 		if(getLoginDetails.gender == '0'){
 			getLoginDetails.gender = 'Female';
 		}else{
