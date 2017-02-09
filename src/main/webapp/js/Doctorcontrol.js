@@ -48,6 +48,8 @@ scotchApp.controller('doctorSearch', function($scope, $http) {
 
 scotchApp.controller('login', function($scope, $rootScope, $http, $cookieStore,
 		$window) {
+
+	$scope.loader = false;
 	if ($cookieStore.get('loginData') == undefined
 			|| $cookieStore.get('email') == undefined) {
 		$scope.doctorLogin = function(loginDetail) {
@@ -56,6 +58,7 @@ scotchApp.controller('login', function($scope, $rootScope, $http, $cookieStore,
 			var loginSuccessful = $http
 					.get('https://doctor-service.cfapps.io/doctor/get/'
 							+ loginDetail.email + '/email');
+			$scope.loader = true;
 			console.log(">>>>>>>>>" + loginSuccessful.success);
 			loginSuccessful.success(function(getDoctorDetails) {
 				if (getDoctorDetails.doctorId != null) {
@@ -66,6 +69,7 @@ scotchApp.controller('login', function($scope, $rootScope, $http, $cookieStore,
 				} else {
 					$scope.message = 'Invalid Credentials...!!!';
 				}
+				$scope.loader = false;
 			});
 			loginSuccessful.error(function(data, status, headers, config) {
 				alert("failure message: " + data.message);
@@ -139,35 +143,43 @@ scotchApp.controller('signUp', function($scope, $http) {
 });
 /** **********************Dashboard Starts*********************** */
 
-scotchApp.controller('dashboard', function($scope, $rootScope, $http,
-		$cookieStore) {
-	var doctorDetail = $cookieStore.get('loginData');
-	if (doctorDetail != null) {
-		var field = 6;
-		if (doctorDetail.homeAddress != null) {
-			field++;
-		}
-		if (doctorDetail.highestDegree != null) {
-			field++;
-		}
-		if (doctorDetail.expertized != null) {
-			field++;
-		}
-		if (doctorDetail.isGovernmentServent != null) {
-			field++;
-		}
-		if (doctorDetail.clinicAddress != null) {
-			field++;
-		}
-		if (doctorDetail.oneTimeFee != null && doctorDetail.oneTimeFee != '') {
-			field++;
-		}
-		if (doctorDetail.daysCheckFree != null) {
-			field++;
-		}
-		$scope.percent = parseInt((field / 13) * 100) + '%';
-	}
-});
+scotchApp.controller('dashboard',
+		function($scope, $rootScope, $http, $cookieStore) {
+			var doctorDetail = $cookieStore.get('loginData');
+			if (doctorDetail != null) {
+				var field = 6;
+				if (doctorDetail.homeAddress != null
+						&& doctorDetail.homeAddress != 'NA') {
+					field++;
+				}
+				if (doctorDetail.highestDegree != null
+						&& doctorDetail.highestDegree != 'NA') {
+					field++;
+				}
+				if (doctorDetail.expertized != null
+						&& doctorDetail.expertized != 'NA') {
+					field++;
+				}
+				if (doctorDetail.isGovernmentServent != null
+						&& doctorDetail.isGovernmentServent != 'NA') {
+					field++;
+				}
+				if (doctorDetail.clinicAddress != null
+						&& doctorDetail.clinicAddress != 'NA') {
+					field++;
+				}
+				if (doctorDetail.oneTimeFee != null
+						&& doctorDetail.oneTimeFee != ''
+						&& doctorDetail.oneTimeFee != 'NA') {
+					field++;
+				}
+				if (doctorDetail.daysCheckFree != null
+						&& doctorDetail.daysCheckFree != 'NA') {
+					field++;
+				}
+				$scope.percent = parseInt((field / 13) * 100) + '%';
+			}
+		});
 
 function getByEmail($http, $cookieStore) {
 	alert($cookieStore.get('email'));
@@ -189,15 +201,12 @@ scotchApp.controller('updateProfile', function($scope, $rootScope, $http,
 		console.log(doctorUpdateValue);
 
 		if (getDoctors.mobile == doctorUpdateValue.mobile) {
-			alert("Hello");
 			delete doctorUpdateValue.mobile;
 		}
 		if (getDoctors.email == doctorUpdateValue.email) {
-			alert("Hello");
 			delete doctorUpdateValue.email;
 		}
 		if (getDoctors.aadhaarNumber == doctorUpdateValue.aadhaarNumber) {
-			alert("Hello");
 			delete doctorUpdateValue.aadhaarNumber;
 		}
 		// console.log(doctorUpdateValue);
