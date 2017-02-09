@@ -31,7 +31,7 @@
 					Number:</label>
 				<div class="col-sm-5">
 					<input type="text" class="form-control" id="adhaar"
-						ng-model="doctor.adhaar" placeholder="Enter adhaar number">
+						ng-model="doctor.aadhaarNumber" placeholder="Enter adhaar number">
 				</div>
 			</div>
 			<div class="form-group">
@@ -58,7 +58,7 @@
 			<div class="modal-dialog">
 				<div style="width: 130%; margin-left: -10%;" class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<button type="button" class="close" data-dismiss="modal" ng-click="close()">&times;</button>
 						<h4 class="modal-title">Doctor Update</h4>
 					</div>
 					<center>
@@ -81,24 +81,24 @@
 									<th>Clinic</th>
 									<th>Consulting Fees</th>
 								</tr>
-								<tr class="active">
-									<td>{{doctors.doctorId}}</td>
-									<td>{{doctors.name}}</td>
-									<td>{{doctors.email}}</td>
-									<td>{{doctors.gender}}</td>
-									<td>{{doctors.age}}</td>
-									<td>{{doctors.mobile}}</td>
-									<td>{{doctors.isGovernmentServent}}</td>
-									<td>{{doctors.expertized}}</td>
-									<td>{{doctors.clinicAddress}}</td>
-									<td>{{doctors.oneTimeFee}}</td>
+								<tr ng-repeat="doctorObj in doctors" class="active">
+									<td>{{doctorObj.doctorId}}</td>
+									<td>{{doctorObj.name}}</td>
+									<td>{{doctorObj.email}}</td>
+									<td>{{doctorObj.gender}}</td>
+									<td>{{doctorObj.age}}</td>
+									<td>{{doctorObj.mobile}}</td>
+									<td>{{doctorObj.isGovernmentServent}}</td>
+									<td>{{doctorObj.expertized}}</td>
+									<td>{{doctorObj.clinicAddress}}</td>
+									<td>{{doctorObj.oneTimeFee}}</td>
 								</tr>
 							</table>
 						</div>
 						{{message}}
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="close()">Close</button>
 					</div>
 				</div>
 			</div>
