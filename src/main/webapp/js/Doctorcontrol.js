@@ -58,6 +58,7 @@ scotchApp.controller('login', function($scope, $rootScope, $http, $cookieStore,
 			var loginSuccessful = $http
 					.get('https://doctor-service.cfapps.io/doctor/get/'
 							+ loginDetail.email + '/email');
+			document.getElementById("myNav").style.width = "100%";
 			$scope.loader = true;
 			console.log(">>>>>>>>>" + loginSuccessful.success);
 			loginSuccessful.success(function(getDoctorDetails) {
@@ -79,6 +80,7 @@ scotchApp.controller('login', function($scope, $rootScope, $http, $cookieStore,
 	} else {
 		$window.location.href = "#/dashboard";
 	}
+	
 });
 
 scotchApp.controller('logout', function($scope, $rootScope, $http,
@@ -89,6 +91,11 @@ scotchApp.controller('logout', function($scope, $rootScope, $http,
 	window.location = "#/login";
 });
 
+
+/*function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
+*/
 scotchApp.controller('about', function($scope) {
 });
 

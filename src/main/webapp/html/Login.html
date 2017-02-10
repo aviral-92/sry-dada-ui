@@ -20,8 +20,10 @@
 		<div
 			style="width: 700px; margin-left: -10%; font-size: 110%; font-style: oblique;">
 			<div class="container">
-				<div class="overlay-content" style="margin-left: 25%;">
-					<div ng-show="loader" class="loader"></div>
+				<div id="myNav" class="overlay">
+					<div class="overlay-content" style="margin-left: 50%;">
+						<div ng-show="loader" class="loader"></div>
+					</div>
 				</div>
 				<form class="form form-horizontal">
 					<div class="form-group">
@@ -45,7 +47,8 @@
 						<div class="control-label col-sm-4">
 							<button class="btn btn-primary"
 								ng-click="doctorLogin(loginDetail)">
-								<span class="glyphicon glyphicon-ok-circle"></span> Login
+								<span class="glyphicon glyphicon-ok-circle"
+									style="font-size: 30px; cursor: pointer"></span> Login
 							</button>
 							{{message}}
 						</div>
