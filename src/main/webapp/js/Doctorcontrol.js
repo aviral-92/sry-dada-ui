@@ -321,8 +321,10 @@ scotchApp.controller('afterLogin', function($scope, $rootScope, $cookieStore) {
 		var getLoginDetails = $cookieStore.get('loginData');
 		if (getLoginDetails.gender == '0') {
 			getLoginDetails.gender = 'Female';
-		} else {
+		} else if (getLoginDetails.gender == '1') {
 			getLoginDetails.gender = 'Male';
+		} else {
+			getLoginDetails.gender = 'Transgen';
 		}
 		if (getLoginDetails.isGovernmentServent == '0') {
 			getLoginDetails.isGovernmentServent = 'Yes';
