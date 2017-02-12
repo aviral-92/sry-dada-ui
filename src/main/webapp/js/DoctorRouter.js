@@ -1,11 +1,11 @@
 var scotchApp = angular.module('myApp', [ 'ngCookies', 'ngRoute',
-		'UserValidation' ]);
+		'UserValidation', 'angularUtils.directives.dirPagination' ]);
 
 scotchApp.config(function($routeProvider) {
 	$routeProvider
 
 	// route for the home page
-	.when('/', {
+	.when('/home', {
 		templateUrl : '/html/Container.html',
 		controller : 'middleContent'
 	})
@@ -68,6 +68,11 @@ scotchApp.config(function($routeProvider) {
 	.when('/retrievePassword', {
 		templateUrl : '/html/Dashboard/RetrievePassword.html',
 		controller : 'retrievePassword'
+	})
+	
+	.when('/searchFunctionality', {
+		templateUrl : '/html/SearchFunctionality/DoctorSearch.html',
+		controller : 'functionalitySearch'
 	})
 
 	// route for dashboard home page

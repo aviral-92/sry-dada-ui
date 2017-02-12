@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html ng-app="myApp" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Doctor Home Page</title>
 
 <!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
@@ -22,7 +21,8 @@
 <!-- <script type="text/javascript" src="/js/static_js/jquery-1.7.1.min.js"></script> -->
 
 <script type="text/javascript" src="/js/static_js/jquery.min-3.1.1.js"></script>
-<script type="text/javascript" src="/js/static_js/bootstrap.min-3.3.7.js"></script>
+<script type="text/javascript"
+	src="/js/static_js/bootstrap.min-3.3.7.js"></script>
 <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-cookies.js"></script> -->
 <script type="text/javascript" src="/js/static_js/angular-cookies.js"></script>
 
@@ -34,7 +34,8 @@
 <script type="text/javascript" src="/js/PatientValidation.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-<link rel="stylesheet" type="text/css" href="/css/index.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/index.css"
+	media="screen" />
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="/css/datepicker.min.css" />
@@ -42,59 +43,148 @@
 <script src="/js/static_js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="/js/DatePicker.js"></script>
 
+
+
+<link rel="stylesheet" type="text/css" href="/html/SearchFunctionality/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/html/SearchFunctionality/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="/html/SearchFunctionality/css/table.css">
+<script src="/html/SearchFunctionality/lib/angular/angular.js"></script>
+<script src="/html/SearchFunctionality/lib/dirPagination.js"></script>
+<script src="/html/SearchFunctionality/app/app.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(e) {
+		$('.search-panel .dropdown-menu').find('a').click(function(e) {
+			e.preventDefault();
+			var param = $(this).attr("href").replace("#", "");
+			var concept = $(this).text();
+			$('.search-panel span#search_concept').text(concept);
+			$('.input-group #search_param').val(param);
+		});
+	});
+</script>
 </head>
 <body>
-	<div id="main_container">
-		<div class="header">
-			<div id="logo">
-				<a href="/index.html"><img src="/images/logo.png" alt=""
-					title="" border="0" height="54" width="162" /></a>
+	<div data-ng-controller="test">
+		<nav role="navigation" class="navbar navbar-inverse"
+			style="background-color: #434343;">
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+
+			<div class="navbar-header">
+				<button type="button" data-target="#navbarCollapse"
+					data-toggle="collapse" class="navbar-toggle">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand"><img
+					src="/images/footer_logo.gif" alt="" title="" /></a>
 			</div>
-			<div class="right_header">
-				<div class="top_menu">
-					<div class="dropdown">
-						<button>
-							<a href="#" class="login">login</a>
-						</button>
-						<div class="dropdown-content">
-							<a href="#/login">Doctor Dashboard</a> <a href="#/patientlogin">Patient
-								Dashboard</a>
+			<!-- Collection of nav links, forms, and other content for toggling -->
+			<div id="navbarCollapse" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Home</a></li>
+					<li><a href="#/about">About Us</a></li>
+					<li class="dropdown"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
+						<ul role="menu" class="dropdown-menu">
+							<li><a href="#">Service 1</a></li>
+							<li><a href="#">Service 2</a></li>
+							<li><a href="#">Service 3</a></li>
+						</ul></li>
+					<li><a href="#/contact">Contact Us</a></li>
+				</ul>
+				<form role="search" class="navbar-form navbar-left">
+					<div class="input-group">
+						<div class="input-group-btn search-panel">
+							<!-- <button type="button" class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown">
+								<span id="search_concept">Filter
+									by</span> <span class="caret"></span>
+							</button> -->
+							<!-- <ul class="dropdown-menu" role="menu"">
+								<li ng-repeat="menu in menus" ng-click="selected(menu)"><a
+									href="">{{menu.name}}</a></li>
+							</ul> -->
+						</div>
+						<input type="hidden" name="search_param" value="all"
+							id="search_param"> <input type="text"
+							class="form-control" name="x" placeholder="Search by expertise"
+							ng-model="textValue"> <span class="input-group-btn">
+							<button class="btn btn-default"
+								style="background-color: #f9f9f9;" type="button"
+								ng-click="btnClick(textValue)" data-toggle="modal"
+								data-target="#myModal">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</span>
+					</div>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="glyphicon glyphicon-log-in" style="font-size: 30px;" href="#/login"></a></li>
+				</ul>
+			</div>
+
+			<!-- -------------MODEL------- -->
+			<!-- <div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+					<div style="width: 130%; margin-left: -10%;" class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								ng-click="close()">&times;</button>
+							<h4 class="modal-title">Doctor Update</h4>
+						</div>
+						<center>
+							<div ng-show="loader" class="loader"></div>
+						</center>
+						<div class="modal-body">
+							<div ng-show="modalBody">
+								<table class="table table-bordered">
+									<tr>
+										<th>Id</th>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Gender</th>
+										<th>Age</th>
+										<th>Mobile</th>
+										<th>Govt Servant</th>
+										<th>Expertise</th>
+										<th>Clinic</th>
+										<th>Consulting Fees</th>
+									</tr>
+									<tr ng-repeat="doctorObj in doctors" class="active">
+										<td>{{doctorObj.doctorId}}</td>
+										<td>{{doctorObj.name}}</td>
+										<td>{{doctorObj.email}}</td>
+										<td>{{doctorObj.gender}}</td>
+										<td>{{doctorObj.age}}</td>
+										<td>{{doctorObj.mobile}}</td>
+										<td>{{doctorObj.isGovernmentServent}}</td>
+										<td>{{doctorObj.expertized}}</td>
+										<td>{{doctorObj.clinicAddress}}</td>
+										<td>{{doctorObj.oneTimeFee}}</td>
+									</tr>
+								</table>
+							</div>
+							{{message}}
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal" ng-click="close()">Close</button>
 						</div>
 					</div>
-
-					<div class="dropdown">
-						<button>
-							<a href="#" class="sign_up">signup</a>
-						</button>
-						<div class="dropdown-content">
-							<a href="#/signUp">Doctor signup</a> <a href="#/patientsignup">Patient
-								signup</a>
-						</div>
-					</div>
-
 				</div>
-				<div id="menu">
-					<ul>
-						<li><a class="current" href="#" title="">Home</a></li>
-						<li><a href="#/about" title="">About Us</a></li>
-						<li><a href="#/search" title="">Search</a></li>
-						<!-- <li><a href="#" title="">Services</a></li> -->
-						<li><a href="#/contact" title="">Contact Us</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+			</div> -->
+
+
+		</nav>
 		<div ng-view=""></div>
-		<div id="footer">
-			<div class="copyright">
-				<img src="/images/footer_logo.gif" alt="" title="" />
-			</div>
-			<div class="center_footer">
-				<br />
-			</div>
-			<div id="copyright">
-				<br /> @Copyright
-			</div>
+
+		<div class="footer">
+			<b class="copyright">@Copyright</b> <b style="float: right;">All
+				Rights Reserved.</b>
 		</div>
 	</div>
 </body>

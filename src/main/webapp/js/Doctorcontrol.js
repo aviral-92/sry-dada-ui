@@ -1,3 +1,90 @@
+scotchApp.controller('test', function($scope, $http, $window) {
+
+	var selectedItem = null;
+	var doctorSearch = null;
+	$scope.menus = [ {
+		id : 1,
+		name : "id"
+	}, {
+		id : 2,
+		name : "adhaar"
+	}, {
+		id : 3,
+		name : "mobile"
+	}, {
+		id : 4,
+		name : "email"
+	}, {
+		id : 5,
+		name : "name"
+	} ];
+	$scope.btnClick = function(textValue) {
+		
+		$window.location.href='#/searchFunctionality';
+		/*
+		var obj = null;
+		console.log(doctor);
+		console.log(selectedItem);
+		if (selectedItem != null) {
+			if (selectedItem.name == 'id') {
+				obj = {
+					"id" : parseInt(doctor.value)
+				};
+			} else if (selectedItem.name == 'mobile') {
+				obj = {
+					"mobile" : doctor.value
+				};
+			} else if (selectedItem.name == 'email') {
+				obj = {
+					"email" : doctor.value
+				};
+			} else if (selectedItem.name == 'adhaar') {
+				obj = {
+					"adhaar" : doctor.value
+				};
+			} else if (selectedItem.name == 'name') {
+				obj = {
+					"name" : doctor.value
+				};
+			}
+			doctorSearch = $http.post(
+					'https://doctor-service.cfapps.io/doctor/get/all', obj);
+			
+		} else {
+			alert("Please select any one");
+		}
+		if (doctorSearch != null) {
+			doctorSearch.success(function(getDoctor) {
+				console.log(">>>>>>>" + getDoctor[0].mobile);
+				$scope.doctors = getDoctor;
+				$scope.modalBody = true;
+				//$scope.loader = false;
+			});
+			doctorSearch.error(function(data, status, headers, config) {
+				alert("failure message: " + data.message);
+				$scope.message = 'No Data Found!!!';
+			});
+		}*/
+	}
+	/*$scope.selected = function(selectObj) {
+		console.log(selectObj.id);
+		selectedItem = selectObj;
+	}*/
+});
+
+scotchApp.controller('functionalitySearch', function($scope, $http) {
+	
+	$scope.users = []; //declare an empty array
+	$http.get("/html/SearchFunctionality/mockJson/mock.json").success(function(response){ 
+		$scope.users = response;  //ajax request to fetch data into $scope.data
+	});
+	
+	$scope.sort = function(keyname){
+		$scope.sortKey = keyname;   //set the sortKey to the param passed
+		$scope.reverse = !$scope.reverse; //if true make it false and vice versa
+	}
+});
+
 scotchApp.controller('middleContent', function($scope, $cookieStore) {
 	if ($cookieStore.get('loginData') != undefined
 			&& $cookieStore.get('email') != undefined) {
@@ -80,7 +167,7 @@ scotchApp.controller('login', function($scope, $rootScope, $http, $cookieStore,
 	} else {
 		$window.location.href = "#/dashboard";
 	}
-	
+
 });
 
 scotchApp.controller('logout', function($scope, $rootScope, $http,
@@ -91,12 +178,8 @@ scotchApp.controller('logout', function($scope, $rootScope, $http,
 	window.location = "#/login";
 });
 
-
-/*function openNav() {
-    document.getElementById("myNav").style.width = "100%";
-}
-*/
 scotchApp.controller('about', function($scope) {
+
 });
 
 scotchApp.controller('contact', function($scope) {
