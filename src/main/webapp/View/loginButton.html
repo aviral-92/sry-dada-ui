@@ -67,20 +67,6 @@
 </head>
 <body>
 	<div data-ng-controller="test">
-	<!-- ------------------------------------------------------------------------- -->
-	<div id="top_container" class="container" style="background-color: white;">
-	<div class="span-5">
-		<p><b style="font-size: large;color: red; margin-left: 40%;">Medical Clinic</b></p>
-	</div>
-	<!-- <div class="span-9 last">
-		<ul id="toplinks">
-			<li><a href="http://galathemes.com/member/"><span>Member Area</span></a></li>
-			<li><a href="http://galathemes.com/member/aff_member.php"><span>Affiliate Login</span></a></li>
-			<li><a href="http://galathemes.com/contact.html"><span>Contact</span></a></li>
-		</ul>
-	</div> -->
-</div>
-	<!-- ------------------------------------------------------------------------- -->
 		<nav role="navigation" class="navbar navbar-inverse"
 			style="background-color: #434343;">
 
@@ -139,7 +125,10 @@
 				<ul class="nav navbar-nav navbar-right">
 					<!-- <li><a class="glyphicon glyphicon-log-in" style="font-size: 30px;" href="#/login"></a></li> -->
 					<li class="dropdown"><a data-toggle="dropdown"
-						class="dropdown-toggle glyphicon glyphicon-log-in" href="#/home"  style="font-size: 30px;" ></a>
+						class="dropdown-toggle" href="#/home"  style="font-size: 30px;" ><button class="btn btn-primary"
+								ng-click="patientLogin(loginDetails)">
+								<span class="glyphicon glyphicon-log-in"></span> Login
+							</button></a>
 						<ul role="menu" class="dropdown-menu">
 							<li><a href="#/login">Doctor Login</a></li>
 							<li><a href="#/patientlogin">Patient Login</a></li>
