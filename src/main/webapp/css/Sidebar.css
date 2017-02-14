@@ -1,8 +1,13 @@
 .dashboard {
-	background-color: #EFF0F3;
+	/* background-color: #EFF0F3; */
+	width: 900px;
+	height: 162px;
+	clear: both;
+	margin: auto;
 }
 
 .content-box, .content-box-large {
+	margin-top:-25%;
 	margin-bottom: 30px;
 	background: #fff;
 	border-radius: 10px;

@@ -175,15 +175,46 @@ scotchApp.controller('logout', function($scope, $rootScope, $http,
 
 	$cookieStore.remove('email');
 	$cookieStore.remove('loginData');
-	window.location = "#/login";
+	window.location = "#/loginPage"; //edit route for new login page
 });
 
 scotchApp.controller('about', function($scope) {
 
 });
 
-scotchApp.controller('loginPage', function($scope) {
-	
+scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieStore,
+		$window) {
+	$scope.loader = false;
+	if ($cookieStore.get('loginData') == undefined
+			|| $cookieStore.get('email') == undefined) {
+		$scope.doctorLogin = function(loginDetail) {
+			console.log(loginDetail);
+			$cookieStore.put('email', loginDetail.email);
+			var loginSuccessful = $http
+					.get('https://doctor-service.cfapps.io/doctor/get/'
+							+ loginDetail.email + '/email');
+			/*document.getElementById("myNav").style.width = "100%";*/
+			$scope.loader = true;
+			console.log(">>>>>>>>>" + loginSuccessful.success);
+			loginSuccessful.success(function(getDoctorDetails) {
+				if (getDoctorDetails.doctorId != null) {
+					$scope.message = 'Successfully Logged in...!!!';
+					$rootScope.getDoctorByMobile = getDoctorDetails;
+					$cookieStore.put('loginData', getDoctorDetails);
+					window.location = "#/dashboard";
+				} else {
+					$scope.message = 'Invalid Credentials...!!!';
+				}
+				$scope.loader = false;
+			});
+			loginSuccessful.error(function(data, status, headers, config) {
+				alert("failure message: " + data.message);
+				$scope.message = 'Invalid Credentials...!!!';
+			});
+		}
+	} else {
+		$window.location.href = "#/dashboard";
+	}
 });
 
 scotchApp.controller('contact', function($scope) {
