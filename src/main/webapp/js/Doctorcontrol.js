@@ -182,6 +182,10 @@ scotchApp.controller('about', function($scope) {
 
 });
 
+scotchApp.controller('loginPage', function($scope) {
+	
+});
+
 scotchApp.controller('contact', function($scope) {
 });
 
