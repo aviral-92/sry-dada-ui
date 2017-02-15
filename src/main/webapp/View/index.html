@@ -4,18 +4,17 @@
 <title>Doctor Home Page</title>
 
 <!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/css/style.css"
-	media="screen" />
-<link rel="stylesheet" type="text/css" href="/css/Loader.css"
-	media="screen" />
-<link rel="stylesheet" type="text/css" href="/css/Sidebar.css"
-	media="screen" />
+
+<!-- <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+
 <!--[if IE 6]> <link rel="stylesheet" type="text/css" href="/css/iecss.css" /> <![endif]-->
 <script type="text/javascript" src="/js/static_js/angular.min.js"></script>
 <script type="text/javascript" src="/js/static_js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/static_js/angular-route.js"></script>
+<script type="text/javascript" src="/js/static_js/angular-sanitize.js"></script>
+<script type="text/javascript" src="/js/static_js/custom_massautocomplete.js"></script>
 
 <!-- <script type="text/javascript src="/js/static_js/bootstrap.min.js"></script> -->
 <!-- <script type="text/javascript" src="/js/static_js/jquery-1.7.1.min.js"></script> -->
@@ -32,18 +31,28 @@
 <script type="text/javascript" src="/js/Patientcontrol.js"></script>
 <script type="text/javascript" src="/js/DoctorValidation.js"></script>
 <script type="text/javascript" src="/js/PatientValidation.js"></script>
+
+<script src="/html/SearchFunctionality/lib/dirPagination.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
+<script src="/js/static_js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="/js/DatePicker.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css"
+	media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/Loader.css"
+	media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/Sidebar.css"
+	media="screen" />
+
 <link rel="stylesheet" type="text/css" href="/css/index.css"
 	media="screen" />
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="/css/datepicker.min.css" />
 <link rel="stylesheet" href="/css/datepicker3.min.css" />
-<script src="/js/static_js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript" src="/js/DatePicker.js"></script>
-
-
 
 <link rel="stylesheet" type="text/css"
 	href="/html/SearchFunctionality/css/bootstrap.min.css">
@@ -51,9 +60,10 @@
 	href="/html/SearchFunctionality/css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css"
 	href="/html/SearchFunctionality/css/table.css">
-<script src="/html/SearchFunctionality/lib/angular/angular.js"></script>
-<script src="/html/SearchFunctionality/lib/dirPagination.js"></script>
-<script src="/html/SearchFunctionality/app/app.js"></script>
+
+
+<link rel="stylesheet" type="text/css"
+	href="/css/massautocomplete.theme.css" media="screen" />
 
 <script type="text/javascript">
 	$(document).ready(function(e) {
@@ -66,6 +76,7 @@
 		});
 	});
 </script>
+
 </head>
 <body>
 	<div data-ng-controller="test">
@@ -111,86 +122,36 @@
 									href="">{{menu.name}}</a></li>
 							</ul> -->
 						</div>
-						<input type="hidden" name="search_param" value="all"
-							id="search_param"> <input type="text"
-							class="form-control" name="x" placeholder="Search by expertise"
-							ng-model="textValue"> <span class="input-group-btn">
+						<div mass-autocomplete>
+							<input class="form-control" name="x"
+								placeholder="Search by expertise" ng-model="dirty.value"
+								mass-autocomplete-item="autocomplete_options">
+								<div></div>
+						</div>
+						<span class="input-group-btn">
 							<button class="btn btn-default"
 								style="background-color: #f9f9f9;" type="button"
-								ng-click="btnClick(textValue)" data-toggle="modal"
-								data-target="#myModal">
+								ng-click="btnClick()">
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
 						</span>
+
 					</div>
 				</form>
 				<ul class="nav navbar-nav navbar-right">
 					<!-- <li><a class="glyphicon glyphicon-log-in" style="font-size: 30px;" href="#/login"></a></li> -->
 					<li class="dropdown"><a data-toggle="dropdown"
-						class="dropdown-toggle glyphicon glyphicon-log-in" href="#/loginPage"
-						style="font-size: 30px;"></a>
-						<!-- <ul role="menu" class="dropdown-menu">
+						class="dropdown-toggle glyphicon glyphicon-log-in"
+						href="#/loginPage" style="font-size: 30px;"></a> <!-- <ul role="menu" class="dropdown-menu">
 							<li><a href="#/login">Doctor Login</a></li>
 							<li><a href="#/patientlogin">Patient Login</a></li>
 						</ul> --></li>
 				</ul>
 			</div>
 
-			<!-- -------------MODEL------- -->
-			<!-- <div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
-					<div style="width: 130%; margin-left: -10%;" class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								ng-click="close()">&times;</button>
-							<h4 class="modal-title">Doctor Update</h4>
-						</div>
-						<center>
-							<div ng-show="loader" class="loader"></div>
-						</center>
-						<div class="modal-body">
-							<div ng-show="modalBody">
-								<table class="table table-bordered">
-									<tr>
-										<th>Id</th>
-										<th>Name</th>
-										<th>Email</th>
-										<th>Gender</th>
-										<th>Age</th>
-										<th>Mobile</th>
-										<th>Govt Servant</th>
-										<th>Expertise</th>
-										<th>Clinic</th>
-										<th>Consulting Fees</th>
-									</tr>
-									<tr ng-repeat="doctorObj in doctors" class="active">
-										<td>{{doctorObj.doctorId}}</td>
-										<td>{{doctorObj.name}}</td>
-										<td>{{doctorObj.email}}</td>
-										<td>{{doctorObj.gender}}</td>
-										<td>{{doctorObj.age}}</td>
-										<td>{{doctorObj.mobile}}</td>
-										<td>{{doctorObj.isGovernmentServent}}</td>
-										<td>{{doctorObj.expertized}}</td>
-										<td>{{doctorObj.clinicAddress}}</td>
-										<td>{{doctorObj.oneTimeFee}}</td>
-									</tr>
-								</table>
-							</div>
-							{{message}}
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal" ng-click="close()">Close</button>
-						</div>
-					</div>
-				</div>
-			</div> -->
-
-
 		</nav>
 		<!-- ------------------------------------------------------------------------- -->
-		<div id="top_container" class="container"
+		<!-- <div id="top_container" class="container"
 			style="background-color: white;">
 			<div class="span-5">
 				<p>
@@ -198,15 +159,15 @@
 						Clinic</b>
 				</p>
 			</div>
-			<!-- <hr/> -->
-			<!-- <div class="span-9 last">
+		</div> -->
+		<!-- <div class="span-9 last">
 		<ul id="toplinks">
 			<li><a href="http://galathemes.com/member/"><span>Member Area</span></a></li>
 			<li><a href="http://galathemes.com/member/aff_member.php"><span>Affiliate Login</span></a></li>
 			<li><a href="http://galathemes.com/contact.html"><span>Contact</span></a></li>
 		</ul>
 	</div> -->
-		</div>
+
 		<!-- ------------------------------------------------------------------------- -->
 		<div ng-view=""></div>
 

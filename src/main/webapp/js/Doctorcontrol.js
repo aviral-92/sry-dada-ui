@@ -1,26 +1,54 @@
 scotchApp.controller('test', function($scope, $http, $window) {
 
-	var selectedItem = null;
-	var doctorSearch = null;
-	$scope.menus = [ {
-		id : 1,
-		name : "id"
-	}, {
-		id : 2,
-		name : "adhaar"
-	}, {
-		id : 3,
-		name : "mobile"
-	}, {
-		id : 4,
-		name : "email"
-	}, {
-		id : 5,
-		name : "name"
-	} ];
-	$scope.btnClick = function(textValue) {
+	$scope.dirty = {};
+	
+	
+//	$http.get("/js/countries.json").success(function(states){ 
 		
-		$window.location.href='#/searchFunctionality';
+	var states = ['Alabama', 'USA', 'California', 'India' /* ... */ ];
+	
+	function suggest_state(term) {
+	    var q = term.toLowerCase().trim();
+	    var results = [];
+
+	    // Find first 10 states that start with `term`.
+	    for (var i = 0; i < states.length && results.length < 10; i++) {
+	      var state = states[i];
+	      if (state.toLowerCase().indexOf(q) === 0)
+	        results.push({ label: state, value: state });
+	    }
+	    return results;
+	  }
+	  
+	  function suggest_state_delimited(term) {
+	  var ix = term.lastIndexOf(','),
+	      lhs = term.substring(0, ix + 1),
+	      rhs = term.substring(ix + 1),
+	      suggestions = suggest_state(rhs);
+
+	  suggestions.forEach(function (s) {
+	    s.value = lhs + s.value;
+	  });
+
+	  return suggestions;
+	};
+
+	  $scope.autocomplete_options = {
+	    suggest: suggest_state_delimited
+	  };
+	  console.log($scope.dirty);
+//	});
+	  
+//	});
+	
+	
+	$scope.btnClick = function() {
+		
+		//$window.location.href='#/searchFunctionality';
+		
+		//console.log('aa');
+		console.log($scope.dirty.value);
+		
 		/*
 		var obj = null;
 		console.log(doctor);
