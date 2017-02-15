@@ -3,9 +3,9 @@ scotchApp.controller('test', function($scope, $http, $window) {
 	$scope.dirty = {};
 	
 	
-//	$http.get("/js/countries.json").success(function(states){ 
+	$http.get("/js/countries.json").success(function(states){ 
 		
-	var states = ['Alabama', 'USA', 'California', 'India' /* ... */ ];
+//	var states = ['Alabama', 'USA', 'California', 'India' /* ... */ ];
 	
 	function suggest_state(term) {
 	    var q = term.toLowerCase().trim();
@@ -13,7 +13,7 @@ scotchApp.controller('test', function($scope, $http, $window) {
 
 	    // Find first 10 states that start with `term`.
 	    for (var i = 0; i < states.length && results.length < 10; i++) {
-	      var state = states[i];
+	      var state = states[i].country;
 	      if (state.toLowerCase().indexOf(q) === 0)
 	        results.push({ label: state, value: state });
 	    }
@@ -39,7 +39,7 @@ scotchApp.controller('test', function($scope, $http, $window) {
 	  console.log($scope.dirty);
 //	});
 	  
-//	});
+	});
 	
 	
 	$scope.btnClick = function() {
