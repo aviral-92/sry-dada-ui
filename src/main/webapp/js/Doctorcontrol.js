@@ -1,16 +1,10 @@
 scotchApp.controller('test', function($scope, $http, $window) {
 
 	$scope.dirty = {};
-	
-	
 	$http.get("/js/countries.json").success(function(states){ 
-		
-//	var states = ['Alabama', 'USA', 'California', 'India' /* ... */ ];
-	
 	function suggest_state(term) {
 	    var q = term.toLowerCase().trim();
 	    var results = [];
-
 	    // Find first 10 states that start with `term`.
 	    for (var i = 0; i < states.length && results.length < 10; i++) {
 	      var state = states[i].country;
@@ -19,36 +13,25 @@ scotchApp.controller('test', function($scope, $http, $window) {
 	    }
 	    return results;
 	  }
-	  
 	  function suggest_state_delimited(term) {
 	  var ix = term.lastIndexOf(','),
 	      lhs = term.substring(0, ix + 1),
 	      rhs = term.substring(ix + 1),
 	      suggestions = suggest_state(rhs);
-
 	  suggestions.forEach(function (s) {
 	    s.value = lhs + s.value;
 	  });
 
 	  return suggestions;
 	};
-
 	  $scope.autocomplete_options = {
 	    suggest: suggest_state_delimited
 	  };
 	  console.log($scope.dirty);
-//	});
-	  
 	});
-	
-	
 	$scope.btnClick = function() {
-		
-		//$window.location.href='#/searchFunctionality';
-		
-		//console.log('aa');
+		$window.location.href='#/searchFunctionality';
 		console.log($scope.dirty.value);
-		
 		/*
 		var obj = null;
 		console.log(doctor);
