@@ -198,6 +198,8 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
 	$scope.loader = false;
 	if ($cookieStore.get('loginData') == undefined
 			|| $cookieStore.get('email') == undefined) {
+		
+		
 		$scope.doctorLogin = function(loginDetail) {
 			console.log(loginDetail);
 			$cookieStore.put('email', loginDetail.email);
@@ -222,6 +224,14 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
 				alert("failure message: " + data.message);
 				$scope.message = 'Invalid Credentials...!!!';
 			});
+		}
+		$scope.showSelectValue = function(mySelect) {
+			/*if(mySelect == 'doctor'){
+				console.log("doctor email");
+			}else{
+				console.log("patient email");
+			}*/
+		    console.log(mySelect);
 		}
 	} else {
 		$window.location.href = "#/dashboard";

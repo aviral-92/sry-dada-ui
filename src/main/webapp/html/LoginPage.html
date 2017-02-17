@@ -31,16 +31,18 @@
 							ng-model="loginDetail.password" placeholder="password">
 					</div>
 
-					<!-- -------------------------------------------------------------- -->
-
-					<select id="name" name="name">
-						<option value="">Sign in as...</option>
-						<option value="Elvis">Doctor</option>
-						<option value="Frank">Patient</option>
-						<!-- 	<option value="Jim">China</option> -->
-					</select><br />
-					<!--  <input type="text" id="firstname" name="firstname" value=""
-						readonly="readonly"> -->
+					<!-- --------------------------------------------------------------------------------------- -->
+					<div class="form-group">
+						<label class="control-label col-sm-3"> Sign in as :</label>
+						<div class="col-sm-6">
+							<select class="form-control" ng-model="mySelect"
+								ng-change="showSelectValue(mySelect)">
+								<!-- <option value=""></option> -->
+								<option value="doctor">Doctor</option>
+								<option value="patient">Patient</option>
+							</select>
+						</div>
+					</div>
 					<!-- --------------------------------------------------------------------------------------- -->
 
 
