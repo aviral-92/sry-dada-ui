@@ -74,4 +74,9 @@ public class DoctorUIController {
 		return new ModelAndView("/Template/index");
 	}
 	
+	@RequestMapping(value = "/doc")
+	public ModelAndView doctorLogin(){
+		
+		return new ModelAndView("DoctorDashboard");
+	}	
 }
