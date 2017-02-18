@@ -25,7 +25,7 @@ scotchApp.config(function($routeProvider) {
 	
 	// route for the logout page
 	.when('/logout', {
-		templateUrl : '/html/Login.html',
+		templateUrl : '/html/LoginPage.html',
 		controller : 'logout'
 	});
 

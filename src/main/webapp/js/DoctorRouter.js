@@ -79,11 +79,34 @@ scotchApp.config(function($routeProvider) {
 	.when('/searchFunctionality', {
 		templateUrl : '/html/SearchFunctionality/DoctorSearch.html',
 		controller : 'functionalitySearch'
-	})
+	});
 
 	// route for dashboard home page
 	/*.when('/afterLogin', {
 		templateUrl : '/html/Dashboard/AfterLogin.html',
 		controller : 'afterLogin'
-	})*/;
+	})*/
+	// route for the home page
+	/*.when('/', {
+		templateUrl : '/html/Dashboard/DocDashboardView.html',
+		controller : 'doctorDashboard'
+	})*/
+
+	/*// route for dashboard home page
+	.when('/afterLogin', {
+		templateUrl : '/html/Dashboard/AfterLogin.html',
+		controller : 'afterLogin'
+	})
+
+	// route for dashboard update profile
+	.when('/updateProfile', {
+		templateUrl : '/html/Dashboard/updateProfile.html',
+		controller : 'updateProfile'
+	})
+	
+	// route for the logout page
+	.when('/logout', {
+		templateUrl : '/html/LoginPage.html',
+		controller : 'logout'
+	})*/
 });

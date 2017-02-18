@@ -181,13 +181,13 @@ scotchApp.controller('login', function($scope, $rootScope, $http, $cookieStore,
 
 });
 
-scotchApp.controller('logout', function($scope, $rootScope, $http,
+/*scotchApp.controller('logout', function($scope, $rootScope, $http,
 		$cookieStore, $window) {
 
 	$cookieStore.remove('email');
 	$cookieStore.remove('loginData');
 	window.location = "#/loginPage"; //edit route for new login page
-});
+});*/
 
 scotchApp.controller('about', function($scope) {
 
