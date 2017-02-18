@@ -28,12 +28,12 @@ scotchApp.config(function($routeProvider) {
 		controller : 'login'
 	})
 
-	// route for the logout page
+	/*// route for the logout page
 	.when('/logout', {
 		templateUrl : '/html/Login.html',
 		controller : 'logout'
 	})
-
+*/
 	// route for the login Success page
 	.when('/drLoginSuccess', {
 		templateUrl : '/html/Dashboard/AfterLogin.html',
@@ -64,11 +64,11 @@ scotchApp.config(function($routeProvider) {
 		controller : 'dashboard'
 	})
 
-	// route for dashboard update profile
+	/*// route for dashboard update profile
 	.when('/updateProfile', {
 		templateUrl : '/html/Dashboard/updateProfile.html',
 		controller : 'updateProfile'
-	})
+	})*/
 
 	// route for dashboard retrieve password
 	.when('/retrievePassword', {
@@ -82,8 +82,8 @@ scotchApp.config(function($routeProvider) {
 	})
 
 	// route for dashboard home page
-	.when('/afterLogin', {
+	/*.when('/afterLogin', {
 		templateUrl : '/html/Dashboard/AfterLogin.html',
 		controller : 'afterLogin'
-	});
+	})*/;
 });

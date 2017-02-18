@@ -9,7 +9,7 @@
 .content-box, .content-box-large {
 	/* margin-top:-25%; */
 	/* margin-bottom: 30px; */
-	background: #fff;
+	background: #F4F4F4;
 	border-radius: 10px;
 	/*padding:10px;*/
 	border-left: 1px solid #eee;
@@ -20,7 +20,8 @@
 
 .content-box-small {
 	/* margin-bottom: 30px; */
-	background: #EFF0F3;
+	background: #3598DB;
+	color: red;
 	border-radius: 10px;
 	/*padding:10px;*/
 	border-left: 1px solid #eee;
@@ -33,8 +34,7 @@
 	/* margin-bottom: 30px; */
 	/* background: #303030 ; */
 	/* background: linear-gradient(90deg,#6fc4ba, #a5faf0); */
-	background: linear-gradient(#333, #fff);
-	
+	background: linear-gradient(#fff, #3598DB);
 	border-radius: 10px;
 	/*padding:10px;*/
 	border-left: 1px solid #eee;
@@ -48,7 +48,7 @@
 	/* background: #303030 ; */
 	/* background: linear-gradient(90deg,#6fc4ba, #a5faf0); */
 	color : #000;
-	background: linear-gradient(#fff, #555);
+	background: linear-gradient(#3598DB, #fff, #fff, #3598DB);
 	border-radius: 10px;
 	/*padding:10px;*/
 	border-left: 1px solid #eee;
