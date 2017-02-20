@@ -3,11 +3,17 @@ var scotchApp = angular.module('myApp', [ 'ngCookies', 'ngRoute', 'ui.bootstrap'
 
 scotchApp.config(function($routeProvider) {
 	$routeProvider
-
+	
+	// route for the home page
+	.when('/', {
+		templateUrl : '/html/Index_Slider.html',
+		controller : 'indexSlider'
+	})
+	
 	// route for the home page
 	.when('/home', {
-		templateUrl : '/html/Container.html',
-		controller : 'middleContent'
+		templateUrl : '/html/Index_Slider.html',
+		controller : 'indexSlider'
 	})
 	
 	// route for Search

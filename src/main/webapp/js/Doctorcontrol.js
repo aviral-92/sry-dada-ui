@@ -77,6 +77,10 @@ scotchApp.controller('index', function($scope, $http, $window) {
 
 });
 
+scotchApp.controller('indexSlider', function($scope) {
+	
+});
+
 scotchApp.controller('functionalitySearch', function($scope, $http) {
 
     $scope.users = []; //declare an empty array
@@ -138,7 +142,7 @@ scotchApp.controller('doctorSearch', function($scope, $http) {
     }
 });
 
-scotchApp.controller('login', function($scope, $rootScope, $http, $cookieStore,
+/*scotchApp.controller('login', function($scope, $rootScope, $http, $cookieStore,
     $window) {
 
     $scope.loader = false;
@@ -173,7 +177,7 @@ scotchApp.controller('login', function($scope, $rootScope, $http, $cookieStore,
         $window.location.href = "#/dashboard";
     }
 
-});
+});*/
 
 scotchApp.controller('about', function($scope) {
 
@@ -214,7 +218,7 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
             console.log(mySelect);
         }
     } else {
-        $window.location.href = "#/dashboard";
+        $window.location.href = "#/loginPage";
     }
 });
 
