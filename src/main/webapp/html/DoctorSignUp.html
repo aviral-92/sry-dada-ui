@@ -1,15 +1,16 @@
-<div class="container" style="margin-left: 26%;">
+<div class="container">
 <br/>
 	<!-- <h3 style="margin-left: 32%;">Doctor SignUp</h3> -->
-
-	<form name="doctorForm" class="form form-horizontal"
+<div style="margin-left: 12%; margin-right: 12%;background: url(/images/pattern_bg.gif) repeat center; margin-top: -1%;">
+<h1 style="background: url(/images/pattern_bg.gif) no-repeat center;">Login</h1>
+	<form name="doctorForm" class="form form-horizontal" style="margin-left: 50%;"
 		novalidate="novalidate">
 		<div class="form-group has-feedback "
 			ng-class="{'has-success' : doctorForm.name.$dirty && doctorForm.name.$valid ,
 			 'has-error' : doctorForm.name.$dirty && doctorForm.name.$invalid}">
-			<label class="control-label col-sm-2" for="inputError2">
-				Name:</label>
-			<div class="col-sm-3">
+			<!-- <label class="control-label col-sm-2" for="inputError2">
+				Name:</label> -->
+			<div class="col-sm-8">
 				<input type="text" class="form-control" id="inputError2" name="name"
 					ng-model="doctor.name" placeholder="Enter name"
 					ng-blur="doBlurName($event)" valid-Name>
@@ -30,9 +31,9 @@
 		<div class="form-group has-feedback "
 			ng-class="{'has-success' : doctorForm.mobile.$dirty && doctorForm.mobile.$valid ,
 			 'has-error' : doctorForm.mobile.$dirty && doctorForm.mobile.$invalid}">
-			<label class="control-label col-sm-2" for="inputError2">
-				Mobile Number :</label>
-			<div class="col-sm-3">
+			<!-- <label class="control-label col-sm-2" for="inputError2">
+				Mobile Number :</label> -->
+			<div class="col-sm-8">
 				<input type="text" class="form-control" id="mobile" name="mobile"
 					ng-model="doctor.mobile" placeholder="Enter Mobile Number"
 					ng-blur="doBlurMobile($event)" valid-Mobile />
@@ -53,9 +54,9 @@
 		<div class="form-group has-feedback "
 			ng-class="{'has-success' : doctorForm.adhar.$dirty && doctorForm.adhar.$valid ,
 			 'has-error' : doctorForm.adhar.$dirty && doctorForm.adhar.$invalid}">
-			<label class="control-label col-sm-2" for="name"> Adhar
-				Number:</label>
-			<div class="col-sm-3">
+			<!-- <label class="control-label col-sm-2" for="name"> Adhar
+				Number:</label> -->
+			<div class="col-sm-8">
 				<input type="text" class="form-control" id="adhar" name="adhar"
 					ng-model="doctor.aadhaarNumber" placeholder="Enter Adhar Number"
 					ng-blur="doBlurAdhar($event)" valid-Adhar />
@@ -73,15 +74,15 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="pwd">Email:</label>
-			<div class="col-sm-3">
+			<!-- <label class="control-label col-sm-2" for="pwd">Email:</label> -->
+			<div class="col-sm-8">
 				<input type="text" class="form-control" id="email"
 					ng-model="doctor.email" placeholder="Enter Email">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="pwd">DOB:</label>
-			<div class="col-sm-3">
+			<!-- <label class="control-label col-sm-2" for="pwd">DOB:</label> -->
+			<div class="col-sm-8">
 				<!--<input type="text" class="form-control" id="email"
 					ng-model="doctor.age" placeholder="Enter Age"> -->
 				<div class="input-group input-append date" id="datePicker">
@@ -92,8 +93,8 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="name"> Gender:</label>
-			<div class="control-label col-sm-3" style="margin-top: -1%;  margin-left: -4%;">
+			<!-- <label class="control-label col-sm-2" for="name"> Gender:</label> -->
+			<div class="control-label col-sm-8" style="margin-top: -1%;  margin-left: -4%;">
 				<label class="radio-inline"> <input type="radio"
 					name="optradio1" ng-model="doctor.gender" ng-value='1' />Male
 				</label> <label class="radio-inline"> <input type="radio"
@@ -105,14 +106,14 @@
 		</div>
 		<div class="form-group" ng-show="formAllGood()"></div>
 		<div class="form-group">
-			<div class="control-label col-sm-4">
+			<div class="control-label col-sm-2">
 				<button class="btn btn-primary"
 					ng-click="doctorAdd(doctor, 'doctorForm')">
 					<span class="glyphicon glyphicon-ok-circle"></span> Register
 				</button>
 			</div>
 		</div>
-	</form>
+	</form></div>
 </div>
 <br />
 <br />
