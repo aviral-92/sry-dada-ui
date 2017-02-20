@@ -27,13 +27,6 @@ scotchApp.config(function($routeProvider) {
 		templateUrl : '/html/Login.html',
 		controller : 'login'
 	})
-
-	/*// route for the logout page
-	.when('/logout', {
-		templateUrl : '/html/Login.html',
-		controller : 'logout'
-	})
-*/
 	// route for the login Success page
 	.when('/drLoginSuccess', {
 		templateUrl : '/html/Dashboard/AfterLogin.html',
@@ -64,12 +57,6 @@ scotchApp.config(function($routeProvider) {
 		controller : 'dashboard'
 	})
 
-	/*// route for dashboard update profile
-	.when('/updateProfile', {
-		templateUrl : '/html/Dashboard/updateProfile.html',
-		controller : 'updateProfile'
-	})*/
-
 	// route for dashboard retrieve password
 	.when('/retrievePassword', {
 		templateUrl : '/html/Dashboard/RetrievePassword.html',
@@ -81,32 +68,4 @@ scotchApp.config(function($routeProvider) {
 		controller : 'functionalitySearch'
 	});
 
-	// route for dashboard home page
-	/*.when('/afterLogin', {
-		templateUrl : '/html/Dashboard/AfterLogin.html',
-		controller : 'afterLogin'
-	})*/
-	// route for the home page
-	/*.when('/', {
-		templateUrl : '/html/Dashboard/DocDashboardView.html',
-		controller : 'doctorDashboard'
-	})*/
-
-	/*// route for dashboard home page
-	.when('/afterLogin', {
-		templateUrl : '/html/Dashboard/AfterLogin.html',
-		controller : 'afterLogin'
-	})
-
-	// route for dashboard update profile
-	.when('/updateProfile', {
-		templateUrl : '/html/Dashboard/updateProfile.html',
-		controller : 'updateProfile'
-	})
-	
-	// route for the logout page
-	.when('/logout', {
-		templateUrl : '/html/LoginPage.html',
-		controller : 'logout'
-	})*/
 });
