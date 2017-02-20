@@ -1134,13 +1134,13 @@ img {
 	vertical-align: middle
 }
 
-.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img,
+/* .img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img,
 	.carousel-inner>.item>a>img {
 	display: block;
 	width: 100% \9;
 	max-width: 100%;
 	height: auto
-}
+} */
 
 .img-rounded {
 	border-radius: 6px
@@ -6294,7 +6294,7 @@ button.close {
 	border-left-color: #fff
 }
 
-.carousel {
+/* .carousel {
 	position: relative
 }
 
@@ -6485,10 +6485,10 @@ button.close {
 
 .carousel-caption .btn {
 	text-shadow: none
-}
+} */
 
 @media screen and (min-width:768px) {
-	.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right,
+	/* .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right,
 		.carousel-control .icon-prev, .carousel-control .icon-next {
 		width: 30px;
 		height: 30px;
@@ -6510,7 +6510,7 @@ button.close {
 	}
 	.carousel-indicators {
 		bottom: 20px
-	}
+	} */
 }
 
 .clearfix:before, .clearfix:after, .dl-horizontal dd:before,
