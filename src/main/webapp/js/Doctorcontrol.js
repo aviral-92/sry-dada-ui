@@ -122,6 +122,38 @@ scotchApp.controller('middleContent', function($scope, $cookieStore) {
 });
 
 scotchApp.controller('doctorSearch', function($scope, $http) {
+	
+	$scope.dirty = {};
+	 
+	$http.get("/js/states.json").success(function(states){ 
+		function suggest_state(term) {
+		    var q = term.toLowerCase().trim();
+		    var results = [];
+		    // Find first 10 states that start with `term`.
+		    for (var i = 0; i < states.length && results.length < 10; i++) {
+		      var state = states[i].state;
+		      if (state.toLowerCase().indexOf(q) === 0)
+		        results.push({ label: state, value: state });
+		    }
+		    return results;
+		  }
+		  function suggest_state_delimited(term) {
+		  var ix = term.lastIndexOf(','),
+		      lhs = term.substring(0, ix + 1),
+		      rhs = term.substring(ix + 1),
+		      suggestions = suggest_state(rhs);
+		  suggestions.forEach(function (s) {
+		    s.value = lhs + s.value;
+		  });
+
+		  return suggestions;
+		};
+		  $scope.autocomplete_options = {
+		    suggest: suggest_state_delimited
+		  };
+		  console.log($scope.dirty);
+		});
+	
     $scope.loader = false;
     $scope.searchDoctor = function(loginDetail) {
         var doctorSearch = null;
