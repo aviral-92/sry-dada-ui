@@ -58,6 +58,14 @@
 	src="/js/ImageSlider/ui-bootstrap-tpls-0.6.0.js"></script>
 
 <script type="text/javascript">
+$(document).ready(function() {
+$('#datePicker').datepicker({
+	format : 'mm/dd/yyyy'
+});
+});
+</script>
+
+<script type="text/javascript">
 	$(document).ready(function(e) {
 		$('.search-panel .dropdown-menu').find('a').click(function(e) {
 			e.preventDefault();
