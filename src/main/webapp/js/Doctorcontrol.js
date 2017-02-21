@@ -40,6 +40,7 @@ scotchApp.controller('index', function($scope, $http, $window) {
     }
 
     // initializing the time Interval
+    $scope.firstSliderInterval = 30000;
     $scope.myInterval = 3000;
 
     // Initializing slide array
