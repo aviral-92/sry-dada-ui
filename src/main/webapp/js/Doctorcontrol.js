@@ -45,10 +45,10 @@ scotchApp.controller('index', function($scope, $http, $window) {
 
     // Initializing slide array
     $scope.slides = [{
-        image: '/images/Slider 2/2.jpg',
+        image: '/images/Slider 2/1.jpg',
         text: 'Cute Fish'
     }, {
-        image: '/images/Slider 2/1.jpg',
+        image: '/images/Slider 2/2.jpg',
         text: 'Image2'
     }, {
         image: '/images/Slider 2/3.jpg',
@@ -75,6 +75,22 @@ scotchApp.controller('index', function($scope, $http, $window) {
     }];
     
     var sliders = $scope.sliders;
+    
+    $scope.slider3 = [{
+        image: '/images/Slider 2/2.jpg',
+        text: 'Cute Fish'
+    }, {
+        image: '/images/Slider 2/3.jpg',
+        text: 'Image2'
+    }, {
+        image: '/images/Slider 2/4.jpg',
+        text: 'Image3'
+    }, {
+        image: '/images/Slider 2/1.jpg',
+        text: 'Image4'
+    }];
+    
+    var slider3 = $scope.slider3;
 
 });
 
