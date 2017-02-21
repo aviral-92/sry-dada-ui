@@ -278,7 +278,7 @@
 							</div>
 							<!-- ------------------------------------------------------------------------ -->
 
-							<!-- --------------------------------------------------------------------------------------- -->
+							<!-- ------------------------------------------------------------------------ -->
 							<div class="form-group">
 								<!-- <form role="search" class="navbar-form navbar-left"> -->
 								<label class="control-label col-sm-3"> State :</label>
@@ -295,7 +295,48 @@
 								</div>
 								<!-- </form> -->
 							</div>
-							<!-- --------------------------------------------------------------------------------------- -->
+							<!-- ------------------------------------------------------------------------- -->
+
+							<!-- ------------------------------------------------------------------------- -->
+
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="inputError2">City:</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" id="name"
+										ng-model="doctor.city" placeholder="Enter City">
+								</div>
+							</div>
+
+							<p style="margin-left: 15%;">or</p>
+
+
+							<div class="col-sm-12">
+								<div class="form-group">
+									<div class="col-sm-8">
+										<div class="input-group">
+											<div class="input-group-btn search-panel"></div>
+											<div mass-autocomplete>
+												<input class="form-control" name="x"
+													placeholder="Search by City" ng-model="dirty.value"
+													mass-autocomplete-item="autocomplete_options">
+												<div></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="inputError2">Pin
+									Code:</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" id="name"
+										ng-model="doctor.pinCode" placeholder="Enter Pin Code">
+								</div>
+							</div>
+
+							<!-- ------------------------------------------------------------------------- -->
+
 							<div class="form-group">
 								<label class="control-label col-sm-3" for="name"> Govt.
 									Servent:</label>
