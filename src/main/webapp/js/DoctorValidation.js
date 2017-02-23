@@ -4,6 +4,12 @@ signUp = function($scope) {
         return ($scope.nameGood && $scope.passwordGood && $scope.passwordCGood)
     }
 }
+/*loginPage = function($scope) {
+    $scope.formAllGood = function () {
+    	console.log($scope.nameGood);
+        return ($scope.nameGood && $scope.passwordGood && $scope.passwordCGood)
+    }
+}*/
 
 angular.module('UserValidation', []).directive('validName', function () {
     return {

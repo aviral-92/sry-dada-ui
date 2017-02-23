@@ -286,6 +286,16 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
     } else {
         $window.location.href = "#/loginPage";
     }
+    // add validation for adhaar number
+    $scope.doBlurAdhar = function($event) {
+        var target = $event.target;
+        if ($scope.doctor != null && $scope.doctor.aadhaarNumber != null &&
+            $scope.doctor.aadhaarNumber.length == 12) {
+            target.blur();
+        } else {
+            target.focus();
+        }
+    }
 });
 
 scotchApp.controller('contact', function($scope) {});
