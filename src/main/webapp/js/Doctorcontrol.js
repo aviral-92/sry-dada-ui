@@ -99,11 +99,65 @@ scotchApp.controller('indexSlider', function($scope) {
 });
 
 scotchApp.controller('registration', function($scope) {
-	
+	 $scope.doBlurName = function($event) {
+	        var target = $event.target;
+	        if ($scope.doctor != null && $scope.doctor.name.length > 0) {
+	            target.blur();
+	        } else {
+	            target.focus();
+	        }
+	    }
+	 
+	   $scope.doBlurMobile = function($event) {
+	        var target = $event.target;
+	        if ($scope.doctor != null && $scope.doctor.mobile != null &&
+	            $scope.doctor.mobile.length == 10) {
+	            target.blur();
+	        } else {
+	            target.focus();
+	        }
+	    }
+	   
+	   $scope.doBlurAdhar = function($event) {
+	        var target = $event.target;
+	        if ($scope.doctor != null && $scope.doctor.aadhaarNumber != null &&
+	            $scope.doctor.aadhaarNumber.length == 12) {
+	            target.blur();
+	        } else {
+	            target.focus();
+	        }
+	    }
 });
 
 scotchApp.controller('registrationUser', function($scope) {
-	
+	 $scope.doBlurName = function($event) {
+	        var target = $event.target;
+	        if ($scope.doctor != null && $scope.doctor.name.length > 0) {
+	            target.blur();
+	        } else {
+	            target.focus();
+	        }
+	    }
+	 
+	   $scope.doBlurMobile = function($event) {
+	        var target = $event.target;
+	        if ($scope.doctor != null && $scope.doctor.mobile != null &&
+	            $scope.doctor.mobile.length == 10) {
+	            target.blur();
+	        } else {
+	            target.focus();
+	        }
+	    }
+	   
+	   $scope.doBlurAdhar = function($event) {
+	        var target = $event.target;
+	        if ($scope.doctor != null && $scope.doctor.aadhaarNumber != null &&
+	            $scope.doctor.aadhaarNumber.length == 12) {
+	            target.blur();
+	        } else {
+	            target.focus();
+	        }
+	    }
 });
 
 scotchApp.controller('functionalitySearch', function($scope, $http) {
