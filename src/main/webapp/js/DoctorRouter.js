@@ -24,10 +24,16 @@ scotchApp.config(function($routeProvider) {
 		controller : 'doctorSearch'
 	})
 
-	// route for LoginPage
+	// route for AdminLogin
 	.when('/loginPage', {
 		templateUrl : '/html/LoginPage.html',
 		controller : 'loginPage'
+	})
+	
+	// route for UserLogin
+	.when('/userLogin', {
+		templateUrl : '/html/UserLogin.html',
+		controller : 'userLogin'
 	})
 
 	// route for the login page

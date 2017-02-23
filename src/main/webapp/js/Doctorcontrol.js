@@ -370,6 +370,56 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
     }
 });
 
+
+scotchApp.controller('userLogin', function($scope, $rootScope, $http, $cookieStore,
+	    $window) {
+	    $scope.loader = false;
+	    if ($cookieStore.get('loginData') == undefined ||
+	        $cookieStore.get('email') == undefined) {
+
+
+	        $scope.doctorLogin = function(loginDetail) {
+	            console.log(loginDetail);
+	            $cookieStore.put('email', loginDetail.email);
+	            var loginSuccessful = $http
+	                .get('https://doctor-service.cfapps.io/doctor/get/' +
+	                    loginDetail.email + '/email');
+	            $scope.loader = true;
+	            console.log(">>>>>>>>>" + loginSuccessful.success);
+	            loginSuccessful.success(function(getDoctorDetails) {
+	                if (getDoctorDetails.doctorId != null) {
+	                    $scope.message = 'Successfully Logged in...!!!';
+	                    $rootScope.getDoctorByMobile = getDoctorDetails;
+	                    $cookieStore.put('loginData', getDoctorDetails);
+	                    $window.location.href = "/View/DoctorDashboard.html";
+	                } else {
+	                    $scope.message = 'Invalid Credentials...!!!';
+	                }
+	                $scope.loader = false;
+	            });
+	            loginSuccessful.error(function(data, status, headers, config) {
+	                alert("failure message: " + data.message);
+	                $scope.message = 'Invalid Credentials...!!!';
+	            });
+	        }
+	        $scope.showSelectValue = function(mySelect) {
+	            console.log(mySelect);
+	        }
+	    } else {
+	        $window.location.href = "#/userLogin";
+	    }
+	    // add validation for adhaar number
+	    $scope.doBlurAdhar = function($event) {
+	        var target = $event.target;
+	        if ($scope.doctor != null && $scope.doctor.aadhaarNumber != null &&
+	            $scope.doctor.aadhaarNumber.length == 12) {
+	            target.blur();
+	        } else {
+	            target.focus();
+	        }
+	    }
+	});
+
 scotchApp.controller('contact', function($scope) {});
 
 scotchApp.controller('signUp', function($scope, $http) {
