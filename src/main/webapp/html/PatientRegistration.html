@@ -20,25 +20,25 @@
 							<h3 class="text-center">
 								<i class="fa fa-lock"></i> Register Yourself
 							</h3>
-							<form name="doctorForm" class="signup" action="index.html"
+							<form name="patientForm" class="signup" action="index.html"
 								method="post" novalidate="novalidate">
 
 								<!-- ------------------------------------------------- -->
 								<div class="form-group has-feedback "
-									ng-class="{'has-success' : doctorForm.name.$dirty && doctorForm.name.$valid ,
-			 'has-error' : doctorForm.name.$dirty && doctorForm.name.$invalid}">
+									ng-class="{'has-success' : patientForm.name.$dirty && patientForm.name.$valid ,
+			 'has-error' : patientForm.name.$dirty && patientForm.name.$invalid}">
 									<input type="text" class="form-control" id="inputError2"
-										name="name" ng-model="doctor.name" placeholder="Enter name"
+										name="name" ng-model="patient.name" placeholder="Enter name"
 										ng-blur="doBlurName($event)" valid-Name>
 
 									<div class="help-inline">
-										<span ng-show="!!doctorForm.name.$error.isBlank"><i
-											style="color: red;">Doctor Name Required.</i></span> <span
-											ng-show="!!doctorForm.name.$error.invalidChars"><i
-											style="color: red;">Doctor Name must contain letters
+										<span ng-show="!!patientForm.name.$error.isBlank"><i
+											style="color: red;">Patient Name Required.</i></span> <span
+											ng-show="!!patientForm.name.$error.invalidChars"><i
+											style="color: red;">Patient Name must contain letters
 												&amp; spaces only.</i></span> <span
-											ng-show="!!doctorForm.name.$error.invalidLen"><i
-											style="color: red;">Doctor Name must be 3-20 characters.</i></span>
+											ng-show="!!patientForm.name.$error.invalidLen"><i
+											style="color: red;">Patient Name must be 3-20 characters.</i></span>
 									</div>
 								</div>
 								<!-- ------------------------------------------------- -->
@@ -48,20 +48,20 @@
 								</div>
 								<!-- ------------------------------------------------- -->
 								<div class="form-group has-feedback "
-									ng-class="{'has-success' : doctorForm.mobile.$dirty && doctorForm.mobile.$valid ,
-			 'has-error' : doctorForm.mobile.$dirty && doctorForm.mobile.$invalid}">
+									ng-class="{'has-success' : patientForm.mobile.$dirty && patientForm.mobile.$valid ,
+			 'has-error' : patientForm.mobile.$dirty && patientForm.mobile.$invalid}">
 									<input type="text" class="form-control" id="mobile"
-										name="mobile" ng-model="doctor.mobile"
+										name="mobile" ng-model="patient.mobile"
 										placeholder="Enter Mobile Number"
 										ng-blur="doBlurMobile($event)" valid-Mobile />
 									<div class="help-inline">
-										<span ng-show="!!doctorForm.mobile.$error.isBlank"><i
-											style="color: red;">Doctor mobile number Required.</i></span> <span
-											ng-show="!!doctorForm.mobile.$error.invalidChars"><i
-											style="color: red;">Doctor mobile number must contain
+										<span ng-show="!!patientForm.mobile.$error.isBlank"><i
+											style="color: red;">Patient mobile number Required.</i></span> <span
+											ng-show="!!patientForm.mobile.$error.invalidChars"><i
+											style="color: red;">Patient mobile number must contain
 												numbers only.</i></span> <span
-											ng-show="!!doctorForm.mobile.$error.invalidLen"><i
-											style="color: red;">Doctor mobile number must be 10
+											ng-show="!!patientForm.mobile.$error.invalidLen"><i
+											style="color: red;">Patient mobile number must be 10
 												digits.</i></span>
 									</div>
 								</div>
@@ -69,20 +69,20 @@
 								<!-- ------------------------------------------------- -->
 
 								<div class="form-group has-feedback "
-									ng-class="{'has-success' : doctorForm.adhar.$dirty && doctorForm.adhar.$valid ,
-			 'has-error' : doctorForm.adhar.$dirty && doctorForm.adhar.$invalid}">
+									ng-class="{'has-success' : patientForm.adhar.$dirty && patientForm.adhar.$valid ,
+			 'has-error' : patientForm.adhar.$dirty && patientForm.adhar.$invalid}">
 									<input type="text" class="form-control" id="adhar" name="adhar"
-										ng-model="doctor.aadhaarNumber"
+										ng-model="patient.aadhaarNumber"
 										placeholder="Enter Adhar Number" ng-blur="doBlurAdhar($event)"
 										valid-Adhar />
 									<div class="help-inline">
-										<span ng-show="!!doctorForm.adhar.$error.isBlank"><i
-											style="color: red;">Doctor adhar number Required.</i></span> <span
-											ng-show="!!doctorForm.adhar.$error.invalidChars"><i
-											style="color: red;">Doctor adhar number must contain
+										<span ng-show="!!patientForm.adhar.$error.isBlank"><i
+											style="color: red;">Patient adhar number Required.</i></span> <span
+											ng-show="!!patientForm.adhar.$error.invalidChars"><i
+											style="color: red;">Patient adhar number must contain
 												numbers only.</i></span> <span
-											ng-show="!!doctorForm.adhar.$error.invalidLen"><i
-											style="color: red;">Doctor adhar number must be 12
+											ng-show="!!patientForm.adhar.$error.invalidLen"><i
+											style="color: red;">Patient adhar number must be 12
 												digits.</i></span>
 									</div>
 								</div>
