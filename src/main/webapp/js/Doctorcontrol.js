@@ -98,6 +98,14 @@ scotchApp.controller('indexSlider', function($scope) {
 	
 });
 
+scotchApp.controller('registration', function($scope) {
+	
+});
+
+scotchApp.controller('registrationUser', function($scope) {
+	
+});
+
 scotchApp.controller('functionalitySearch', function($scope, $http) {
 
     $scope.users = []; //declare an empty array

@@ -1,27 +1,29 @@
-var scotchApp = angular.module('myApp', [ 'ngCookies', 'ngRoute', 'ui.bootstrap',
-		'UserValidation', 'angularUtils.directives.dirPagination', 'ngSanitize', 'MassAutoComplete' ]);
+var scotchApp = angular.module('myApp', [ 'ngCookies', 'ngRoute',
+		'ui.bootstrap', 'UserValidation',
+		'angularUtils.directives.dirPagination', 'ngSanitize',
+		'MassAutoComplete' ]);
 
 scotchApp.config(function($routeProvider) {
 	$routeProvider
-	
+
 	// route for the home page
 	.when('/', {
 		templateUrl : '/html/Index_Slider.html',
 		controller : 'indexSlider'
 	})
-	
+
 	// route for the home page
 	.when('/home', {
 		templateUrl : '/html/Index_Slider.html',
 		controller : 'indexSlider'
 	})
-	
+
 	// route for Search
 	.when('/search', {
 		templateUrl : '/html/DoctorSearch.html',
 		controller : 'doctorSearch'
 	})
-	
+
 	// route for LoginPage
 	.when('/loginPage', {
 		templateUrl : '/html/LoginPage.html',
@@ -68,7 +70,19 @@ scotchApp.config(function($routeProvider) {
 		templateUrl : '/html/Dashboard/RetrievePassword.html',
 		controller : 'retrievePassword'
 	})
-	
+
+	// route for
+	.when('/registration', {
+		templateUrl : '/html/DoctorRegistration.html',
+		controller : 'registration'
+	})
+
+	//
+	.when('/profile', {
+		templateUrl : '/html/PatientRegistration.html',
+		controller : 'registrationUser'
+	})
+
 	.when('/searchFunctionality', {
 		templateUrl : '/html/SearchFunctionality/DoctorSearch.html',
 		controller : 'functionalitySearch'
