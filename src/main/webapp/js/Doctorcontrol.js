@@ -158,6 +158,16 @@ scotchApp.controller('registrationUser', function($scope) {
 	            target.focus();
 	        }
 	    }
+	   //TODO for Email Validation
+	   $scope.doBlurEmail = function($event) {
+	        var target = $event.target;
+	        if ($scope.patient != null && $scope.patient.email != null &&
+	            $scope.patient.email.length == 12) {
+	            target.blur();
+	        } else {
+	            target.focus();
+	        }
+	    }
 });
 
 scotchApp.controller('functionalitySearch', function($scope, $http) {

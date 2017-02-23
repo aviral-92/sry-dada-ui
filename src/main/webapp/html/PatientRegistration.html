@@ -42,10 +42,32 @@
 									</div>
 								</div>
 								<!-- ------------------------------------------------- -->
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<input type="email" class="form-control"
 										placeholder="Email Address">
+								</div> -->
+
+								<!-- --------Need to add validation in this field-------- -->
+								<div class="form-group has-feedback "
+									ng-class="{'has-success' : patientForm.email.$dirty && patientForm.email.$valid ,
+			 'has-error' : patientForm.email.$dirty && patientForm.email.$invalid}">
+									<input type="text" class="form-control" id="email"
+										name="email" ng-model="patient.email"
+										placeholder="Enter Email"
+										ng-blur="doBlurEmail($event)" valid-Email />
+									<div class="help-inline">
+										<span ng-show="!!patientForm.email.$error.isBlank"><i
+											style="color: red;">Patient mobile number Required.</i></span> <span
+											ng-show="!!patientForm.email.$error.invalidChars"><i
+											style="color: red;">Patient mobile number must contain
+												numbers only.</i></span> <span
+											ng-show="!!patientForm.email.$error.invalidLen"><i
+											style="color: red;">Patient mobile number must be 10
+												digits.</i></span>
+									</div>
 								</div>
+
+
 								<!-- ------------------------------------------------- -->
 								<div class="form-group has-feedback "
 									ng-class="{'has-success' : patientForm.mobile.$dirty && patientForm.mobile.$valid ,

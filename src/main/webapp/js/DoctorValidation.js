@@ -33,7 +33,7 @@ angular.module('UserValidation', []).directive('validName', function () {
             })
         }
     }
-})/*.directive('validEmail', function () {
+}).directive('validEmail', function () {
     return {
         require: 'ngModel',
         link: function (scope, elm, attrs, ctrl) {
@@ -47,11 +47,16 @@ angular.module('UserValidation', []).directive('validName', function () {
                 ctrl.$setValidity('invalidChars', !invalidChars)
                 ctrl.$setValidity('invalidLen', !invalidLen)
                 scope.emailGood = !isBlank && !invalidChars && !invalidLen
-
+                if(scope.emailGood == true){
+                	//console.log(">>>>>>>>" +scope.nameGood);
+                	return viewValue;
+                }
+                else 
+                	return false;
             })
         }
     }
-})*/.directive('validMobile', function () {
+}).directive('validMobile', function () {
     return {
         require: 'ngModel',
         link: function (scope, elm, attrs, ctrl) {
