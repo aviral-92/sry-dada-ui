@@ -39,6 +39,18 @@
 												&amp; spaces only.</i></span> <span
 											ng-show="!!patientForm.name.$error.invalidLen"><i
 											style="color: red;">Patient Name must be 3-20 characters.</i></span>
+
+										<div ng-if="patientForm.name.$invalid == true">
+											<span
+												class="glyphicon glyphicon-remove form-control-feedback"
+												style="color: red; margin-top: -5%;"
+												ng-show="!!patientForm.name.$error.isBlank || !!patientForm.name.$error.invalidChars || !!patientForm.name.$error.invalidLen"></span>
+										</div>
+										<div ng-if="patientForm.name.$pristine == false">
+											<span class="glyphicon glyphicon-ok form-control-feedback"
+												style="color: green; margin-top: -5%;"
+												ng-show="!patientForm.name.$error.isBlank && !patientForm.name.$error.invalidChars && !patientForm.name.$error.invalidLen"></span>
+										</div>
 									</div>
 								</div>
 								<!-- ------------------------------------------------- -->
@@ -51,9 +63,8 @@
 								<div class="form-group has-feedback "
 									ng-class="{'has-success' : patientForm.email.$dirty && patientForm.email.$valid ,
 			 'has-error' : patientForm.email.$dirty && patientForm.email.$invalid}">
-									<input type="text" class="form-control" id="email"
-										name="email" ng-model="patient.email"
-										placeholder="Enter Email"
+									<input type="text" class="form-control" id="email" name="email"
+										ng-model="patient.email" placeholder="Enter Email"
 										ng-blur="doBlurEmail($event)" valid-Email />
 									<div class="help-inline">
 										<span ng-show="!!patientForm.email.$error.isBlank"><i
@@ -64,6 +75,17 @@
 											ng-show="!!patientForm.email.$error.invalidLen"><i
 											style="color: red;">Patient mobile number must be 10
 												digits.</i></span>
+										<div ng-if="patientForm.email.$invalid == true">
+											<span
+												class="glyphicon glyphicon-remove form-control-feedback"
+												style="color: red; margin-top: -5%;"
+												ng-show="!!patientForm.email.$error.isBlank || !!patientForm.email.$error.invalidChars || !!patientForm.email.$error.invalidLen"></span>
+										</div>
+										<div ng-if="patientForm.email.$pristine == false">
+											<span class="glyphicon glyphicon-ok form-control-feedback"
+												style="color: green; margin-top: -5%;"
+												ng-show="!patientForm.email.$error.isBlank && !patientForm.email.$error.invalidChars && !patientForm.email.$error.invalidLen"></span>
+										</div>
 									</div>
 								</div>
 
@@ -85,6 +107,18 @@
 											ng-show="!!patientForm.mobile.$error.invalidLen"><i
 											style="color: red;">Patient mobile number must be 10
 												digits.</i></span>
+
+										<div ng-if="patientForm.mobile.$invalid == true">
+											<span
+												class="glyphicon glyphicon-remove form-control-feedback"
+												style="color: red; margin-top: -5%;"
+												ng-show="!!patientForm.mobile.$error.isBlank || !!patientForm.mobile.$error.invalidChars || !!patientForm.mobile.$error.invalidLen"></span>
+										</div>
+										<div ng-if="patientForm.mobile.$pristine == false">
+											<span class="glyphicon glyphicon-ok form-control-feedback"
+												style="color: green; margin-top: -5%;"
+												ng-show="!patientForm.mobile.$error.isBlank && !patientForm.mobile.$error.invalidChars && !patientForm.mobile.$error.invalidLen"></span>
+										</div>
 									</div>
 								</div>
 								<!-- ------------------------------------------------- -->
@@ -106,6 +140,17 @@
 											ng-show="!!patientForm.adhar.$error.invalidLen"><i
 											style="color: red;">Patient adhar number must be 12
 												digits.</i></span>
+												<div ng-if="patientForm.adhar.$invalid == true">
+											<span
+												class="glyphicon glyphicon-remove form-control-feedback"
+												style="color: red; margin-top: -5%;"
+												ng-show="!!patientForm.adhar.$error.isBlank || !!patientForm.adhar.$error.invalidChars || !!patientForm.adhar.$error.invalidLen"></span>
+										</div>
+										<div ng-if="patientForm.adhar.$pristine == false">
+											<span class="glyphicon glyphicon-ok form-control-feedback"
+												style="color: green; margin-top: -5%;"
+												ng-show="!patientForm.adhar.$error.isBlank && !patientForm.adhar.$error.invalidChars && !patientForm.adhar.$error.invalidLen"></span>
+										</div>
 									</div>
 								</div>
 								<!-- ------------------------------------------------- -->
