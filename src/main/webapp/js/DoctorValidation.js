@@ -4,12 +4,6 @@ signUp = function($scope) {
         return ($scope.nameGood && $scope.passwordGood && $scope.passwordCGood)
     }
 }
-/*loginPage = function($scope) {
-    $scope.formAllGood = function () {
-    	console.log($scope.nameGood);
-        return ($scope.nameGood && $scope.passwordGood && $scope.passwordCGood)
-    }
-}*/
 
 angular.module('UserValidation', []).directive('validName', function () {
     return {
@@ -38,8 +32,6 @@ angular.module('UserValidation', []).directive('validName', function () {
         require: 'ngModel',
         link: function (scope, elm, attrs, ctrl) {
             ctrl.$parsers.unshift(function (viewValue) {
-                // Any way to read the results of a "required" angular validator
-				// here?
                 var isBlank = viewValue === ''
                 var invalidChars = !isBlank && !/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(viewValue)
                 var invalidLen = !isBlank && !invalidChars && (viewValue.length < 3 || viewValue.length > 20)
@@ -48,7 +40,7 @@ angular.module('UserValidation', []).directive('validName', function () {
                 ctrl.$setValidity('invalidLen', !invalidLen)
                 scope.emailGood = !isBlank && !invalidChars && !invalidLen
                 if(scope.emailGood == true){
-                	//console.log(">>>>>>>>" +scope.nameGood);
+                	console.log(">>>>>>>>" +scope.nameGood);
                 	return viewValue;
                 }
                 else 
@@ -218,4 +210,4 @@ angular.module('UserValidation', []).directive('validName', function () {
             })
         }
     }
-})
+});

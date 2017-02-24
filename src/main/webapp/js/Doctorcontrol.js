@@ -98,7 +98,7 @@ scotchApp.controller('indexSlider', function($scope) {
 	
 });
 
-scotchApp.controller('registration', function($scope) {
+scotchApp.controller('doctorRegistration', function($scope) {
 	 $scope.doBlurName = function($event) {
 	        var target = $event.target;
 	        if ($scope.doctor != null && $scope.doctor.name.length > 0) {
@@ -127,9 +127,20 @@ scotchApp.controller('registration', function($scope) {
 	            target.focus();
 	        }
 	    }
+       
+       //TODO for Email Validation
+	   $scope.doBlurEmail = function($event) {
+	        var target = $event.target;
+	        if ($scope.doctor != null && $scope.doctor.email != null &&
+	            $scope.doctor.email.length > 9) {
+	            target.blur();
+	        } else {
+	            target.focus();
+	        }
+	    }
 });
 
-scotchApp.controller('registrationUser', function($scope) {
+scotchApp.controller('patientRegistration', function($scope) {
 	 $scope.doBlurName = function($event) {
 	        var target = $event.target;
 	        if ($scope.patient != null && $scope.patient.name.length > 0) {
@@ -371,7 +382,7 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
 });
 
 
-scotchApp.controller('userLogin', function($scope, $rootScope, $http, $cookieStore,
+scotchApp.controller('patientLogin', function($scope, $rootScope, $http, $cookieStore,
 	    $window) {
 	    $scope.loader = false;
 	    if ($cookieStore.get('loginData') == undefined ||
@@ -406,7 +417,7 @@ scotchApp.controller('userLogin', function($scope, $rootScope, $http, $cookieSto
 	            console.log(mySelect);
 	        }
 	    } else {
-	        $window.location.href = "#/userLogin";
+	        $window.location.href = "#/patientLogin";
 	    }
 	    // add validation for adhaar number
 	    $scope.doBlurAdhar = function($event) {
