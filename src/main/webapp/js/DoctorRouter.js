@@ -31,9 +31,9 @@ scotchApp.config(function($routeProvider) {
 	})
 	
 	// route for UserLogin
-	.when('/userLogin', {
-		templateUrl : '/html/UserLogin.html',
-		controller : 'userLogin'
+	.when('/patientLogin', {
+		templateUrl : '/html/PatientLogin.html',
+		controller : 'patientLogin'
 	})
 
 	// route for the login page
@@ -78,15 +78,15 @@ scotchApp.config(function($routeProvider) {
 	})
 
 	// route for
-	.when('/registration', {
+	.when('/doctorRegistration', {
 		templateUrl : '/html/DoctorRegistration.html',
-		controller : 'registration'
+		controller : 'doctorRegistration'
 	})
 
 	//
-	.when('/profile', {
+	.when('/patientRegistration', {
 		templateUrl : '/html/PatientRegistration.html',
-		controller : 'registrationUser'
+		controller : 'patientRegistration'
 	})
 
 	.when('/searchFunctionality', {
