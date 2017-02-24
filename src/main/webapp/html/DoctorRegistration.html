@@ -60,12 +60,13 @@
 										ng-blur="doBlurEmail($event)" valid-Email>
 									<div class="help-inline">
 										<span ng-show="!!doctorRegistrationForm.email.$error.isBlank"><b
-											style="color: red;">Doctor Name Required.</b></span> <span
+											style="color: red;">Doctor Email Required.</b></span> <span
 											ng-show="!!doctorRegistrationForm.email.$error.invalidChars"><b
-											style="color: red;">Doctor Name must contain letters
-												&amp; spaces only.</b></span> <span
+											style="color: red;">Doctor Email must contain @ & dot(.)
+												.</b></span> <span
 											ng-show="!!doctorRegistrationForm.email.$error.invalidLen"><b
-											style="color: red;">Doctor Name must be 3-20 characters.</b></span>
+											style="color: red;">Doctor Email must be use dot(.) &
+												characters.</b></span>
 										<div ng-if="doctorRegistrationForm.email.$invalid == true">
 											<span
 												class="glyphicon glyphicon-remove form-control-feedback"
@@ -89,12 +90,13 @@
 										ng-blur="doBlurMobile($event)" valid-Mobile>
 									<div class="help-inline">
 										<span ng-show="!!doctorRegistrationForm.mobile.$error.isBlank"><b
-											style="color: red;">Doctor Name Required.</b></span> <span
+											style="color: red;">Doctor mobile number Required.</b></span> <span
 											ng-show="!!doctorRegistrationForm.mobile.$error.invalidChars"><b
-											style="color: red;">Doctor Name must contain letters
-												&amp; spaces only.</b></span> <span
+											style="color: red;">Doctor mobile number must contain
+												numbers only.</b></span> <span
 											ng-show="!!doctorRegistrationForm.mobile.$error.invalidLen"><b
-											style="color: red;">Doctor Name must be 3-20 characters.</b></span>
+											style="color: red;">Doctor mobile number must be 10
+												digits.</b></span>
 										<div ng-if="doctorRegistrationForm.mobile.$invalid == true">
 											<span
 												class="glyphicon glyphicon-remove form-control-feedback"
@@ -119,12 +121,13 @@
 									<div class="help-inline">
 										<span
 											ng-show="!!doctorRegistrationForm.aadhaarNumber.$error.isBlank"><b
-											style="color: red;">Doctor Name Required.</b></span> <span
+											style="color: red;">Doctor adhar number Required.</b></span> <span
 											ng-show="!!doctorRegistrationForm.aadhaarNumber.$error.invalidChars"><b
-											style="color: red;">Doctor Name must contain letters
-												&amp; spaces only.</b></span> <span
+											style="color: red;">Doctor adhar number must contain
+												numbers only.</b></span> <span
 											ng-show="!!doctorRegistrationForm.aadhaarNumber.$error.invalidLen"><b
-											style="color: red;">Doctor Name must be 3-20 characters.</b></span>
+											style="color: red;">Doctor adhar number must be 12
+												digits.</b></span>
 										<div
 											ng-if="doctorRegistrationForm.aadhaarNumber.$invalid == true">
 											<span
@@ -141,10 +144,44 @@
 									</div>
 								</div>
 								<!-- Input type Password Field-->
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<input type="password" class="form-control"
 										placeholder="Password">
+								</div> -->
+
+								<!-- ------------------------------------------------------ -->
+								<div style="margin-bottom: 25px;"
+									class="form-group has-feedback "
+									ng-class="{'has-success' : doctorRegistrationForm.password.$dirty && doctorRegistrationForm.password.$valid ,
+                        'has-error' : doctorRegistrationForm.password.$dirty && doctorRegistrationForm.password.$invalid}">
+									<input type="password" class="form-control" id="inputError2"
+										name="password" ng-model="loginDetail.password"
+										placeholder="Enter password" ng-blur="doBlurPassword($event)"
+										valid-Password>
+									<div class="help-inline">
+										<span
+											ng-show="!!doctorRegistrationForm.password.$error.isBlank"><i
+											style="color: red;">Password required.</i></span> <span
+											ng-show="!!doctorRegistrationForm.password.$error.invalidChars"><i
+											style="color: red;">Incorrect password.</i></span> <span
+											ng-show="!!doctorRegistrationForm.password.$error.invalidLen"><i
+											style="color: red;">Incorrect password</i></span>
+										<div ng-if="doctorRegistrationForm.password.$invalid == true">
+											<span
+												class="glyphicon glyphicon-remove form-control-feedback"
+												style="color: red;margin-top: -5%;"
+												ng-show="!!doctorRegistrationForm.password.$error.isBlank || !!doctorRegistrationForm.password.$error.invalidChars || !!doctorRegistrationForm.password.$error.invalidLen"></span>
+										</div>
+										<div
+											ng-if="doctorRegistrationForm.password.$pristine == false">
+											<span class="glyphicon glyphicon-ok form-control-feedback"
+												style="color: green; margin-top: -5%;"
+												ng-show="!doctorRegistrationForm.password.$error.isBlank && !doctorRegistrationForm.password.$error.invalidChars && !doctorRegistrationForm.password.$error.invalidLen"></span>
+										</div>
+									</div>
 								</div>
+								<!-- ------------------------------------------------------ -->
+
 								<!-- Input type Confirm Password Field-->
 								<div class="form-group">
 									<input type="password" class="form-control"
