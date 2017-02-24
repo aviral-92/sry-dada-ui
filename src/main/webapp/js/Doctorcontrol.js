@@ -318,8 +318,11 @@ scotchApp.controller('about', function($scope) {
  var slides = $scope.slides;
     
     $scope.sliders = [{
-        image: '/images/Slider 1/sliderImage2.jpg',
+        image: '/images/Slider 1/doc.jpg',
         text: 'Cute Fish'
+    }, {
+        image: '/images/Slider 1/doc4.jpg',
+        text: 'Image2'
     }, {
         image: '/images/Slider 1/sliderImage1.jpg',
         text: 'Image2'
@@ -327,6 +330,12 @@ scotchApp.controller('about', function($scope) {
         image: '/images/Slider 1/sliderImage2.jpg',
         text: 'Image3'
     }, {
+        image: '/images/Slider 1/doc1.jpg',
+        text: 'Image2'
+    }, {
+        image: '/images/Slider 1/doc2.jpg',
+        text: 'Image2'
+    },{
         image: '/images/Slider 1/sliderImage3.png',
         text: 'Image4'
     }];
