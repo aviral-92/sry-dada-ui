@@ -34,7 +34,7 @@ angular.module('UserValidation', []).directive('validName', function () {
             ctrl.$parsers.unshift(function (viewValue) {
                 var isBlank = viewValue === ''
                 var invalidChars = !isBlank && !/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(viewValue)
-                var invalidLen = !isBlank && !invalidChars && (viewValue.length < 3 || viewValue.length > 20)
+                var invalidLen = !isBlank && !invalidChars && (viewValue.length < 3)
                 ctrl.$setValidity('isBlank', !isBlank)
                 ctrl.$setValidity('invalidChars', !invalidChars)
                 ctrl.$setValidity('invalidLen', !invalidLen)
@@ -198,6 +198,26 @@ angular.module('UserValidation', []).directive('validName', function () {
                 var isBlank = viewValue === ''
                 	var invalidChars = !isBlank && !/^\d+$/.test(viewValue)
                 var invalidLen = !isBlank && !invalidChars && (viewValue.length < 0 || viewValue.length > 5)
+                ctrl.$setValidity('isBlank', !isBlank)
+                ctrl.$setValidity('invalidChars', !invalidChars)
+                ctrl.$setValidity('invalidLen', !invalidLen)
+                scope.consultingGood = !isBlank && !invalidChars && !invalidLen
+                if(scope.consultingGood == true){
+                	return viewValue;
+                }
+                else 
+                	return false;
+            })
+        }
+    }
+}).directive('validPassword', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elm, attrs, ctrl) {
+            ctrl.$parsers.unshift(function (viewValue) {
+                var isBlank = viewValue === ''
+                	var invalidChars = !isBlank && !/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/.test(viewValue)
+                var invalidLen = !isBlank && !invalidChars && (viewValue.length < 5)
                 ctrl.$setValidity('isBlank', !isBlank)
                 ctrl.$setValidity('invalidChars', !invalidChars)
                 ctrl.$setValidity('invalidLen', !invalidLen)
