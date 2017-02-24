@@ -24,19 +24,19 @@ scotchApp.config(function($routeProvider) {
 		controller : 'doctorSearch'
 	})
 
-	// route for AdminLogin
+	// route for DoctorLogin
 	.when('/loginPage', {
 		templateUrl : '/html/LoginPage.html',
 		controller : 'loginPage'
 	})
 	
-	// route for UserLogin
+	// route for PatientLogin
 	.when('/patientLogin', {
 		templateUrl : '/html/PatientLogin.html',
 		controller : 'patientLogin'
 	})
 
-	// route for the login page
+	// route for the login page --------------Not in Use
 	.when('/login', {
 		templateUrl : '/html/Login.html',
 		controller : 'login'
@@ -71,7 +71,7 @@ scotchApp.config(function($routeProvider) {
 		controller : 'dashboard'
 	})
 
-	// route for dashboard retrieve password
+	// route for dashboard retrieve password  --------------Not in Use
 	.when('/retrievePassword', {
 		templateUrl : '/html/Dashboard/RetrievePassword.html',
 		controller : 'retrievePassword'
