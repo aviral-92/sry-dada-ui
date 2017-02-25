@@ -404,7 +404,7 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
             clearTimeout(myModal.data('hideInterval'));
             myModal.data('hideInterval', setTimeout(function(){
                 myModal.modal('hide');
-            }, 10000));
+            }, 14000));
         });
     });
     
@@ -414,7 +414,7 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
             clearTimeout(myModal.data('hideInterval'));
             myModal.data('hideInterval', setTimeout(function(){
                 myModal.modal('hide');
-            }, 3000));
+            }, 4000));
         });
     });
     //------------------------------ code for forgot password dialogue box timings
@@ -504,7 +504,7 @@ scotchApp.controller('patientLogin', function($scope, $rootScope, $http, $cookie
 	            clearTimeout(myModal.data('hideInterval'));
 	            myModal.data('hideInterval', setTimeout(function(){
 	                myModal.modal('hide');
-	            }, 10000));
+	            }, 14000));
 	        });
 	    });
 	    
@@ -514,7 +514,7 @@ scotchApp.controller('patientLogin', function($scope, $rootScope, $http, $cookie
 	            clearTimeout(myModal.data('hideInterval'));
 	            myModal.data('hideInterval', setTimeout(function(){
 	                myModal.modal('hide');
-	            }, 3000));
+	            }, 4000));
 	        });
 	    });
 	    //------------------------------ code for forgot password dialogue box timings
