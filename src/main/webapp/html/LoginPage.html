@@ -69,13 +69,21 @@
 								<!-- ------------------------------------ -->
 
 								<div class="form-group">
-									<div class="col-sm-offset-1 col-sm-10">
+									<!-- ----------use to disable submit button ------>
+									<div class="col-sm-offset-1 col-sm-4">
+										<input type="submit" class="btn btn-success btn-block"
+											data-toggle="modal" data-target="#myModal1"
+											ng-disabled="!doctorForm.$valid || doctorForm.$pristine"
+											value="SUBMIT">
+										<!-- ----------use to disable submit button ------>
+									</div>
+									<!-- <div class="col-sm-offset-0 col-sm-10">
 										<button type="button" ng-click="searchDoctor(doctor)"
-											class="btn btn-success" data-toggle="modal"
+											class="btn btn-success" data-toggle="modal" ng-disabled="!doctorForm.$valid || doctorForm.$pristine"
 											data-target="#myModal1">
 											<span class="glyphicon glyphicon-ok-circle"></span> Submit
 										</button>
-									</div>
+									</div> -->
 								</div>
 							</form>
 						</div>
