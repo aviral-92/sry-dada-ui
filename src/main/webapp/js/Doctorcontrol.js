@@ -99,6 +99,8 @@ scotchApp.controller('indexSlider', function($scope) {
 });
 
 scotchApp.controller('doctorRegistration', function($scope) {
+    
+    $scope.confirm = false;
 	 $scope.doBlurName = function($event) {
 	        var target = $event.target;
 	        if ($scope.doctor != null && $scope.doctor.name.length > 0) {
@@ -138,6 +140,15 @@ scotchApp.controller('doctorRegistration', function($scope) {
 	            target.focus();
 	        }
 	    }
+       
+       $scope.doBlurPassword = function(login){
+           
+           if(login.password == login.cnfrmPassword){
+               $scope.confirm = false;
+           }else{
+               $scope.confirm = true;
+           }
+       }
 });
 
 scotchApp.controller('patientRegistration', function($scope) {
