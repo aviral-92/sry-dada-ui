@@ -399,16 +399,6 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
     }
    //----------------------------- code for forgot password dialogue box timings 
     $(function(){
-        $('#myModal').on('show.bs.modal', function(){
-            var myModal = $(this);
-            clearTimeout(myModal.data('hideInterval'));
-            myModal.data('hideInterval', setTimeout(function(){
-                myModal.modal('hide');
-            }, 14000));
-        });
-    });
-    
-    $(function(){
         $('#myModal1').on('show.bs.modal', function(){
             var myModal = $(this);
             clearTimeout(myModal.data('hideInterval'));
@@ -498,16 +488,6 @@ scotchApp.controller('patientLogin', function($scope, $rootScope, $http, $cookie
 	        }
 	    }
 	  //----------------------------- code for forgot password dialogue box timings 
-	    $(function(){
-	        $('#myModal').on('show.bs.modal', function(){
-	            var myModal = $(this);
-	            clearTimeout(myModal.data('hideInterval'));
-	            myModal.data('hideInterval', setTimeout(function(){
-	                myModal.modal('hide');
-	            }, 14000));
-	        });
-	    });
-	    
 	    $(function(){
 	        $('#myModal1').on('show.bs.modal', function(){
 	            var myModal = $(this);
