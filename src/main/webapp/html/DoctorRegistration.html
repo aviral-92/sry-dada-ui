@@ -222,7 +222,7 @@
 								</div>
 								<!-- Input type Submit Button Field-->
 								<div class="form-group">
-									<input type="submit" class="btn btn-success btn-block"
+									<input type="submit" class="btn " ng-class="{'btn-primary btn-block' : !doctorRegistrationForm.$valid || doctorRegistrationForm.$pristine || confirm==true, 'btn-success btn-block' : !!doctorRegistrationForm.$valid || !doctorRegistrationForm.$pristine || !confirm==true}"
 										ng-disabled="!doctorRegistrationForm.$valid || doctorRegistrationForm.$pristine || confirm==true"
 										value="SUBMIT">
 								</div>
