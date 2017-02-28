@@ -31,7 +31,7 @@ scotchApp.controller('index', function($scope, $http, $window) {
         $scope.autocomplete_options = {
             suggest: suggest_state_delimited
         };
-        console.log($scope.dirty);
+        //console.log($scope.dirty);
     });
     $scope.btnClick = function() {
         $window.location.href = '#/searchFunctionality';
@@ -328,7 +328,7 @@ scotchApp.controller('about', function($scope) {
 });
 
 scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieStore,
-    $window) {
+    $window, $cookies) {
     
     $scope.doBlurEmail = function($event) {
 	        var target = $event.target;
@@ -351,7 +351,7 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
     
     //$scope.loader = false;
     if ($cookieStore.get('loginData') == undefined ||
-        $cookieStore.get('email') == undefined) {
+        $cookies.email == undefined) {
 
 
         $scope.doctorLogin = function(loginDetail) {
@@ -371,8 +371,9 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
                     if(login[i].email == loginDetail.email && login[i].password == loginDetail.password){
                         $scope.message = 'Successfully Logged in...!!!';
                         $rootScope.getDoctorByMobile = login[i];
+                        $cookies.email = loginDetail.email;
                         $cookieStore.put('loginData', login[i]);
-                        $cookieStore.put('email', loginDetail.email);
+                        //$cookieStore.put('email', loginDetail.email);
                         $window.location.href = "/View/DoctorDashboard.html";
                         break;
                     }
