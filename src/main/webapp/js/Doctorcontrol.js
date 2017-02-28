@@ -380,7 +380,7 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
             console.log(mySelect);
         }*/
     } else {
-        $window.location.href = "#/loginPage";
+        $window.location.href = "#/loginPage";// TODO, change URL, need to redirect on dashboard.
     }
     // add validation for adhaar number
     $scope.doBlurAdhar = function($event) {
