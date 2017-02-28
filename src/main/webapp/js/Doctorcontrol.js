@@ -376,7 +376,7 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
                         //                        $cookies.email = loginDetail.email;
                         $cookieStore.put('loginData', login[i]);
                         $cookieStore.put('email', loginDetail.email);
-                        $window.location.href = "/DoctorDashboard.html";
+                        $window.location.href = "/DoctorDashboard.html#/doctorDashboard";
                         break;
                     }
                 }
