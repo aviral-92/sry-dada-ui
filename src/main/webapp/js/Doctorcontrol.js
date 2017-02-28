@@ -331,27 +331,7 @@ scotchApp.controller('about', function($scope) {
     }];
 });
 
-scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieStore,
-    $window, $cookies) {
-
-    $scope.doBlurEmail = function($event) {
-        var target = $event.target;
-        if ($scope.loginDetail != null && $scope.loginDetail.email != null &&
-            $scope.loginDetail.email.length > 9) {
-            target.blur();
-        } else {
-            target.focus();
-        }
-    }
-    $scope.doBlurPassword = function($event) {
-        var target = $event.target;
-        if ($scope.loginDetail != null && $scope.loginDetail.password != null &&
-            $scope.loginDetail.password.length > 5) {
-            target.blur();
-        } else {
-            target.focus();
-        }
-    }
+scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieStore, $window, $cookies) {
 
     //$scope.loader = false;
     if ($cookieStore.get('loginData') == undefined ||
