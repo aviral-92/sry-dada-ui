@@ -403,6 +403,10 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
         });
     });
     //------------------------------ code for forgot password dialogue box timings
+    $scope.init = function(){           
+        console.log("doctor " + $scope.testInput);
+       
+        };
 });
 
 

@@ -85,7 +85,9 @@ scotchApp.controller('patientLogin', function($scope, $rootScope, $http, $cookie
         });
     });
     //------------------------------ code for forgot password dialogue box timings
-
+    $scope.init = function(){           
+        console.log("patient " +$scope.value);
+    };
 });
 
 /*scotchApp.controller('patientlogin',function($scope, $rootScope, $http, $cookieStore, $window){
