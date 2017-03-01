@@ -109,7 +109,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <ul class="todo-list">
-                <li>
+                <li ng-repeat="todoData in todoList">
                   <!-- drag handle -->
                       <span class="handle">
                         <i class="fa fa-ellipsis-v"></i>
@@ -118,15 +118,16 @@
                   <!-- checkbox -->
                   <input type="checkbox" value="">
                   <!-- todo text -->
-                  <span class="text">Design a nice theme</span>
+                  <span class="text">{{todoData.message}}</span>
                   <!-- Emphasis label -->
-                  <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+                  <small class="label label-info"><i class="fa fa-clock-o"></i> 2 mins</small>
                   <!-- General tools such as edit or delete-->
                   <div class="tools">
                     <i class="fa fa-edit"></i>
                     <i class="fa fa-trash-o"></i>
                   </div>
                 </li>
+<!--
                 <li>
                       <span class="handle">
                         <i class="fa fa-ellipsis-v"></i>
@@ -140,6 +141,8 @@
                     <i class="fa fa-trash-o"></i>
                   </div>
                 </li>
+-->
+<!--
                 <li>
                       <span class="handle">
                         <i class="fa fa-ellipsis-v"></i>
@@ -153,6 +156,8 @@
                     <i class="fa fa-trash-o"></i>
                   </div>
                 </li>
+-->
+<!--
                 <li>
                       <span class="handle">
                         <i class="fa fa-ellipsis-v"></i>
@@ -166,6 +171,8 @@
                     <i class="fa fa-trash-o"></i>
                   </div>
                 </li>
+-->
+<!--
                 <li>
                       <span class="handle">
                         <i class="fa fa-ellipsis-v"></i>
@@ -179,6 +186,8 @@
                     <i class="fa fa-trash-o"></i>
                   </div>
                 </li>
+-->
+<!--
                 <li>
                       <span class="handle">
                         <i class="fa fa-ellipsis-v"></i>
@@ -192,11 +201,33 @@
                     <i class="fa fa-trash-o"></i>
                   </div>
                 </li>
+-->
+                  <div ng-init={{click}} ng-if="click==true">
+                      <li>
+                      <!-- drag handle -->
+                          <span class="handle">
+                            <i class="fa fa-ellipsis-v"></i>
+                            <i class="fa fa-ellipsis-v"></i>
+                          </span>
+                      <!-- checkbox -->
+                      <input type="checkbox" value="">
+                      <!-- todo text -->
+                      <input type="text" class="text">
+                      <!-- Emphasis label -->
+                      <small class="label label-info"><i class="fa fa-clock-o"></i> 2 mins</small>
+                      <!-- General tools such as edit or delete-->
+                      <div class="tools">
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-trash-o"></i>
+                      </div>
+                    </li>
+                </div>
+                  
               </ul>
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix no-border">
-              <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+              <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus" ng-click="click()"></i> Add item</button>
             </div>
           </div>
           <!-- /.box -->
