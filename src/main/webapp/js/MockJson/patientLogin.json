@@ -8,59 +8,59 @@
         "patientHomeAddress": "Delhi",
         "dob" : "03/25/1992",
         "gender" :"Male",
-        "age" : "25",
-        "allergies" :"Dust"
+        "allergies" :"Dust",
+        "age" : "25"
     },
     
     {
         "email": "rinkuvatscs@gmail.com",
-        "password": "rinku"
+        "password": "rinku",
         "patientName":"Rinku Sharma",
         "patientMobile": "8975463210",
         "patientAadhaar" : "25689745210.",
         "patientHomeAddress": "Sikandrabaad",
         "dob" : "02/25/1990",
         "gender" :"Male",
-        "age" : "27",
-        "allergies" :"Dust"
+        "allergies" :"Dust",
+        "age" : "25"
     },
     
     {
         "email": "agg.mahima@gmail.com",
-        "password": "mahima"
+        "password": "mahima",
         "patientName":"Mahima Agrawal",
         "patientMobile": "8802987685",
-        "patientAadhaar" : "25689745223.",
+        "patientAadhaar" : "25689745223",
         "patientHomeAddress": "Shastri Nagar",
         "dob" : "06/25/1993",
         "gender" :"Female",
-        "age" : "23",
-        "allergies" :"Dust"
+        "allergies" :"Dust",
+        "age" : "23"
     },
  
     {
         "email": "satendergautam@gmail.com",
-        "password": "satender"
+        "password": "satender",
         "patientName":"Satender Gautam",
         "patientMobile": "8835426540",
         "patientAadhaar" : "25689745226.",
         "patientHomeAddress": "Sahibabaad",
         "dob" : "03/25/1990",
         "gender" :"Male",
-        "age" : "27",
-        "allergies" :"Dust"
+        "allergies" :"Dust",
+        "age" : "27"
     },
     
     {
         "email": "preetijain387@gmail.com",
-        "password": "preeti"
-        "patientName":"Preeti Jain",
+        "password": "preeti",
+        "patientName": "Preeti Jain",
         "patientMobile": "8835426548",
         "patientAadhaar" : "25689749226.",
         "patientHomeAddress": "Noida",
         "dob" : "03/25/1991",
         "gender" :"Female",
-        "age" : "27",
-        "allergies" :"Dust"
+        "allergies" :"Dust",
+        "age" : "26"
     }
 ]
