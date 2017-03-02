@@ -27,7 +27,7 @@ scotchApp.controller('calender', function($scope) {
 });
 
 
-scotchApp.controller('profile', function($scope) {
+scotchApp.controller('profile', function($scope,$cookieStore) {
    
     $scope.url = "#/profile";
     var getDoctors = $cookieStore.get('loginData');

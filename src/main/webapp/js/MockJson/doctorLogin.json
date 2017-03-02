@@ -1,7 +1,18 @@
 [
     {
         "email": "aviralmittal2012@gmail.com",
-        "password": "aviral"
+        "password": "aviral",
+        "name":"Aviral Mittal",
+        "oneTimeFee": "1",
+        "expertized": "Heart",
+        "daysCheckFree": 1,
+        "mobile": "8527701990",
+        "clinicName":"Abc",
+        "clinicAddress":"Shastri Nagar",
+        "aadhaarNumber" : "256321023652",
+        "homeAddress": "Delhi",
+        "highestDegree": "MBBS",
+        "dob" : "02/25/1990"
     },
     
     {
