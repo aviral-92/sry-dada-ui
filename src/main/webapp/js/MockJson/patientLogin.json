@@ -8,8 +8,7 @@
         "patientHomeAddress": "Delhi",
         "dob" : "03/25/1992",
         "gender" :"Male",
-        "allergies" :"Dust",
-        "age" : "25"
+        "allergies" :"Dust"
     },
     
     {
@@ -21,8 +20,7 @@
         "patientHomeAddress": "Sikandrabaad",
         "dob" : "02/25/1990",
         "gender" :"Male",
-        "allergies" :"Dust",
-        "age" : "25"
+        "allergies" :"Dust"
     },
     
     {
@@ -34,8 +32,7 @@
         "patientHomeAddress": "Shastri Nagar",
         "dob" : "06/25/1993",
         "gender" :"Female",
-        "allergies" :"Dust",
-        "age" : "23"
+        "allergies" :"Dust"
     },
  
     {
@@ -47,8 +44,7 @@
         "patientHomeAddress": "Sahibabaad",
         "dob" : "03/25/1990",
         "gender" :"Male",
-        "allergies" :"Dust",
-        "age" : "27"
+        "allergies" :"Dust"
     },
     
     {
@@ -60,7 +56,6 @@
         "patientHomeAddress": "Noida",
         "dob" : "03/25/1991",
         "gender" :"Female",
-        "allergies" :"Dust",
-        "age" : "26"
+        "allergies" :"Dust"
     }
 ]

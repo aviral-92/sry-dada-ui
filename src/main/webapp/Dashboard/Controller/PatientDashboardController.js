@@ -51,5 +51,9 @@ scotchApp.controller('patientProfile', function($scope,$cookieStore) {
 	        });
 	    }
 	    
+	    //Calucate Age of Patient
+	    var age = new Date().getYear() - new Date($scope.patients.dob).getYear();
+	    $scope.patients.age = age;
+	    
 });
 
