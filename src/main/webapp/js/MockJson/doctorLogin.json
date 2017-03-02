@@ -12,26 +12,85 @@
         "aadhaarNumber" : "256321023652",
         "homeAddress": "Delhi",
         "highestDegree": "MBBS",
-        "dob" : "02/25/1990"
+        "dob" : "02/25/1990",
+        "gender" :"Male",
+        "govt" : "Yes",
+        "age" : 27
     },
     
     {
         "email": "rinkuvatscs@gmail.com",
         "password": "rinku"
+             "name":"Rinku Sharma",
+        "oneTimeFee": "1",
+        "expertized": "Heart",
+        "daysCheckFree": 1,
+        "mobile": "8527701990",
+        "clinicName":"Abc",
+        "clinicAddress":"Sikandrabaad",
+        "aadhaarNumber" : "256321023652",
+        "homeAddress": "UP",
+        "highestDegree": "MBBS",
+        "dob" : "02/25/1990",
+        "gender" :"Male",
+        "govt" : "Yes",
+        "age" : 27
     },
     
     {
         "email": "agg.mahima@gmail.com",
         "password": "mahima"
+             "name":"Mahima Agrawal",
+        "oneTimeFee": "1",
+        "expertized": "Heart",
+        "daysCheckFree": 1,
+        "mobile": "8802987685",
+        "clinicName":"Abc",
+        "clinicAddress":"Shastri Nagar",
+        "aadhaarNumber" : "256321023652",
+        "homeAddress": "Delhi",
+        "highestDegree": "MBBS",
+        "dob" : "02/25/1990",
+        "gender" :"Female",
+        "govt" : "Yes",
+        "age" : 27
     },
  
     {
         "email": "satendergautam@gmail.com",
         "password": "satender"
+             "name":"Satender Gautam",
+        "oneTimeFee": "1",
+        "expertized": "Heart",
+        "daysCheckFree": 1,
+        "mobile": "8527701990",
+        "clinicName":"Abc",
+        "clinicAddress":"Sahibabaad",
+        "aadhaarNumber" : "256321023652",
+        "homeAddress": "UP",
+        "highestDegree": "MBBS",
+        "dob" : "02/25/1990",
+        "gender" :"Male",
+        "govt" : "Yes",
+        "age" : 27
     },
     
     {
         "email": "preetijain387@gmail.com",
         "password": "preeti"
+             "name":"Preeti Jain",
+        "oneTimeFee": "1",
+        "expertized": "Heart",
+        "daysCheckFree": 1,
+        "mobile": "8527701990",
+        "clinicName":"Abc",
+        "clinicAddress":"Noida",
+        "aadhaarNumber" : "256321023652",
+        "homeAddress": "UP",
+        "highestDegree": "MBBS",
+        "dob" : "02/25/1990",
+        "gender" :"Female",
+        "govt" : "Yes",
+        "age" : 27
     }
 ]

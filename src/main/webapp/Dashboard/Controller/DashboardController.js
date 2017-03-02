@@ -80,7 +80,38 @@ scotchApp.controller('patientHome', function($scope, $http) {
 	    }
 });
 
-scotchApp.controller('patientProfile', function($scope) {
+scotchApp.controller('patientProfile', function($scope,$cookieStore) {
 	   
     $scope.url = "#/patientProfile";
+    var getPatients = $cookieStore.get('loginData');
+    $scope.patients = getPatients
+    $scope.patientUpdate = function(doctorUpdateValue) {
+        console.log(doctorUpdateValue);
+
+        if (getPatients.mobile == patientUpdateValue.mobile) {
+            delete patientUpdateValue.mobile;
+        }
+        if (getPatients.email == patientUpdateValue.email) {
+            delete patientUpdateValue.email;
+        }
+        if (getPatients.aadhaarNumber == patientUpdateValue.aadhaarNumber) {
+            delete patientUpdateValue.aadhaarNumber;
+        }
+        var updateDoctor = $http.put(
+            'https://patient-service.cfapps.io/patient/', patientUpdateValue);
+        updateDoctor.success(function(updateResponse) {
+            $scope.successMessage = "Successfully Updated...!!!";
+            var patientSuccess = $http
+                .get('https://patient-service.cfapps.io/patient/get/' +
+                    $cookieStore.get('email') + '/email');
+            patientSuccess.success(function(data) {
+                $cookieStore.remove('loginData');
+                $cookieStore.put('loginData', data);
+            });
+            patientSuccess.error(function(data, status, headers, config) {});
+        });
+        updateDoctor.error(function(updateResponse, status, headers, config) {
+            alert("failure message: " + updateResponse.message);
+        });
+    }
 });
