@@ -31,6 +31,7 @@ scotchApp.controller('profile', function($scope,$cookieStore) {
    
     $scope.url = "#/profile";
     var getDoctors = $cookieStore.get('loginData');
+    
     $scope.doctors = getDoctors
     $scope.doctorUpdate = function(doctorUpdateValue) {
         console.log(doctorUpdateValue);
@@ -61,6 +62,65 @@ scotchApp.controller('profile', function($scope,$cookieStore) {
             alert("failure message: " + updateResponse.message);
         });
     }
+    //Calucate Age of Doctor
+    var age = new Date().getYear() - new Date($scope.doctors.dob).getYear();
+    $scope.doctors.age = age;
+    
+    //Calculate percentage dynamically...
+    if (getDoctors != null) {
+            var field = 5;
+            if (getDoctors.homeAddress != null &&
+                getDoctors.homeAddress != 'NA') {
+                field++;
+            }
+            if (getDoctors.highestDegree != null &&
+                getDoctors.highestDegree != 'NA') {
+                field++;
+            }
+            if (getDoctors.expertized != null &&
+                getDoctors.expertized != 'NA') {
+                field++;
+            }
+            if (getDoctors.isGovernmentServent != null &&
+                getDoctors.isGovernmentServent != 'NA') {
+                field++;
+            }
+            if (getDoctors.clinicAddress != null &&
+                getDoctors.clinicAddress != 'NA') {
+                field++;
+            }
+            if (getDoctors.oneTimeFee != null &&
+                getDoctors.oneTimeFee != '' &&
+                getDoctors.oneTimeFee != 'NA') {
+                field++;
+            }
+            if (getDoctors.daysCheckFree != null &&
+                getDoctors.daysCheckFree != 'NA') {
+                field++;
+            }
+            if (getDoctors.clinicName != null &&
+                getDoctors.clinicName != 'NA') {
+                field++;
+            }
+            if (getDoctors.dob != null &&
+                getDoctors.dob != 'NA') {
+                field++;
+            }
+            if (getDoctors.gender != null &&
+                getDoctors.gender != 'NA') {
+                field++;
+            }
+            if (getDoctors.age != null &&
+                getDoctors.age != 'NA') {
+                field++;
+            }
+            if (getDoctors.description != null &&
+                getDoctors.description != 'NA') {
+                field++;
+            }
+            $scope.percent = parseInt((field / 17) * 100) + '%';
+        }
+    
 });
 
 scotchApp.controller('patientHome', function($scope, $http) {

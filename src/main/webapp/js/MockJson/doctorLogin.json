@@ -12,16 +12,16 @@
         "aadhaarNumber" : "256321023652",
         "homeAddress": "Delhi",
         "highestDegree": "MBBS",
-        "dob" : "02/25/1990",
+        "dob" : "02/25/1992",
         "gender" :"Male",
-        "govt" : "Yes",
-        "age" : 27
+        "description" : "simple, creative, social person.",
+        "isGovernmentServent" : "Yes"
     },
     
     {
         "email": "rinkuvatscs@gmail.com",
-        "password": "rinku"
-             "name":"Rinku Sharma",
+        "password": "rinku",
+        "name":"Rinku Sharma",
         "oneTimeFee": "1",
         "expertized": "Heart",
         "daysCheckFree": 1,
@@ -33,14 +33,13 @@
         "highestDegree": "MBBS",
         "dob" : "02/25/1990",
         "gender" :"Male",
-        "govt" : "Yes",
-        "age" : 27
+        "govt" : "Yes"
     },
     
     {
         "email": "agg.mahima@gmail.com",
-        "password": "mahima"
-             "name":"Mahima Agrawal",
+        "password": "mahima",
+        "name":"Mahima Agrawal",
         "oneTimeFee": "1",
         "expertized": "Heart",
         "daysCheckFree": 1,
@@ -52,14 +51,13 @@
         "highestDegree": "MBBS",
         "dob" : "02/25/1990",
         "gender" :"Female",
-        "govt" : "Yes",
-        "age" : 27
+        "govt" : "Yes"
     },
  
     {
         "email": "satendergautam@gmail.com",
-        "password": "satender"
-             "name":"Satender Gautam",
+        "password": "satender",
+        "name":"Satender Gautam",
         "oneTimeFee": "1",
         "expertized": "Heart",
         "daysCheckFree": 1,
@@ -71,14 +69,13 @@
         "highestDegree": "MBBS",
         "dob" : "02/25/1990",
         "gender" :"Male",
-        "govt" : "Yes",
-        "age" : 27
+        "govt" : "Yes"
     },
     
     {
         "email": "preetijain387@gmail.com",
-        "password": "preeti"
-             "name":"Preeti Jain",
+        "password": "preeti",
+        "name":"Preeti Jain",
         "oneTimeFee": "1",
         "expertized": "Heart",
         "daysCheckFree": 1,
@@ -90,7 +87,6 @@
         "highestDegree": "MBBS",
         "dob" : "02/25/1990",
         "gender" :"Female",
-        "govt" : "Yes",
-        "age" : 27
+        "govt" : "Yes"
     }
 ]
