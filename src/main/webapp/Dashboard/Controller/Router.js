@@ -28,6 +28,12 @@ scotchApp.config(function($routeProvider) {
         controller: 'patientHome'
     })
     
+    // route for Logout page
+        .when('/signout', {
+        templateUrl: '/html/LoginPage.html',
+        controller: 'signout'
+    })
+    
      // route for the home page
         .when('/patientProfile', {
         templateUrl: 'Dashboard/pages/PatientProfile.html',

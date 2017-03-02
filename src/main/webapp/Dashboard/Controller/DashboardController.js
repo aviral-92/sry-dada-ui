@@ -123,6 +123,13 @@ scotchApp.controller('profile', function($scope,$cookieStore) {
     
 });
 
+scotchApp.controller('signout', function($scope,$cookieStore, $window) {
+   
+    $cookieStore.remove('email') ;
+    $cookieStore.remove('loginData') ;
+    $window.location.href = '/index.html#/';
+});
+
 scotchApp.controller('patientHome', function($scope, $http) {
 		$scope.visible = false;
 	    var index = 0;
