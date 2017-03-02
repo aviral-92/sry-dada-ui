@@ -39,7 +39,7 @@ scotchApp.controller('patientLogin', function($scope, $rootScope, $http, $cookie
                         $rootScope.getPatientByMobile = login[i];
                         $cookieStore.put('loginData', login[i]);
                         $cookieStore.put('email', loginDetail.email);
-                        $window.location.href = "/DoctorDashboard.html#/doctorDashboard";
+                        $window.location.href = "/PatientDashboard.html#/patientHome";
                         break;
                     }
                 }

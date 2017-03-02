@@ -2,7 +2,7 @@ var scotchApp = angular.module('myApp', ['ngRoute']);
 
 scotchApp.config(function($routeProvider) {
     $routeProvider
-
+//Doctor Dashboard
     // route for the home page
         .when('/home', {
         templateUrl: 'Dashboard/pages/home.html',
@@ -19,6 +19,19 @@ scotchApp.config(function($routeProvider) {
         .when('/calender', {
         templateUrl: 'Dashboard/pages/CalendarRoute.html',
         controller: 'calender'
+    })
+    
+   // Doctor Dashboard
+    // route for the home page
+        .when('/patientHome', {
+        templateUrl: 'Dashboard/pages/PatientHome.html',
+        controller: 'patientHome'
+    })
+    
+     // route for the home page
+        .when('/patientProfile', {
+        templateUrl: 'Dashboard/pages/PatientProfile.html',
+        controller: 'patientProfile'
     });
 
 });
