@@ -27,13 +27,36 @@ scotchApp.controller('calender', function($scope) {
 });
 
 
-scotchApp.controller('profile', function($scope,$cookieStore) {
+/* ----Profile--- */
+scotchApp.controller('profile', function($scope,$cookieStore, fileReader) {
    
     $scope.url = "#/profile";
     var getDoctors = $cookieStore.get('loginData');
     
     $scope.doctors = getDoctors
     $scope.doctors.dob = new Date($scope.doctors.dob);
+    
+    
+    /*$scope.removePicture = function () {
+      $scope.picture = $filter('appImage')('theme/no-photo.png');
+      $scope.noPicture = true;
+    };*/
+
+    $scope.uploadPicture = function () {
+      var fileInput = document.getElementById('uploadFile');
+      fileInput.click();
+    };
+    
+    
+    $scope.getFile = function () {
+      fileReader.readAsDataUrl($scope.file, $scope)
+          .then(function (result) {
+            $scope.doctors.src = result;
+          console.log($scope.file);
+          });
+    };
+    
+    
     $scope.doctorUpdate = function(doctorUpdateValue) {
         console.log(doctorUpdateValue);
 

@@ -21,11 +21,12 @@
                            <div class="col-sm-9">
                               <div class="userpic">
                                  <div class="userpic-wrapper">
-                                    <img ng-src={{doctors.src}} ng-click="uploadPicture()">
+                                    <img ng-src={{doctors.src}} ng-click="uploadPicture()" width="150px" height="150px">
                                  </div>
                                  <!-- ngIf: !noPicture -->
                                  <i class="ion-ios-close-outline ng-scope" ng-click="removePicture()" ng-if="!noPicture"></i><!-- end ngIf: !noPicture --> 
-                                 <a href="" class="change-userpic" ng-click="uploadPicture()">Change Profile Picture</a> <input type="file" ng-show="false" id="uploadFile" ng-file-select="onFileSelect($files)" class="ng-hide">
+                                 <a href="" class="change-userpic" ng-click="uploadPicture()">Change Profile Picture</a> 
+                                  <input type="file" ng-show="false" id="uploadFile" ng-file="onFileSelect($files)">
                               </div>
                            </div>
                         </div>
