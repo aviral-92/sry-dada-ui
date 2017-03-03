@@ -1,5 +1,10 @@
-scotchApp.controller('index', function($scope) {
-    
+scotchApp.controller('index', function($scope, $cookieStore) {
+   
+     var getDoctors = $cookieStore.get('loginData');
+    $scope.name = getDoctors.name;
+    $scope.src = getDoctors.src;
+    $scope.nameWithExpertise = getDoctors.name + ' ' + getDoctors.expertized;
+    $scope.membership = 'Member since 24 Feb 2017';
 });
 
 scotchApp.controller('home', function($scope, $http) {
@@ -11,6 +16,7 @@ scotchApp.controller('home', function($scope, $http) {
     todo.success(function(todoData) {
         $scope.todoList = todoData;
     });
+    
     $scope.close = function(){
         var data = $scope.todoTastData;
         $scope.todoList.push({
