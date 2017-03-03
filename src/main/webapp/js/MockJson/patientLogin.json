@@ -8,7 +8,9 @@
         "patientHomeAddress": "Delhi",
         "dob" : "03/25/1992",
         "gender" :"Male",
-        "allergies" :"Dust"
+        "allergies" :"Dust",
+        "src" : "Dashboard/dist/img/user2-160x160.jpg",
+        "description" : "simple, creative, social person."
     },
     
     {
@@ -20,7 +22,9 @@
         "patientHomeAddress": "Sikandrabaad",
         "dob" : "02/25/1990",
         "gender" :"Male",
-        "allergies" :"Dust"
+        "allergies" :"Dust",
+         "src" : "Dashboard/dist/img/user1-128x128.jpg",
+        "description" : "simple, creative, social person."
     },
     
     {
@@ -32,7 +36,9 @@
         "patientHomeAddress": "Shastri Nagar",
         "dob" : "06/25/1993",
         "gender" :"Female",
-        "allergies" :"Dust"
+        "allergies" :"Dust",
+         "src" : "Dashboard/dist/img/user3-128x128.jpg",
+        "description" : "simple, creative, social person."
     },
  
     {
@@ -44,7 +50,9 @@
         "patientHomeAddress": "Sahibabaad",
         "dob" : "03/25/1990",
         "gender" :"Male",
-        "allergies" :"Dust"
+        "allergies" :"Dust",
+         "src" : "Dashboard/dist/img/user6-128x128.jpg",
+        "description" : "simple, creative, social person."
     },
     
     {
@@ -56,6 +64,8 @@
         "patientHomeAddress": "Noida",
         "dob" : "03/25/1991",
         "gender" :"Female",
-        "allergies" :"Dust"
+        "allergies" :"Dust",
+        "src" : "Dashboard/dist/img/user4-128x128.jpg",
+        "description" : "simple, creative, social person."
     }
 ]

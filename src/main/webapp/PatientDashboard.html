@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>Patient | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="Dashboard/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -30,12 +30,21 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="Dashboard/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     
-<script src="js/static_js/angular.min.js"></script>
-<script src="js/static_js/angular-route.js"></script>
+<!--<script src="js/static_js/angular.min.js"></script>-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    
+ <script src="/js/static_js/angular-route-1.4.8.js"></script>
+ <script src="/js/static_js/angular-cookies-1.4.8.js"></script>
+<!--<script src="js/static_js/angular-route.js"></script>-->
 <script src="Dashboard/Controller/Router.js"></script>
 <script src="Dashboard/Controller/DashboardController.js"></script>
 <script src="Dashboard/Controller/PatientDashboardController.js"></script>
-<script src="js/static_js/angular-cookies.js"></script>
+<!--<script src="js/static_js/angular-cookies.js"></script>-->
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -70,7 +79,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Patient </b>Dashboard</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -362,5 +371,6 @@
 <!--<script src="Dashboard/dist/js/pages/dashboard.js"></script>-->
 <!-- AdminLTE for demo purposes -->
 <script src="Dashboard/dist/js/demo.js"></script>
+<script src="Dashboard/Controller/EditDirective.js"></script>
 </body>
 </html>
