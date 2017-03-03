@@ -21,7 +21,7 @@
                            <div class="col-sm-9">
                               <div class="userpic">
                                  <div class="userpic-wrapper">
-                                    <img ng-src="Dashboard/dist/img/user4-128x128.jpg" ng-click="uploadPicture()" src="Dashboard/dist/img/user4-128x128.jpg">
+                                    <img ng-src={{doctors.src}} ng-click="uploadPicture()">
                                  </div>
                                  <!-- ngIf: !noPicture -->
                                  <i class="ion-ios-close-outline ng-scope" ng-click="removePicture()" ng-if="!noPicture"></i><!-- end ngIf: !noPicture --> 
@@ -128,29 +128,35 @@
                            <div class="col-sm-9"><input type="text" class="form-control" id="inputPhone" ng-model="doctors.homeAddress" placeholder=""></div>
                            <!-- --- value="Delhi" -->
                         </div>
-                          <div class="form-group row clearfix">
-                           <label for="inputPhone" class="col-sm-3 control-label">Age</label>
-                           <div class="col-sm-9"><input type="text" class="form-control" id="inputPhone" ng-model="doctors.age" placeholder="" ng-disabled="true"></div>
+                         <div class="form-group row clearfix">
+                           <label for="inputRoom" class="col-sm-3 control-label">DOB</label>
+                           <div class="col-sm-9">
+                                    <md-content>
+                                        <md-datepicker ng-model="doctors.dob" md-placeholder="Enter date"></md-datepicker> 
+                                    </md-content>
+                            </div>
                         </div>
+                          
                      </div>
                      <div class="col-md-6">
                         <div class="form-group row clearfix">
-                           <label for="inputRoom" class="col-sm-3 control-label">Highest Qualification</label>
+                           <label for="inputRoom" class="col-sm-3 control-label">Qualification</label>
                            <div class="col-sm-9"><input type="text" class="form-control" id="inputRoom"  ng-model="doctors.highestDegree" placeholder=""></div>
                            <!--  value="MBBS" -->
                         </div>
-                         
-                        <div class="form-group row clearfix">
-                           <label for="inputRoom" class="col-sm-3 control-label">DOB</label>
-                           <div class="col-sm-9"><input type="date" class="form-control" id="inputRoom" ng-model="doctors.dob" placeholder=""></div>
+                          <!-- -----AGE-------- -->
+                         <div class="form-group row clearfix">
+                           <label for="inputPhone" class="col-sm-3 control-label">Age</label>
+                           <div class="col-sm-9"><input type="text" class="form-control" id="inputPhone" ng-model="doctors.age" placeholder="" ng-disabled="true"></div>
                         </div>
+                         <!-- -----AGE-------- -->
                          <div class="form-group row clearfix">
                            <label for="inputRoom" class="col-sm-3 control-label">Description</label>
                            <div class="col-sm-9"><input type="text" class="form-control" id="inputRoom" ng-model="doctors.description" placeholder="" ></div>
                         </div>
+                        
                      </div>
                   </div>
-                   
                   <button type="button" class="btn btn-primary btn-with-icon save-profile" ng-click="doctorUpdate(doctors)"><i class="ion-android-checkmark-circle"></i>Update Profile</button>
                </div>
             </div>

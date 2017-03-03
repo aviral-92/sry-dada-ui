@@ -33,6 +33,7 @@ scotchApp.controller('profile', function($scope,$cookieStore) {
     var getDoctors = $cookieStore.get('loginData');
     
     $scope.doctors = getDoctors
+    $scope.doctors.dob = new Date($scope.doctors.dob);
     $scope.doctorUpdate = function(doctorUpdateValue) {
         console.log(doctorUpdateValue);
 
@@ -122,6 +123,23 @@ scotchApp.controller('profile', function($scope,$cookieStore) {
         }
     
 });
+
+/*scotchApp.controller('dateController', dateController);
+ function dateController ($scope) {
+            $scope.myDate = new Date();
+            $scope.minDate = new Date(
+               $scope.myDate.getFullYear(),
+               $scope.myDate.getMonth() - 2,
+               $scope.myDate.getDate());
+            $scope.maxDate = new Date(
+               $scope.myDate.getFullYear(),
+               $scope.myDate.getMonth() + 2,
+               $scope.myDate.getDate());
+            $scope.onlyWeekendsPredicate = function(date) {
+               var day = date.getDay();
+               return day === 0 || day === 6;
+            }
+         }  */         
 
 scotchApp.controller('signout', function($scope,$cookieStore, $window) {
    
