@@ -7,5 +7,10 @@ scotchApp.config(function($routeProvider) {
 	.when('/adminHome', {
 		templateUrl : 'Admin/pages/AdminHome.html',
 		controller : 'adminHome'
+	})
+    
+    .when('/adminIndexPage', {
+		templateUrl : 'Admin/pages/AdminIndexPage.html',
+		controller : 'adminIndexPage'
 	});
 });
