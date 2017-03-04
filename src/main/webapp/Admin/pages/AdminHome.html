@@ -1,0 +1,99 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <small>Control panel</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#/home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+    <div ui-view autoscroll="true" autoscroll-body-top class="ng-scope">
+      <div ba-panel ba-panel-class="profile-page">
+         <div class="panel profile-page animated zoomIn">
+            <div class="panel-body">
+               <div class="panel-content">
+                 
+                  <h3 class="page-header">General Information</h3>
+                 
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group row clearfix">
+                           <label for="inputFirstName" class="col-sm-3 control-label">Name</label>
+                           <div class="col-sm-9">
+                              <input type="text" class="form-control" id="inputFirstName" ng-model="admin.name" placeholder="">
+                              <!-- -- value="Anastasiya" -->
+                           </div>
+                        </div>
+                        <div class="form-group row clearfix">
+                           <label for="inputLastName" class="col-sm-3 control-label">Gender</label>
+                           <div class="col-sm-9">
+                              <input type="text" class="form-control" id="inputLastName" ng-model="admin.gender" placeholder="" value="">
+                           </div>
+                        </div>
+                         <div class="form-group row clearfix">
+                           <label for="inputLastName" class="col-sm-3 control-label">Consulting Fees</label>
+                           <div class="col-sm-9">
+                              <input type="text" class="form-control" id="inputLastName" ng-model="admin.oneTimeFee" placeholder="">
+                              <!-- ------- value="" -->
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group row clearfix">
+                           <label for="inputRoom" class="col-sm-3 control-label">Expertise</label>
+                           <div class="col-sm-9"><input type="text" class="form-control" id="inputRoom"  ng-model="admin.expertized"placeholder="" ></div>
+                           <!-- --value="303" -->
+                        </div>
+                        <div class="form-group row clearfix">
+                           <label for="inputOccupation" class="col-sm-3 control-label">Government Servant</label>
+                           <div class="col-sm-9"><input type="text" class="form-control" id="inputOccupation" ng-model="admin.isGovernmentServent" placeholder="" value="Front End Web Developer"></div>
+                        </div>
+                         <div class="form-group row clearfix">
+                           <label for="inputOccupation" class="col-sm-3 control-label">General OPD</label>
+                           <div class="col-sm-9"><input type="text" class="form-control" id="inputOccupation" ng-model="admin.daysCheckFree" placeholder=""></div>
+                           <!-- ----- value="Front End Web Developer" -->
+                        </div>
+                     </div>
+                  </div>
+                   
+                   <h3 class="page-header">Personal Information</h3>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group row clearfix">
+                           <label for="inputEmail3" class="col-sm-3 control-label">Adhaar Number</label>
+                           <div class="col-sm-9"><input type="text" class="form-control" id="inputEmail3" ng-model="admin.aadhaarNumber" placeholder=""></div>
+                           <!-- ----- value="123456789875" -->
+                        </div>
+                        <div class="form-group row clearfix">
+                           <label for="inputPhone" class="col-sm-3 control-label">Temporary Address</label>
+                           <div class="col-sm-9"><input type="text" class="form-control" id="inputPhone" ng-model="admin.homeAddress" placeholder=""></div>
+                           <!-- --- value="Delhi" -->
+                        </div>
+                        <div class="form-group row clearfix">
+                           <label for="inputPhone" class="col-sm-3 control-label">Permanent Address</label>
+                           <div class="col-sm-9"><input type="text" class="form-control" id="inputPhone" ng-model="admin.homeAddress" placeholder=""></div>
+                           <!-- --- value="Delhi" -->
+                        </div>
+                     </div>
+                   
+                  </div>
+                   <button type="button" class="btn btn-primary btn-with-icon save-profile" ng-click="adminDetails(admin)"><i class="ion-android-checkmark-circle"></i>Update Profile</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+       <!-- /.row -->
+      <!-- Main row -->
+      
+      <!-- /.row (main row) -->
+
+    </section>
+    <!-- /.content -->
+  </div>
