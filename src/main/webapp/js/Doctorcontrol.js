@@ -388,7 +388,13 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
 
 
 
-scotchApp.controller('contact', function($scope) {});
+scotchApp.controller('contact', function($scope) {
+	//Need to be add functionality in future
+	$scope.submitDetail = function(details){
+		
+	}
+	
+});
 
 scotchApp.controller('signUp', function($scope, $http) {
     $scope.doctorAdd = function(doctor, formName) {
