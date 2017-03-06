@@ -38,6 +38,18 @@ scotchApp.config(function($routeProvider) {
         .when('/patientProfile', {
         templateUrl: 'Dashboard/pages/PatientProfile.html',
         controller: 'patientProfile'
+    })
+    
+     // route for Doctor Appointment
+        .when('/doctorAppointment', {
+        templateUrl: 'Dashboard/pages/DoctorAppointment.html',
+        controller: 'doctorAppointment'
+    })
+    
+     // route for Patient Appointment
+        .when('/patientAppointment', {
+        templateUrl: 'Dashboard/pages/PatientAppointment.html',
+        controller: 'patientAppointment'
     });
 
 });

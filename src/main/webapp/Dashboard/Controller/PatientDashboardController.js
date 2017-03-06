@@ -101,4 +101,6 @@ scotchApp.controller('patientProfile', function($scope,$cookieStore, fileReader)
 	            $scope.percent = parseInt((field / 11) * 100) + '%';
 	        }
 });
-
+scotchApp.controller('patientAppointment', function($scope, $http) {
+	
+});
