@@ -1,8 +1,8 @@
-scotchApp.controller('index', function($scope, $http, $window, $cookieStore) {
-
+scotchApp.controller('index', function($scope, $http, $window, $cookieStore, $q, filterFilter) {
+    
     $scope.dirty = {};
     $http.get("/js/MockJson/countries.json").success(function(states) {
-        function suggest_state(term) {
+        /*function suggest_state(term) {
             var q = term.toLowerCase().trim();
             var results = [];
             // Find first 10 states that start with `term`.
@@ -30,7 +30,9 @@ scotchApp.controller('index', function($scope, $http, $window, $cookieStore) {
         };
         $scope.autocomplete_options = {
             suggest: suggest_state_delimited
-        };
+        };*/
+        
+        
         //console.log($scope.dirty);
     });
     $scope.btnClick = function() {
@@ -100,6 +102,59 @@ scotchApp.controller('index', function($scope, $http, $window, $cookieStore) {
         $cookieStore.remove('loginData')
     }
 
+});
+
+
+scotchApp.controller('AppCtrl', function($scope, $http, $window, $cookieStore, $q, filterFilter) {
+   
+    var foodArray = [];
+        $http.get("/js/MockJson/countries.json").success(function(states) {
+            
+            foodArray = states;
+    });
+    
+     var vm = this;
+    // The following are used in md-autocomplete
+    vm.selectedItem = null;
+    vm.searchText = null;
+    vm.selectedFoods = [];
+    vm.transformChip = transformChip;
+    
+    vm.querySearchDeferred = querySearchDeferred;
+    
+    function transformChip(chip) {
+      // If it is an object, it's already a known chip
+      if (angular.isObject(chip)) {
+        return chip;
+      }
+    }
+    
+    function querySearchDeferred(query) {
+      var deferred = $q.defer();
+      
+      // Factory method would go below in actual example
+      // The 200 millisecond delay mimics an ajax call
+        
+      setTimeout(function() {    
+          
+        // hard-coded search results
+        /*var foodArray = [
+          {name: 'Apples', category: 'Fruit'},
+          {name: 'Bananas', category: 'Fruit'},
+          {name: 'Salmon', category: 'Fish'},
+          {name: 'Tilapia', category: 'Fish'},
+          {name: 'Halibut', category: 'Fish'},
+          {name: 'Striped Bass', category: 'Fish'},
+          {name: 'Catfish', category: 'Fish'}
+        ];*/
+        if (query) {
+          deferred.resolve(filterFilter(foodArray, query));
+        } else {
+          deferred.reject([{country: 'None'}]);
+        }
+      }, 200);
+      return deferred.promise;
+    }  
 });
 
 scotchApp.controller('indexSlider', function($scope) {
