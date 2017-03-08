@@ -1,6 +1,6 @@
 scotchApp.controller('index', function($scope, $cookieStore) {
    
-     var getDoctors = $cookieStore.get('loginData');
+    var getDoctors = $cookieStore.get('loginData');
     $scope.name = getDoctors.name;
     $scope.src = getDoctors.src;
     $scope.nameWithExpertise = getDoctors.name + ' ' + getDoctors.expertized;
@@ -27,9 +27,13 @@ scotchApp.controller('home', function($scope, $http) {
     
 });
 
-scotchApp.controller('calender', function($scope) {
+scotchApp.controller('calender', function($scope, $cookieStore) {
     
-    $scope.url = "#/calender";
+    var getDoctors = $cookieStore.get('loginData');
+    $scope.name = getDoctors.name;
+    $scope.src = '../../'+getDoctors.src;
+    $scope.nameWithExpertise = getDoctors.name + ' ' + getDoctors.expertized;
+    $scope.membership = 'Member since 24 Feb 2017';
 });
 
 
