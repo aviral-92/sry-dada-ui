@@ -1,4 +1,4 @@
-var scotchApp = angular.module('myApp', ['ngMaterial','ngMessages', 'ngRoute', 'ngCookies']);
+var scotchApp = angular.module('myApp', ['ngMaterial','ngMessages', 'ngRoute', 'ngCookies', 'mwl.calendar', 'ngAnimate', 'ui.bootstrap', 'colorpicker.module']);
 
 scotchApp.config(function($routeProvider) {
     $routeProvider
@@ -19,6 +19,12 @@ scotchApp.config(function($routeProvider) {
         .when('/calender', {
         templateUrl: 'Dashboard/pages/CalendarRoute.html',
         controller: 'calender'
+    })
+    
+    // route for the Angular Calender page
+        .when('/docCal', {
+        templateUrl: 'Dashboard/calender/DoctorCalender.html',
+        controller: 'KitchenSinkCtrl as vm'
     })
     
    // Doctor Dashboard
