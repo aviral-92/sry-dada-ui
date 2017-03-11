@@ -1,7 +1,7 @@
 var scotchApp = angular.module('myApp', ['ngCookies', 'ngRoute',
     'ui.bootstrap', 'UserValidation',
     'angularUtils.directives.dirPagination', 'ngSanitize',
-    'MassAutoComplete', 'ngMaterial'
+    'MassAutoComplete', 'ngMaterial', 'vcRecaptcha'
 ]);
 
 scotchApp.config(function($routeProvider) {
@@ -28,7 +28,7 @@ scotchApp.config(function($routeProvider) {
     // route for DoctorLogin
     .when('/loginPage', {
         templateUrl: '/html/LoginPage.html',
-        controller: 'loginPage'
+        controller: 'loginPage as loginDoc'
     })
 
     // route for PatientLogin
