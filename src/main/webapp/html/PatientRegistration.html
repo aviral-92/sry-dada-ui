@@ -217,11 +217,12 @@
 										</label>
 									</div>
 								</div>
+                                <div vc-recaptcha key="patientRegister.publicKey"></div>
 								<div class="form-group">
 									<input type="submit" class="btn "
 										ng-class="{'btn-primary btn-block' : !patientForm.$valid || patientForm.$pristine || confirm==true, 'btn-success btn-block' : !!patientForm.$valid || !patientForm.$pristine || !confirm==true}"
 										ng-disabled="!patientForm.$valid || patientForm.$pristine || confirm==true"
-										value="SUBMIT">
+										value="SUBMIT" ng-click="patientRegisters(loginDetail)">
 								</div>
 							</form>
 							<footer role="signup" class="text-center">
