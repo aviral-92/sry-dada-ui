@@ -104,3 +104,12 @@ scotchApp.controller('patientProfile', function($scope,$cookieStore, fileReader)
 scotchApp.controller('patientAppointment', function($scope, $http) {
 	
 });
+
+scotchApp.controller('patientNewAppointment', function($scope, $http) {
+	
+});
+
+
+scotchApp.controller('patientHistory', function($scope, $http) {
+	
+});

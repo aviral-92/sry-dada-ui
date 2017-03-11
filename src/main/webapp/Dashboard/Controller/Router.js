@@ -56,6 +56,18 @@ scotchApp.config(function($routeProvider) {
         .when('/patientAppointment', {
         templateUrl: 'Dashboard/pages/PatientAppointment.html',
         controller: 'patientAppointment'
+    })
+    
+     // route for Patient new appointment page
+        .when('/patientNewAppointment', {
+        templateUrl: 'Dashboard/pages/PatientNewAppointment.html',
+        controller: 'patientNewAppointment'
+    })
+    
+     // route for Patient History page
+        .when('/patientHistory', {
+        templateUrl: 'Dashboard/pages/PatientHistory.html',
+        controller: 'patientHistory'
     });
 
 });
