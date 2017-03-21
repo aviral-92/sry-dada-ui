@@ -199,7 +199,7 @@ scotchApp.controller('doctorRegistration', function($scope, $http, vcRecaptchaSe
 				
 				})
              }
-        var drSignUp = $http.put('https://doctors.cfapps.io/doctor/signup',DocRegisteration);
+        var drSignUp = $http.put('https://doctors.cfapps.io/api/doctor/signup',DocRegisteration);
         drSignUp.success(function(doctors) {
                 $scope.signUpError = true;
                 $scope.register = 'Successfully signup, now you can Log-In it.';
@@ -213,9 +213,9 @@ scotchApp.controller('doctorRegistration', function($scope, $http, vcRecaptchaSe
     }
 });
 
-scotchApp.controller('patientRegistration', function($scope) {
+scotchApp.controller('patientRegistration', function($scope, vcRecaptchaService) {
     $scope.confirm = false;
-    
+    $scope.signUpErrors = false;
     $scope.doBlurPassword = function(login) {
 
         if (login.password == login.cnfrmPassword) {
@@ -249,6 +249,18 @@ scotchApp.controller('patientRegistration', function($scope) {
 				
 				})
              }
+    
+    var patientSignUp = $http.put('https://doctors.cfapps.io/api/patient/signUp',patientRegisteration);
+    patientSignUp.success(function(doctors) {
+            $scope.signUpErrors = true;
+            $scope.register = 'Successfully signup, now you can Log-In it.';
+        });
+    patientSignUp.error(function(data, status, headers, config) {
+            alert("failure message: " + data.message);
+            $scope.message = 'No Data Found!!!';
+            $scope.signUpErrors = true;
+            $scope.register = 'Try again later.';
+        });
     }
 
 });
@@ -323,7 +335,7 @@ scotchApp.controller('doctorSearch', function($scope, $http) {
 
             console.log(loginDetail);
             doctorSearch = $http.post(
-                'https://doctor-service.cfapps.io/doctor/get/all',
+                'https://doctor-service.cfapps.io/api/doctor/get/all',
                 loginDetail);
             $scope.loader = true;
         } else {
@@ -416,13 +428,13 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
 //            loginDetail.username = loginDetail.email;
             loginDetail.type = 'd';
             var loginSuccessful = $http
-                .post("https://doctors.cfapps.io/login/signup", loginDetail);
+                .post("https://doctors.cfapps.io/api/login/drlogin", loginDetail);
            
             loginSuccessful.success(function(login) {
                 
                 if(login.message == 'success'){
                     if(loginDetail.username.includes('@')){
-                        var doctorSuccess = $http.get("https://doctors.cfapps.io/doctor/get/"+ loginDetail.username +"/email");
+                        var doctorSuccess = $http.get("https://doctors.cfapps.io/api/doctor/get/"+ loginDetail.username +"/email");
                         doctorSuccess.success(function (doctorObj){
                             doctorObj.src = '/images/no_pic.png';
                             $cookieStore.put('loginData', doctorObj);
@@ -432,7 +444,7 @@ scotchApp.controller('loginPage', function($scope, $rootScope, $http, $cookieSto
                             alert("failure message: " + data);
                         });
                     }else{
-                        var doctorSuccess = $http.get("https://doctors.cfapps.io/doctor/get/"+ loginDetail.username +"/mobile");
+                        var doctorSuccess = $http.get("https://doctors.cfapps.io/api/doctor/get/"+ loginDetail.username +"/mobile");
                         doctorSuccess.success(function (doctorObj){
                             $cookieStore.put('loginData', doctorObj);
                             $window.location.href = "/DoctorDashboard.html#/home";
@@ -501,7 +513,7 @@ scotchApp.controller('signUp', function($scope, $http) {
         $scope.submit = true;
         console.log(formName);
         if ($scope[formName].$valid) {
-            var res = $http.post('https://doctor-service.cfapps.io/doctor/',
+            var res = $http.post('https://doctor-service.cfapps.io/api/doctor/',
                 doctor);
             res.success(function(data) {
                 alert(data.message);
@@ -545,7 +557,7 @@ scotchApp.controller('signUp', function($scope, $http) {
 
 function getByEmail($http, $cookieStore) {
     alert($cookieStore.get('email'));
-    var doctors = $http.get('https://doctor-service.cfapps.io/doctor/get/' +
+    var doctors = $http.get('https://doctor-service.cfapps.io/api/doctor/get/' +
         $cookieStore.get('email') + '/email');
     doctors.success(function(data) {
         return data;
