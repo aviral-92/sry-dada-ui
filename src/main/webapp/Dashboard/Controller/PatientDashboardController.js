@@ -116,12 +116,12 @@ scotchApp.controller('patientProfile', function($scope,$cookieStore, fileReader,
 	        }
 });
 
-scotchApp.controller('patientupdateProfile',function($scope, $rootScope, $http, $cookieStore){
+/*scotchApp.controller('patientupdateProfile',function($scope, $rootScope, $http, $cookieStore){
 	 var paitentDetails = $cookieStore.get('patientLoginData');
     $scope.patients = paitentDetails;
 	$scope.patientUpdate = function(patientUpdateValue){
 		console.log(patientUpdateValue);
-        /* Logic to remove fields if not updated */
+         Logic to remove fields if not updated 
         
         var patient;
         if(patientUpdateValue.name != paitentDetails.name){
@@ -153,7 +153,7 @@ scotchApp.controller('patientupdateProfile',function($scope, $rootScope, $http, 
         }
         patient.pId;
         
-        /* Logic to remove fields if not updated */
+         Logic to remove fields if not updated 
 		var updatepatient = $http.put('https://doctors.cfapps.io/api/patient/', patient);
 		updatepatient.success(function(updateResponse) {
 			$scope.successMessage = "Successfully Updated...!!!";
@@ -195,7 +195,7 @@ scotchApp.controller('patientupdateProfile',function($scope, $rootScope, $http, 
 			target.focus();
 		}
 	}
-});
+});*/
 
 scotchApp.controller('patientAppointment', function($scope, $http) {
 	

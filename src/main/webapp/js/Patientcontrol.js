@@ -119,7 +119,59 @@ function getByEmail($http, $cookieStore){
 	doctors.error(function(data, status, headers, config) {
 	});
 }
-scotchApp.controller('patientsignup',function($scope, $http){
+
+scotchApp.controller('patientRegistration', function($scope, vcRecaptchaService) {
+    $scope.confirm = false;
+    $scope.signUpErrors = false;
+    $scope.doBlurPassword = function(login) {
+
+        if (login.password == login.cnfrmPassword) {
+            $scope.confirm = false;
+        } else {
+            $scope.confirm = true;
+        }
+    }
+    var vm = this;
+	vm.publicKey = "6Lf2kBgUAAAAACwYaEUzyTW3b_T3QEp2xcLcrG3B";
+    
+    $scope.patientRegisters = function(patientToRegister){
+        
+         if(vcRecaptchaService.getResponse() === ""){ //if string is empty
+				alert("Please resolve the captcha and submit!")
+			}else{
+                var post_data = {  //prepare payload for request
+					'g-recaptcha-response':vcRecaptchaService.getResponse()  //send g-captcah-reponse to our server
+				}
+            console.log(post_data);
+            /* Make Ajax request to our server with g-captcha-string */
+                //Need to give our API to validate
+				$http.post('http://code.ciphertrick.com/demo/phpapi/api/signup',post_data).success(function(response){
+					if(response.error === 0){
+						alert("Successfully verified and signed up the user");
+					}else{
+						alert("User verification failed");
+					}
+				})
+				.error(function(error){
+				
+				})
+             }
+    
+    var patientSignUp = $http.put('https://doctors.cfapps.io/api/patient/signUp',patientRegisteration);
+    patientSignUp.success(function(doctors) {
+            $scope.signUpErrors = true;
+            $scope.register = 'Successfully signup, now you can Log-In it.';
+        });
+    patientSignUp.error(function(data, status, headers, config) {
+            alert("failure message: " + data.message);
+            $scope.message = 'No Data Found!!!';
+            $scope.signUpErrors = true;
+            $scope.register = 'Try again later.';
+        });
+    }
+
+});
+/*scotchApp.controller('patientsignup',function($scope, $http){
 	$scope.patientAdd = function(patient, formName) {
 		console.log(patient);
 		$scope.submit = true;
@@ -161,15 +213,15 @@ scotchApp.controller('patientsignup',function($scope, $http){
 			target.focus();
 		}
 	}
-});
+});*/
 
-scotchApp.controller('retrievePassword',function($scope, $rootScope){
+/*scotchApp.controller('retrievePassword',function($scope, $rootScope){
 	$scope.submit = function(){
         alert("Password send to your E-mail Id");
 	}
-});
+});*/
 
-scotchApp.controller('patientafterLogin',function($scope, $rootScope, $cookieStore){
+/*scotchApp.controller('patientafterLogin',function($scope, $rootScope, $cookieStore){
 
 	if($cookieStore.get('patientData') != undefined && $cookieStore.get('patientEmail') != undefined){
 		console.log("<<<<<<<<<<<<" +$cookieStore.get('patientData'));
@@ -183,4 +235,4 @@ scotchApp.controller('patientafterLogin',function($scope, $rootScope, $cookieSto
 	}else{
 		window.location = "#/patientlogin";
 	}
-});
+});*/
