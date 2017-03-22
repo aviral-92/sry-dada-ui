@@ -220,6 +220,8 @@ scotchApp.controller('doctorRegistration', function($scope, $http, vcRecaptchaSe
     }
 });
 
+
+
 scotchApp.controller('functionalitySearch', function($scope, $http) {
 
     $scope.users = []; //declare an empty array

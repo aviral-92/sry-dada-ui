@@ -1,3 +1,56 @@
+scotchApp.controller('patientRegistrations', function($scope, $http, vcRecaptchaService) {
+    $scope.confirm = false;
+    $scope.signUpErrors = false;
+    $scope.doBlurPassword = function(login) {
+
+        if (login.password == login.cnfrmPassword) {
+            $scope.confirm = false;
+        } else {
+            $scope.confirm = true;
+        }
+    }
+    var vm = this;
+	vm.publicKey = "6Lf2kBgUAAAAACwYaEUzyTW3b_T3QEp2xcLcrG3B";
+    
+    $scope.patientRegisters = function(patientRegister){
+        
+         if(vcRecaptchaService.getResponse() === ""){ //if string is empty
+				alert("Please resolve the captcha and submit!")
+			}else{
+                var post_data = {  //prepare payload for request
+					'g-recaptcha-response':vcRecaptchaService.getResponse()  //send g-captcah-reponse to our server
+				}
+            console.log(post_data);
+            /* Make Ajax request to our server with g-captcha-string ***/ 
+                //Need to give our API to validate
+				$http.post('http://code.ciphertrick.com/demo/phpapi/api/signup',post_data).success(function(response){
+					if(response.error === 0){
+						alert("Successfully verified and signed up the user");
+					}else{
+						alert("User verification failed");
+					}
+				})
+				.error(function(error){
+//					alert("Captcha invalid")
+				})
+             }
+    
+    var patientSignUp = $http.put("https://doctors.cfapps.io/api/patient/signUp", patientRegister);
+        
+        patientSignUp.success(function(patients) {
+            $scope.signUpErrors = true;
+            $scope.register = 'Successfully signup, now you can Log-In it.';
+        });
+        patientSignUp.error(function(data, status, headers, config) {
+            alert("failure message: " + data);
+            $scope.message = 'No Data Found!!!';
+            $scope.signUpErrors = true;
+            $scope.register = 'Try again later.';
+        });
+    }
+
+});
+
 scotchApp.controller('patientLogin', function($scope, $rootScope, $http, $cookieStore,
     $window, $cookies, vcRecaptchaService) {
     var vm = this;
@@ -120,57 +173,7 @@ function getByEmail($http, $cookieStore){
 	});
 }
 
-scotchApp.controller('patientRegistration', function($scope, $http, vcRecaptchaService) {
-    $scope.confirm = false;
-    $scope.signUpErrors = false;
-    $scope.doBlurPassword = function(login) {
 
-        if (login.password == login.cnfrmPassword) {
-            $scope.confirm = false;
-        } else {
-            $scope.confirm = true;
-        }
-    }
-    var vm = this;
-	vm.publicKey = "6Lf2kBgUAAAAACwYaEUzyTW3b_T3QEp2xcLcrG3B";
-    
-    $scope.patientRegisters = function(patientToRegister){
-        
-         if(vcRecaptchaService.getResponse() === ""){ //if string is empty
-				alert("Please resolve the captcha and submit!")
-			}else{
-                var post_data = {  //prepare payload for request
-					'g-recaptcha-response':vcRecaptchaService.getResponse()  //send g-captcah-reponse to our server
-				}
-            console.log(post_data);
-            /* Make Ajax request to our server with g-captcha-string */
-                //Need to give our API to validate
-				$http.post('http://code.ciphertrick.com/demo/phpapi/api/signup',post_data).success(function(response){
-					if(response.error === 0){
-						alert("Successfully verified and signed up the user");
-					}else{
-						alert("User verification failed");
-					}
-				})
-				.error(function(error){
-//					alert("Captcha invalid")
-				})
-             }
-    
-    var patientSignUp = $http.put('https://doctors.cfapps.io/api/patient/signUp', patientToRegister);
-    patientSignUp.success(function(patients) {
-            $scope.signUpErrors = true;
-            $scope.register = 'Successfully signup, now you can Log-In it.';
-        });
-    patientSignUp.error(function(data, status, headers, config) {
-            alert("failure message: " + data);
-            $scope.message = 'No Data Found!!!';
-            $scope.signUpErrors = true;
-            $scope.register = 'Try again later.';
-        });
-    }
-
-});
 /*scotchApp.controller('patientsignup',function($scope, $http){
 	$scope.patientAdd = function(patient, formName) {
 		console.log(patient);
