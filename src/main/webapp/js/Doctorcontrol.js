@@ -1,7 +1,7 @@
 scotchApp.controller('index', function($scope, $http, $window, $cookieStore, $q, filterFilter) {
     
     $scope.dirty = {};
-    $http.get("/js/MockJson/countries.json").success(function(states) {
+    $http.get("https://doctors.cfapps.io/api/doctor/get/all/expertisation").success(function(states) {
         /*function suggest_state(term) {
             var q = term.toLowerCase().trim();
             var results = [];
@@ -108,9 +108,16 @@ scotchApp.controller('index', function($scope, $http, $window, $cookieStore, $q,
 scotchApp.controller('AppCtrl', function($scope, $http, $window, $cookieStore, $q, filterFilter) {
    
     var foodArray = [];
-        $http.get("/js/MockJson/countries.json").success(function(states) {
-            
-            foodArray = states;
+        $http.get("https://doctors.cfapps.io/api/doctor/get/all/expertisation").success(function(expertise) {
+
+        var allExpertise = [];
+        var i = 1, j = 0;
+        while(expertise[i] != undefined){
+            foodArray[j] = expertise[i];
+            i++;
+            j++;
+        }
+//        foodArray = allExpertise;
     });
     
      var vm = this;
