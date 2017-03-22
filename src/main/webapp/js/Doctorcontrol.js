@@ -455,6 +455,7 @@ scotchApp.controller('contact', function($scope) {
 	
 });
 
+
 /*scotchApp.controller('signUp', function($scope, $http) {
     $scope.doctorAdd = function(doctor, formName) {
         console.log(doctor);

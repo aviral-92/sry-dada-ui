@@ -120,7 +120,7 @@ function getByEmail($http, $cookieStore){
 	});
 }
 
-scotchApp.controller('patientRegistration', function($scope, vcRecaptchaService) {
+scotchApp.controller('patientRegistration', function($scope, $http, vcRecaptchaService) {
     $scope.confirm = false;
     $scope.signUpErrors = false;
     $scope.doBlurPassword = function(login) {
@@ -153,17 +153,17 @@ scotchApp.controller('patientRegistration', function($scope, vcRecaptchaService)
 					}
 				})
 				.error(function(error){
-				
+//					alert("Captcha invalid")
 				})
              }
     
-    var patientSignUp = $http.put('https://doctors.cfapps.io/api/patient/signUp',patientRegisteration);
-    patientSignUp.success(function(doctors) {
+    var patientSignUp = $http.put('https://doctors.cfapps.io/api/patient/signUp', patientToRegister);
+    patientSignUp.success(function(patients) {
             $scope.signUpErrors = true;
             $scope.register = 'Successfully signup, now you can Log-In it.';
         });
     patientSignUp.error(function(data, status, headers, config) {
-            alert("failure message: " + data.message);
+            alert("failure message: " + data);
             $scope.message = 'No Data Found!!!';
             $scope.signUpErrors = true;
             $scope.register = 'Try again later.';

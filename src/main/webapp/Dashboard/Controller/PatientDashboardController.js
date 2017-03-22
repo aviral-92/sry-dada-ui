@@ -15,7 +15,7 @@ scotchApp.controller('patientHome', function($scope, $http) {
     }
 });
 
-scotchApp.controller('patientProfile', function($scope,$cookieStore, fileReader, $http, $window, $mdDialog) {
+scotchApp.controller('patientProfile', function($scope,$cookieStore, fileReader, $http, $window, $mdDialog, $interval) {
    
 	 $scope.url = "#/patientProfile";
 	    var getPatients = $cookieStore.get('patientLoginData');
@@ -60,6 +60,10 @@ scotchApp.controller('patientProfile', function($scope,$cookieStore, fileReader,
 	                $cookieStore.remove('patientLoginData');
 	                $cookieStore.put('patientLoginData', data);
                     
+                    // Waiting for 5.5s so that it alert can show and it will load automatically after timeout...
+                    $interval(callAtInterval,5500);
+                    
+                    
                    $mdDialog.show(
                   $mdDialog.alert()
                      .parent(angular.element(document.querySelector('#dialogContainer')))
@@ -71,6 +75,12 @@ scotchApp.controller('patientProfile', function($scope,$cookieStore, fileReader,
                      
                );
             
+                    function callAtInterval() {
+                        console.log("Interval occurred");
+                        $window.location.reload();
+                        console.log("Interval finished");
+                    }
+                    
                     
 	            });
 	            patientSuccess.error(function(data, status, headers, config) {
